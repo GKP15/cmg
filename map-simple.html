@@ -1,0 +1,250 @@
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+<script>
+/* Mein API KEY */
+var API_KEY = AIzaSyD-L9S94qy4G_3zEeTY_r-NOzfAv1P74z8;
+</script>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>DIY G00GL3MAP</title>
+	<style>
+	      	html, body, 
+		#map-canvas {
+			height: 100%;
+			margin: 0px;
+			padding: 0px
+	      	}
+	      	#panel {
+			position: absolute;
+			top: 5px;
+			left: 50%;
+			margin-left: -180px;
+			z-index: 5;
+			background-color: #fff;
+			padding: 5px;
+			border: 1px solid #999;
+	      	}
+    	</style>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=" + API_KEY></script>
+    <script>
+var geocoder;
+var map;
+var infoWindow;
+var mapDiv; 
+
+//speichert die daten für den Geist
+var ghostIcon;
+var ghost;
+
+
+//speichert den Zoomfaktor
+var zoom;
+
+
+//Die Schrittweite auf der Karte		
+		
+//Leipzig Halle
+//var step = 0.01;
+		
+//Leipzig Innenstadt
+var step = 0.0001;
+
+//eine Variable die die neue Position vom Geist speichert
+var newPosition;
+
+function initialize() {
+	geocoder = new google.maps.Geocoder();
+	
+	// Define an info window on the map.
+	infoWindow = new google.maps.InfoWindow();
+	zoom = 8;
+
+	var latlng = new google.maps.LatLng(51.339852, 12.368916);
+	var mapOptions = {
+		zoom: zoom,
+		center: latlng
+	}
+	mapDiv = document.getElementById('map-canvas');
+	map = new google.maps.Map(mapDiv, mapOptions);
+	
+	
+	
+	
+
+
+	/*
+	*	Event Listener dass beim clicken ein pacmansymbol auf der karte erscheint.
+	*
+	*/
+		
+	google.maps.event.addListener(map, "click", function(event) {
+    		var lat = event.latLng.lat();
+    		var lng = event.latLng.lng();
+    	
+		var pacmanIcon = {
+	    		url: "pacman.png", // url
+	    		scaledSize: new google.maps.Size(35, 35), // scaled size
+	    		origin: new google.maps.Point(0,0), // origin
+	    		anchor: new google.maps.Point(0, 0) // anchor
+		};
+	  	
+		var pacman = new google.maps.Marker({
+	    		position: event.latLng,
+	    		map: map,
+	    		title: lat + ' ' + lng,
+			icon: pacmanIcon
+	  	});
+		
+	});
+	
+	ghostIcon = {
+    		url: "ghost.png", // url
+    		scaledSize: new google.maps.Size(35, 35), // scaled size
+    		origin: new google.maps.Point(0,0), // origin
+    		anchor: new google.maps.Point(0, 0) // anchor
+	};
+	// Setzt ein Info Window am Startpunkt
+	infoWindow.setContent("Suche erstmal einen Ort <br> an dem du Spielen willst <br> in dem Suchfenster");
+	//infoWindow.setPosition(home);
+	infoWindow.setPosition(map.getCenter());		
+	infoWindow.open(map);
+	
+	
+		
+}
+function resetGhost() {
+	ghost.setMap(null);
+	ghost.setPosition(map.getCenter());
+	ghost.setMap(map);
+}
+
+function goGhost(key) {
+
+	if (ghost == null) {
+		var ghostIcon = {
+    			url: "ghost.png", // url
+    			scaledSize: new google.maps.Size(35, 35), // scaled size
+    			origin: new google.maps.Point(0,0), // origin
+    			anchor: new google.maps.Point(0, 0) // anchor
+		};
+	
+	
+		ghost = new google.maps.Marker({
+	    		position: map.getCenter(),
+	    		//map: map,
+	    		title: 'evil ghost',
+			icon: ghostIcon
+	  	});
+		ghost.setMap(map);
+	} else {
+		
+
+		//welche Taste wurde gedrückt?		
+		var pressedKey = key.keyCode; 
+
+
+		//jenachdem was gedrueckt wurde die neuen koordinaten setzen
+		switch (pressedKey) {
+    			case 97: //left        			
+				moveLeft();       			
+				break;
+    			case 100: //right
+				newPosition = new google.maps.LatLng(ghost.getPosition().lat(), ghost.getPosition().lng() + step);
+				reprintGhost(newPosition);
+				break;
+			case 119: //up
+				newPosition = new google.maps.LatLng(ghost.getPosition().lat() + step, ghost.getPosition().lng());
+				reprintGhost(newPosition);
+				break;
+    			case 115: //down
+				newPosition = new google.maps.LatLng(ghost.getPosition().lat() - step, ghost.getPosition().lng());
+				reprintGhost(newPosition);
+				break;  
+			default: //was anderes gedrückt
+				break;
+		}
+		
+
+	}
+
+}
+
+//bewegt den marker ghost an einem anderen ort
+function reprintGhost(newPosition) {
+	ghost.setMap(null); 		
+	ghost.setPosition(newPosition);
+	ghost.setMap(map);
+}
+
+//bewegung nach links
+function moveLeft(){
+	var i = 0;
+	while(i<1) {
+		newPosition = new google.maps.LatLng(ghost.getPosition().lat(), ghost.getPosition().lng() - step);
+		reprintGhost(newPosition);
+		i++;
+	}
+}
+
+
+
+
+
+function codeAddress() {
+	
+	//speichert die Geodaten des Eingebenen Ortes	
+	var home;
+	
+	var address = document.getElementById('address').value;
+	geocoder.geocode( { 'address': address}, function(results, status) {
+		if (status == google.maps.GeocoderStatus.OK) {
+
+			map.setCenter(results[0].geometry.location);
+			//setzt den Zoomfaktor nach der Eingabe eines Ortes			
+			zoom = 16;			
+			map.setZoom(zoom);
+
+			//speichert die geodaten des ergebnisses in die variable home
+			home = google.maps.LatLng(results[0].geometry.location);
+
+						
+			// Set the info window's content and position.
+			infoWindow.setContent("Wenn du eine beliebige Taste drückst, <br> kannst den Geist mit awds steuern.");
+			//infoWindow.setPosition(home);
+			infoWindow.setPosition(map.getCenter());
+			
+			infoWindow.open(map);
+			
+		} else {
+			alert('Geocode was not successful for the following reason: ' + status);
+		}
+		
+		google.maps.event.addDomListener(document, 'keypress', goGhost);
+	});
+	
+	
+
+
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+
+    </script>
+  </head>
+  <body>
+    <div id="panel">
+      <input id="address" type="textbox" value="Ort Eingeben">
+      <input type="button" value="Reset Ghost." onclick="resetGhost()"> 
+     <! <input type="button" value="Go!!!" onclick="codeAddress();window.location.hash='map-canvas';">
+      <input type="button" value="Go!!!" onclick="codeAddress();">
+	
+    </div>
+    <div id="map-canvas"></div>
+  </body>
+</html>
+
+
