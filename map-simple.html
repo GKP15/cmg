@@ -36,6 +36,18 @@ var map;
 var infoWindow;
 var mapDiv; 
 
+//speichert pacman daten
+var pacmanIcon;
+
+var pacmanIconLeft;
+var pacmanIconRight;
+var pacmanIconUp;
+var pacmanIconDown;
+var pacmanIconClose;
+
+var pacman
+
+var open;
 //speichert die daten für den Geist
 var ghostIcon;
 var ghost;
@@ -56,6 +68,121 @@ var step = 0.0001;
 //eine Variable die die neue Position vom Geist speichert
 var newPosition;
 
+//eine Variable für die Tatstatureingabe
+var key;
+
+//Gameloop
+//frame
+var ONE_FRAME_TIME = 1000 / 1 ;
+    
+
+var mainloop = function() {	
+        updateGame();
+        drawGame();
+    };
+
+
+setInterval( mainloop, ONE_FRAME_TIME );
+
+function updateGame() {
+	goPacman(key);
+	
+}
+
+function drawGame() {
+	//pacman.setMap(null);
+	
+	pacman.setPosition(newPosition);
+		
+	pacman.setMap(map);
+}
+
+function goPacman(key) {
+	if (pacman == null) {
+		pacman = new google.maps.Marker({
+	    		position: map.getCenter(),
+	    		map: map,
+	    		title: 'HERO',
+			icon: pacmanIconRight,
+			draggable: true
+	  	});
+		open = true;
+	} 
+	//welche Taste wurde gedrückt?		
+		var pressedKey = key.keyCode; 
+
+
+		//jenachdem was gedrueckt wurde die neuen koordinaten setzen
+		switch (pressedKey) {
+    			case 97: //left        			
+				moveLeft(pacman);       			
+				break;
+    			case 100: //right
+				moveRight(pacman);
+				break;
+			case 119: //up
+				moveUp(pacman);
+				break;
+    			case 115: //down
+				moveDown(pacman);
+				break;  
+			default: //was anderes gedrückt
+				key = null;
+				//newPosition = pacman.getPosition();
+				break;
+		}
+		
+}
+
+
+
+//bewegung nach links
+function moveLeft(player){
+		newPosition = new google.maps.LatLng(player.getPosition().lat(), player.getPosition().lng() - step);
+		if (open) {
+			pacman.setIcon(pacmanIconClose);
+			open = false;
+		} else {
+			pacman.setIcon(pacmanIconLeft);
+			open = true;
+		}
+}
+
+function moveRight(player){
+		newPosition = new google.maps.LatLng(player.getPosition().lat(), player.getPosition().lng() + step);
+		if (open) {
+			pacman.setIcon(pacmanIconClose);
+			open = false;
+		} else {
+			pacman.setIcon(pacmanIconRight);
+			open = true;
+		}
+}
+
+function moveUp(player){
+		newPosition = new google.maps.LatLng(player.getPosition().lat() + step, player.getPosition().lng());
+		if (open) {
+			pacman.setIcon(pacmanIconClose);
+			open = false;
+		} else {
+			pacman.setIcon(pacmanIconUp);
+			open = true;
+		}
+}
+
+function moveDown(player){
+		newPosition = new google.maps.LatLng(player.getPosition().lat() - step, player.getPosition().lng());
+		if (open) {
+			pacman.setIcon(pacmanIconClose);
+			open = false;
+		} else {
+			pacman.setIcon(pacmanIconDown);
+			open = true;
+		}
+}
+
+
+
 function initialize() {
 	geocoder = new google.maps.Geocoder();
 	
@@ -73,7 +200,41 @@ function initialize() {
 	
 	
 	
+
+	pacmanIconLeft = {
+	    		url: "pacman_open_left.png", // url
+	    		scaledSize: new google.maps.Size(35, 35), // scaled size
+	    		origin: new google.maps.Point(0,0), // origin
+	    		anchor: new google.maps.Point(0, 0) // anchor
+		};
+
+	pacmanIconRight = {
+	    		url: "pacman_open_right.png", // url
+	    		scaledSize: new google.maps.Size(35, 35), // scaled size
+	    		origin: new google.maps.Point(0,0), // origin
+	    		anchor: new google.maps.Point(0, 0) // anchor
+		};
 	
+	pacmanIconUp = {
+	    		url: "pacman_open_up.png", // url
+	    		scaledSize: new google.maps.Size(35, 35), // scaled size
+	    		origin: new google.maps.Point(0,0), // origin
+	    		anchor: new google.maps.Point(0, 0) // anchor
+		};
+
+	pacmanIconDown = {
+	    		url: "pacman_open_down.png", // url
+	    		scaledSize: new google.maps.Size(35, 35), // scaled size
+	    		origin: new google.maps.Point(0,0), // origin
+	    		anchor: new google.maps.Point(0, 0) // anchor
+		};
+
+	pacmanIconClose = {
+	    		url: "pacman_close.png", // url
+	    		scaledSize: new google.maps.Size(35, 35), // scaled size
+	    		origin: new google.maps.Point(0,0), // origin
+	    		anchor: new google.maps.Point(0, 0) // anchor
+		};
 
 
 	/*
@@ -81,18 +242,13 @@ function initialize() {
 	*
 	*/
 		
-	google.maps.event.addListener(map, "click", function(event) {
+	/*google.maps.event.addListener(map, "click", function(event) {
     		var lat = event.latLng.lat();
     		var lng = event.latLng.lng();
     	
-		var pacmanIcon = {
-	    		url: "pacman.png", // url
-	    		scaledSize: new google.maps.Size(35, 35), // scaled size
-	    		origin: new google.maps.Point(0,0), // origin
-	    		anchor: new google.maps.Point(0, 0) // anchor
-		};
+		
 	  	
-		var pacman = new google.maps.Marker({
+		var pacmanII = new google.maps.Marker({
 	    		position: event.latLng,
 	    		map: map,
 	    		title: lat + ' ' + lng,
@@ -100,94 +256,29 @@ function initialize() {
 	  	});
 		
 	});
-	
+	*/
 	ghostIcon = {
     		url: "ghost.png", // url
     		scaledSize: new google.maps.Size(35, 35), // scaled size
     		origin: new google.maps.Point(0,0), // origin
     		anchor: new google.maps.Point(0, 0) // anchor
 	};
+
 	// Setzt ein Info Window am Startpunkt
 	infoWindow.setContent("Suche erstmal einen Ort <br> an dem du Spielen willst <br> in dem Suchfenster");
 	//infoWindow.setPosition(home);
 	infoWindow.setPosition(map.getCenter());		
 	infoWindow.open(map);
+
+	mainloop();
 	
 	
 		
 }
-function resetGhost() {
-	ghost.setMap(null);
-	ghost.setPosition(map.getCenter());
-	ghost.setMap(map);
-}
-
-function goGhost(key) {
-
-	if (ghost == null) {
-		var ghostIcon = {
-    			url: "ghost.png", // url
-    			scaledSize: new google.maps.Size(35, 35), // scaled size
-    			origin: new google.maps.Point(0,0), // origin
-    			anchor: new google.maps.Point(0, 0) // anchor
-		};
-	
-	
-		ghost = new google.maps.Marker({
-	    		position: map.getCenter(),
-	    		//map: map,
-	    		title: 'evil ghost',
-			icon: ghostIcon
-	  	});
-		ghost.setMap(map);
-	} else {
-		
-
-		//welche Taste wurde gedrückt?		
-		var pressedKey = key.keyCode; 
-
-
-		//jenachdem was gedrueckt wurde die neuen koordinaten setzen
-		switch (pressedKey) {
-    			case 97: //left        			
-				moveLeft();       			
-				break;
-    			case 100: //right
-				newPosition = new google.maps.LatLng(ghost.getPosition().lat(), ghost.getPosition().lng() + step);
-				reprintGhost(newPosition);
-				break;
-			case 119: //up
-				newPosition = new google.maps.LatLng(ghost.getPosition().lat() + step, ghost.getPosition().lng());
-				reprintGhost(newPosition);
-				break;
-    			case 115: //down
-				newPosition = new google.maps.LatLng(ghost.getPosition().lat() - step, ghost.getPosition().lng());
-				reprintGhost(newPosition);
-				break;  
-			default: //was anderes gedrückt
-				break;
-		}
-		
-
-	}
-
-}
-
-//bewegt den marker ghost an einem anderen ort
-function reprintGhost(newPosition) {
-	ghost.setMap(null); 		
-	ghost.setPosition(newPosition);
-	ghost.setMap(map);
-}
-
-//bewegung nach links
-function moveLeft(){
-	var i = 0;
-	while(i<1) {
-		newPosition = new google.maps.LatLng(ghost.getPosition().lat(), ghost.getPosition().lng() - step);
-		reprintGhost(newPosition);
-		i++;
-	}
+function resetPlayer(player) {
+	player.setMap(null);
+	player.setPosition(map.getCenter());
+	player.setMap(map);
 }
 
 
@@ -205,7 +296,7 @@ function codeAddress() {
 
 			map.setCenter(results[0].geometry.location);
 			//setzt den Zoomfaktor nach der Eingabe eines Ortes			
-			zoom = 16;			
+			zoom = 18;			
 			map.setZoom(zoom);
 
 			//speichert die geodaten des ergebnisses in die variable home
@@ -223,7 +314,7 @@ function codeAddress() {
 			alert('Geocode was not successful for the following reason: ' + status);
 		}
 		
-		google.maps.event.addDomListener(document, 'keypress', goGhost);
+		//google.maps.event.addDomListener(document, 'keypress', goGhost);
 	});
 	
 	
@@ -232,13 +323,15 @@ function codeAddress() {
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);
-
+google.maps.event.addDomListener(document, 'keypress', function(pressedKey){
+		key = pressedKey;
+		} );
     </script>
   </head>
   <body>
     <div id="panel">
       <input id="address" type="textbox" value="Ort Eingeben">
-      <input type="button" value="Reset Ghost." onclick="resetGhost()"> 
+      <input type="button" value="Reset Ghost." onclick="resetPlayer(pacman);key = null"> 
      <! <input type="button" value="Go!!!" onclick="codeAddress();window.location.hash='map-canvas';">
       <input type="button" value="Go!!!" onclick="codeAddress();">
 	
