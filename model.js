@@ -1,36 +1,3 @@
-
-
-<!DOCTYPE html>
-<html>
-  <head>
-<script>
-/* Mein API KEY */
-var API_KEY = AIzaSyD-L9S94qy4G_3zEeTY_r-NOzfAv1P74z8;
-</script>
-    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
-    <meta charset="utf-8">
-    <title>DIY G00GL3MAP</title>
-	<style>
-	      	html, body, 
-		#map-canvas {
-			height: 100%;
-			margin: 0px;
-			padding: 0px
-	      	}
-	      	#panel {
-			position: absolute;
-			top: 5px;
-			left: 50%;
-			margin-left: -180px;
-			z-index: 5;
-			background-color: #fff;
-			padding: 5px;
-			border: 1px solid #999;
-	      	}
-    	</style>
-
-    <script src="https://maps.googleapis.com/maps/api/js?key=" + API_KEY></script>
-    <script>
 var geocoder;
 var map;
 var infoWindow;
@@ -79,7 +46,8 @@ var pushStart;
 var audio;
 var ouch;
 
-
+//eine zahl die man für einen zufallsgenerator braucht
+var number;
 	
 
 //Gameloop
@@ -125,7 +93,7 @@ function checkCollision(playerOne,playerTwo) {
 
 //eine funktion die den geist bewegen soll...., funzt nicht....
 function goGhost() {
-	new number = Math.floor( Math.random() * 3 );
+	number = Math.floor( Math.random() * 3 );
 	
 	switch (number) {
 		case 0: //left
@@ -432,18 +400,3 @@ function codeAddress() {
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);
-    </script>
-  </head>
-  <body>
-    <div id="panel">
-      <input id="address" type="textbox" value="Leipzig">
-      <input type="button" value="Reset Pacman." onclick="resetPlayer(pacman,map.getCenter());key = null;newPosition = map.getCenter();resetPlayer(ghost,newGhostPosition);"> 
-     <! <input type="button" value="Go!!!" onclick="codeAddress();window.location.hash='map-canvas';">
-      <input type="button" value="Go!!!" onclick="codeAddress();">
-	
-    </div>
-    <div id="map-canvas"></div>
-  </body>
-</html>
-
-

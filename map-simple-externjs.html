@@ -1,0 +1,48 @@
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+<script src=key.js></script>
+
+
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>DIY G00GL3MAP</title>
+	<style>
+	      	html, body, 
+		#map-canvas {
+			height: 100%;
+			margin: 0px;
+			padding: 0px
+	      	}
+	      	#panel {
+			position: absolute;
+			top: 5px;
+			left: 50%;
+			margin-left: -180px;
+			z-index: 5;
+			background-color: #fff;
+			padding: 5px;
+			border: 1px solid #999;
+	      	}
+    	</style>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=" + API_KEY></script>
+<script src=model.js></script>    
+
+
+  </head>
+  <body>
+    <div id="panel">
+      <input id="address" type="textbox" value="Leipzig">
+      <input type="button" value="Reset Pacman." onclick="resetPlayer(pacman,map.getCenter());key = null;newPosition = map.getCenter();resetPlayer(ghost,newGhostPosition);"> 
+     <! <input type="button" value="Go!!!" onclick="codeAddress();window.location.hash='map-canvas';">
+      <input type="button" value="Go!!!" onclick="codeAddress();">
+	
+    </div>
+    <div id="map-canvas"></div>
+  </body>
+</html>
+
+
