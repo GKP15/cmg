@@ -71,14 +71,18 @@ var newPosition;
 //eine Variable für die Tatstatureingabe
 var key;
 
-//eine varibale für eine audiodatei
+//eine varibalen für eine audiodateien
+var welcome;
+var pushStart;
 var audio;
+
+
 
 	
 
 //Gameloop
 //frame
-var ONE_FRAME_TIME = 1000 / 1 ;
+var ONE_FRAME_TIME = 1000 / 2 ;
     
 
 var mainloop = function() {	
@@ -104,39 +108,41 @@ function drawGame() {
 }
 
 function goPacman(key) {
-	if (pacman == null) {
-		pacman = new google.maps.Marker({
-	    		position: map.getCenter(),
-	    		map: map,
-	    		title: 'HERO',
-			icon: pacmanIconRight,
-			draggable: true
-	  	});
-		open = true;
-	} 
-	//welche Taste wurde gedrückt?		
-		var pressedKey = key.keyCode; 
+	//if (key != null) {
+		if (pacman == null) {
+			pacman = new google.maps.Marker({
+		    		position: map.getCenter(),
+		    		map: map,
+		    		title: 'HERO',
+				icon: pacmanIconRight,
+				draggable: true
+		  	});
+			open = true;
+		} 
+		//welche Taste wurde gedrückt?		
+			var pressedKey = key.keyCode; 
 
 
-		//jenachdem was gedrueckt wurde die neuen koordinaten setzen
-		switch (pressedKey) {
-    			case 97: //left        			
-				moveLeft(pacman);       			
-				break;
-    			case 100: //right
-				moveRight(pacman);
-				break;
-			case 119: //up
-				moveUp(pacman);
-				break;
-    			case 115: //down
-				moveDown(pacman);
-				break;  
-			default: //was anderes gedrückt
-				key = null;
-				//newPosition = pacman.getPosition();
-				break;
-		}
+			//jenachdem was gedrueckt wurde die neuen koordinaten setzen
+			switch (pressedKey) {
+	    			case 97: //left        			
+					moveLeft(pacman);       			
+					break;
+	    			case 100: //right
+					moveRight(pacman);
+					break;
+				case 119: //up
+					moveUp(pacman);
+					break;
+	    			case 115: //down
+					moveDown(pacman);
+					break;  
+				default: //was anderes gedrückt
+					key = null;
+					//newPosition = pacman.getPosition();
+					break;
+			}
+	//	}
 		
 }
 
@@ -206,9 +212,11 @@ function initialize() {
 	
 	//init audio
 	audio = new Audio('test.mp3');
+	welcome = new Audio('welcome.mp3');
+	pushStart = new Audio('push_start.mp3');
 
         //play 	
-	audio.play();	
+	welcome.play();	
 
 	pacmanIconLeft = {
 	    		url: "pacman_open_left.png", // url
@@ -282,6 +290,7 @@ function initialize() {
 	mainloop();
 	
 	
+	
 		
 }
 function resetPlayer(player) {
@@ -322,7 +331,7 @@ function codeAddress() {
 		} else {
 			alert('Geocode was not successful for the following reason: ' + status);
 		}
-		
+		audio.play();
 		//google.maps.event.addDomListener(document, 'keypress', goGhost);
 	});
 	
