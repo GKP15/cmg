@@ -1,2 +1,4 @@
 git status   => gibt zurück was verändert wurde
 git add      => eine datei hinzufügen
+git commit   => das hinzufügen bestätigen
+git push     => die daten verändert auf den server schieben
