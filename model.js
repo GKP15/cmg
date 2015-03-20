@@ -125,7 +125,8 @@ function goPacman(key) {
 			open = true;
 		} 
 		//welche Taste wurde gedrückt?		
-			var pressedKey = key.keyCode; 
+			//var pressedKey = key.keyCode; 
+			var pressedKey = key.charCode;
 
 
 			//jenachdem was gedrueckt wurde die neuen koordinaten setzen
