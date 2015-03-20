@@ -71,6 +71,11 @@ var newPosition;
 //eine Variable für die Tatstatureingabe
 var key;
 
+//eine varibale für eine audiodatei
+var audio;
+
+	
+
 //Gameloop
 //frame
 var ONE_FRAME_TIME = 1000 / 1 ;
@@ -79,6 +84,7 @@ var ONE_FRAME_TIME = 1000 / 1 ;
 var mainloop = function() {	
         updateGame();
         drawGame();
+	
     };
 
 
@@ -198,8 +204,11 @@ function initialize() {
 	mapDiv = document.getElementById('map-canvas');
 	map = new google.maps.Map(mapDiv, mapOptions);
 	
-	
-	
+	//init audio
+	audio = new Audio('test.mp3');
+
+        //play 	
+	audio.play();	
 
 	pacmanIconLeft = {
 	    		url: "pacman_open_left.png", // url
