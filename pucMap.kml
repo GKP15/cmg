@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://earth.google.com/kml/2.1">
+<!-- Data derived from:
+       Ed Knittel - || tastypopsicle.com
+       Feel free to use this file for your own purposes.
+       Just leave the comments and credits when doing so.
+-51.335288,12.371115,0
+-51.335858,12.374645,0
+-->
+  <Document>
+    <name>Leipzig Pucman Map</name>
+    <description>1rst try to show a pucman Map in Leipzsch.</description>
+
+    <Style id="blueLine">
+      <LineStyle>
+        <color>ffff0000</color>
+        <width>6</width>
+      </LineStyle>
+    </Style>
+
+    <Placemark>
+      <name>Blue Line</name>
+      <styleUrl>#blueLine</styleUrl>
+      <LineString>
+        <altitudeMode>relative</altitudeMode>
+        <coordinates>
+12.371081,51.338224,0
+12.371167,51.336307,0
+12.371115,51.335288,0
+12.374645,51.335858,0
+        </coordinates>
+      </LineString>
+    </Placemark>
+
+  </Document>
+</kml>
