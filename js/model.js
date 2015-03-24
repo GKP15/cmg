@@ -276,7 +276,7 @@ function initialize() {
         var mapOptions = {
                 zoom: zoom,
                 center: latlng
-        }
+        };
         mapDiv = document.getElementById('map-canvas');
         map = new google.maps.Map(mapDiv, mapOptions);
 
@@ -287,52 +287,52 @@ function initialize() {
          ctaLayer.setMap(map);
 
         //init audio
-        audio = new Audio('test.mp3');
-        welcome = new Audio('welcome.mp3');
-        pushStart = new Audio('push_start.mp3');
-        ouch = new Audio('ouch.mp3');
+        audio = new Audio('resources/test.mp3');
+        welcome = new Audio('resources/welcome.mp3');
+        pushStart = new Audio('resources/push_start.mp3');
+        ouch = new Audio('resources/ouch.mp3');
 
         //play         welcome
         welcome.play();
 
         //initialisierung der markerIcons
         pacmanIconLeft = {
-                            url: "pacman_open_left.png", // url
+                            url: "resources/pacman_open_left.png", // url
                             scaledSize: new google.maps.Size(35, 35), // scaled size
                             origin: new google.maps.Point(0,0), // origin
                             anchor: new google.maps.Point(0, 0) // anchor
                 };
 
         pacmanIconRight = {
-                            url: "pacman_open_right.png", // url
+                            url: "resources/pacman_open_right.png", // url
                             scaledSize: new google.maps.Size(35, 35), // scaled size
                             origin: new google.maps.Point(0,0), // origin
                             anchor: new google.maps.Point(0, 0) // anchor
                 };
 
         pacmanIconUp = {
-                            url: "pacman_open_up.png", // url
+                            url: "resources/pacman_open_up.png", // url
                             scaledSize: new google.maps.Size(35, 35), // scaled size
                             origin: new google.maps.Point(0,0), // origin
                             anchor: new google.maps.Point(0, 0) // anchor
                 };
 
         pacmanIconDown = {
-                            url: "pacman_open_down.png", // url
+                            url: "resources/pacman_open_down.png", // url
                             scaledSize: new google.maps.Size(35, 35), // scaled size
                             origin: new google.maps.Point(0,0), // origin
                             anchor: new google.maps.Point(0, 0) // anchor
                 };
 
         pacmanIconClose = {
-                            url: "pacman_close.png", // url
+                            url: "resources/pacman_close.png", // url
                             scaledSize: new google.maps.Size(35, 35), // scaled size
                             origin: new google.maps.Point(0,0), // origin
                             anchor: new google.maps.Point(0, 0) // anchor
                 };
 
         ghostIcon = {
-                    url: "ghost.png", // url
+                    url: "resources/ghost.png", // url
                     scaledSize: new google.maps.Size(35, 35), // scaled size
                     origin: new google.maps.Point(0,0), // origin
                     anchor: new google.maps.Point(0, 0) // anchor
