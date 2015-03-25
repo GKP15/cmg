@@ -145,6 +145,7 @@ function goPacman(key) {
                                 draggable: true
                           });
                         open = true;
+			infoWindow.close();
                 }
                 //welche Taste wurde gedrueckt?
                         //var pressedKey = key.keyCode; //funktioniert nicht bei firefox
