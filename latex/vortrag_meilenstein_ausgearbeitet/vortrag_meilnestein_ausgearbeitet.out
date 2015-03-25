@@ -1,0 +1,23 @@
+\BOOKMARK [1][-]{section.1}{Zu uns und unserer Arbeitsweise:}{}% 1
+\BOOKMARK [1][-]{section.2}{Projektvision}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{Was wollen wir erschaffen?}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{Funktionalit\344t der Webapplikation}{section.2}% 4
+\BOOKMARK [2][-]{subsection.2.3}{Architekturdiagramm}{section.2}% 5
+\BOOKMARK [1][-]{section.3}{Webclient}{}% 6
+\BOOKMARK [2][-]{subsection.3.1}{Spielelogik}{section.3}% 7
+\BOOKMARK [3][-]{subsubsection.3.1.1}{Minimalanforderung}{subsection.3.1}% 8
+\BOOKMARK [3][-]{subsubsection.3.1.2}{Optionale Eigenschaften}{subsection.3.1}% 9
+\BOOKMARK [2][-]{subsection.3.2}{Kartenerzeugung}{section.3}% 10
+\BOOKMARK [2][-]{subsection.3.3}{Interface \(grafische Oberfl\344che\)}{section.3}% 11
+\BOOKMARK [1][-]{section.4}{Webserver}{}% 12
+\BOOKMARK [2][-]{subsection.4.1}{Database API als Datenbankzugriffsschicht}{section.4}% 13
+\BOOKMARK [1][-]{section.5}{Datenserver}{}% 14
+\BOOKMARK [2][-]{subsection.5.1}{Datenbank}{section.5}% 15
+\BOOKMARK [1][-]{section.6}{relevante APIs}{}% 16
+\BOOKMARK [1][-]{section.7}{Vorprojekt}{}% 17
+\BOOKMARK [1][-]{section.8}{Spieldetails}{}% 18
+\BOOKMARK [2][-]{subsection.8.1}{Minimalanforderungen}{section.8}% 19
+\BOOKMARK [2][-]{subsection.8.2}{optionale Funktionalit\344ten}{section.8}% 20
+\BOOKMARK [2][-]{subsection.8.3}{Semantic Web}{section.8}% 21
+\BOOKMARK [1][-]{section.9}{Qualit\344tssicherung}{}% 22
+\BOOKMARK [1][-]{section.10}{Das angestrebte Ziel}{}% 23

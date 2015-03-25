@@ -1,0 +1,24 @@
+\select@language {ngerman}
+\contentsline {section}{\numberline {1}Zu uns und unserer Arbeitsweise:}{1}{section.1}
+\contentsline {section}{\numberline {2}Projektvision}{2}{section.2}
+\contentsline {subsection}{\numberline {2.1}Was wollen wir erschaffen?}{2}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}Funktionalit\IeC {\"a}t der Webapplikation}{2}{subsection.2.2}
+\contentsline {subsection}{\numberline {2.3}Architekturdiagramm}{3}{subsection.2.3}
+\contentsline {section}{\numberline {3}Webclient}{3}{section.3}
+\contentsline {subsection}{\numberline {3.1}Spielelogik}{3}{subsection.3.1}
+\contentsline {subsubsection}{\numberline {3.1.1}Minimalanforderung}{3}{subsubsection.3.1.1}
+\contentsline {subsubsection}{\numberline {3.1.2}Optionale Eigenschaften}{4}{subsubsection.3.1.2}
+\contentsline {subsection}{\numberline {3.2}Kartenerzeugung}{5}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}Interface (grafische Oberfl\IeC {\"a}che)}{6}{subsection.3.3}
+\contentsline {section}{\numberline {4}Webserver}{6}{section.4}
+\contentsline {subsection}{\numberline {4.1}Database API als Datenbankzugriffsschicht}{7}{subsection.4.1}
+\contentsline {section}{\numberline {5}Datenserver}{7}{section.5}
+\contentsline {subsection}{\numberline {5.1}Datenbank}{7}{subsection.5.1}
+\contentsline {section}{\numberline {6}relevante APIs}{7}{section.6}
+\contentsline {section}{\numberline {7}Vorprojekt}{7}{section.7}
+\contentsline {section}{\numberline {8}Spieldetails}{7}{section.8}
+\contentsline {subsection}{\numberline {8.1}Minimalanforderungen}{7}{subsection.8.1}
+\contentsline {subsection}{\numberline {8.2}optionale Funktionalit\IeC {\"a}ten}{8}{subsection.8.2}
+\contentsline {subsection}{\numberline {8.3}Semantic Web}{8}{subsection.8.3}
+\contentsline {section}{\numberline {9}Qualit\IeC {\"a}tssicherung}{9}{section.9}
+\contentsline {section}{\numberline {10}Das angestrebte Ziel}{9}{section.10}
