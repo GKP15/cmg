@@ -1,0 +1,8 @@
+\select@language {ngerman}
+\contentsline {section}{\numberline {1}Allgemeines}{1}{section.1}
+\contentsline {section}{\numberline {2}Produkt\IeC {\"u}bersicht}{1}{section.2}
+\contentsline {section}{\numberline {3}Grunds\IeC {\"a}tzliche Struktur- und Entwurfsprinzipien}{1}{section.3}
+\contentsline {section}{\numberline {4}Struktur- und Entwurfsprinzipien einzelner Pakete}{1}{section.4}
+\contentsline {section}{\numberline {5}Datenmodell}{1}{section.5}
+\contentsline {section}{\numberline {6}Testkonzept}{1}{section.6}
+\contentsline {section}{\numberline {7}Glossar}{1}{section.7}
