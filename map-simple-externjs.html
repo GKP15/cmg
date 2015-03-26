@@ -15,7 +15,7 @@
       <input type="button" id="btnReset" value="Reset Pacman." onclick="resetPlayer(pacman,map.getCenter());key = null;newPosition = map.getCenter();resetPlayer(ghost,map.getCenter());"> 
      <! <input type="button" value="Go!!!" onclick="codeAddress();window.location.hash='map-canvas';">
       <input type="button" id="btnGo" value="Go!!!" onclick="document.getElementById('btnReset').click();codeAddress();">
-	  <input type="range" id="sldVolume" value="0.2" min="0" max="0.75" step="0.01" onchange="setVolume(this.value);" onload="setVolume(this.value)">
+	  <input type="range" id="sldVolume" value="0.08" min="0" max="0.5" step="0.01" onchange="setVolume(this.value);" onload="setVolume(this.value)">
     </div>
     <div id="map-canvas"></div>
 	<div id="hud">
