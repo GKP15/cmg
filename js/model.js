@@ -297,7 +297,6 @@ function initialize() {
 
         //play         welcome
         welcome.play();
-		welcome.volume = 0.2;
 
         //initialisierung der markerIcons
         pacmanIconLeft = {
