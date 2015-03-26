@@ -401,7 +401,6 @@ function codeAddress() {
 
 
                 audio.play();
-				audio.volume='0.2';
 
 
                 //google.maps.event.addDomListener(document, 'keypress', goGhost);
