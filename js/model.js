@@ -137,15 +137,15 @@ function goGhost() {
 function goPacman(key) {
         if (key != null) {
                 if (pacman == null) {
-                        pacman = new google.maps.Marker({
-                                    position: map.getCenter(),
-                                    map: map,
-                                    title: 'HERO',
+                    pacman = new google.maps.Marker({
+                                position: map.getCenter(),
+                                map: map,
+                                title: 'HERO',
                                 icon: pacmanIconRight,
                                 draggable: true
                           });
-                        open = true;
-			infoWindow.close();
+                    open = true;
+					infoWindow.close();
                 }
                 //welche Taste wurde gedrueckt?
                         //var pressedKey = key.keyCode; //funktioniert nicht bei firefox

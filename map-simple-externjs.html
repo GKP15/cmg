@@ -28,7 +28,7 @@
   </head>
   <body>
     <div id="panel">
-      <input id="address" type="textbox" value="Leipzig">
+      <input id="address" type="textbox" value="Search..." onfocus="if(this.value=='Search...') this.value='';">
       <input type="button" value="Reset Pacman." onclick="resetPlayer(pacman,map.getCenter());key = null;newPosition = map.getCenter();resetPlayer(ghost,newGhostPosition);"> 
      <! <input type="button" value="Go!!!" onclick="codeAddress();window.location.hash='map-canvas';">
       <input type="button" value="Go!!!" onclick="codeAddress();">
