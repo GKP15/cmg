@@ -284,7 +284,8 @@ function initialize() {
         var latlng = new google.maps.LatLng(51.339852, 12.368916);
         var mapOptions = {
                 zoom: zoom,
-                center: latlng
+                center: latlng,
+				streetViewControl: false
         };
         mapDiv = document.getElementById('map-canvas');
         map = new google.maps.Map(mapDiv, mapOptions);
