@@ -37,9 +37,4 @@
 \contentsline {subsection}{\numberline {2.5}SPARQL}{7}{subsection.2.5}
 \contentsline {subsection}{\numberline {2.6}OWL}{7}{subsection.2.6}
 \contentsline {subsection}{\numberline {2.7}XML}{7}{subsection.2.7}
-\contentsline {section}{\numberline {3}Aspekte}{7}{section.3}
-\contentsline {subsection}{\numberline {3.1}Einleitung}{7}{subsection.3.1}
-\contentsline {subsection}{\numberline {3.2}Ziel}{7}{subsection.3.2}
-\contentsline {subsection}{\numberline {3.3}Vergleichbare Projekte}{8}{subsection.3.3}
-\contentsline {subsection}{\numberline {3.4}Probleme}{8}{subsection.3.4}
-\contentsline {section}{\numberline {4}Quellen}{8}{section.4}
+\contentsline {section}{\numberline {3}Quellen}{7}{section.3}
