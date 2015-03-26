@@ -158,7 +158,7 @@ function goPacman(key) {
                         //var pressedKey = key.keyCode; //funktioniert nicht bei firefox
                         //funktioniert bei firefox
                         var pressedKey = key.charCode;
-
+						
 
                         //jenachdem was gedrueckt wurde wird die entsprechende funktion aufgerufen
                         switch (pressedKey) {
@@ -168,7 +168,6 @@ function goPacman(key) {
                                     case 100: //right, d
                                         moveRight(pacman);
                                         break;
-                                case 119: //up, w
 									case 119: //up, w
                                         moveUp(pacman);
                                         break;
@@ -176,7 +175,7 @@ function goPacman(key) {
                                         moveDown(pacman);
                                         break;
 									default: //was anderes gedrückt
-                                        key = null;
+                                       
                                         //newPosition = pacman.getPosition();
                                         break;
                         }
@@ -298,10 +297,12 @@ function initialize() {
 
         //init audio
         audio = new Audio('resources/test.mp3');
-	audio.loop = true;
+		audio.loop = true;
         welcome = new Audio('resources/welcome.mp3');
         pushStart = new Audio('resources/push_start.mp3');
         ouch = new Audio('resources/ouch.mp3');
+		
+		setVolume(document.getElementById('sldVolume').value);
 
         //play welcome
         welcome.play();
