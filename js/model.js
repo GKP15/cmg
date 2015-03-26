@@ -92,10 +92,10 @@ function drawGame() {
         //pacman.setMap(null);
 
         pacman.setPosition(newPosition);
-        pacman.setMap(map);
-
-        ghost.setPosition(newGhostPosition);
-        ghost.setMap(map);
+		//pacman.setMap(map);
+		
+		ghost.setPosition(newGhostPosition);
+        //ghost.setMap(map);
 }
 
  /* ueberprueft ob sich zwei spieler auf dem selben laengen und breitengrad befinden, wenn ja wird eine "melodie" gespielt
@@ -169,12 +169,13 @@ function goPacman(key) {
                                         moveRight(pacman);
                                         break;
                                 case 119: //up, w
+									case 119: //up, w
                                         moveUp(pacman);
                                         break;
                                     case 115: //down, s
                                         moveDown(pacman);
                                         break;
-                                default: //was anderes gedrückt
+									default: //was anderes gedrückt
                                         key = null;
                                         //newPosition = pacman.getPosition();
                                         break;
