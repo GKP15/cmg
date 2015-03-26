@@ -298,10 +298,12 @@ function initialize() {
 
         //init audio
         audio = new Audio('resources/test.mp3');
-	audio.loop = true;
+		audio.loop = true;
         welcome = new Audio('resources/welcome.mp3');
         pushStart = new Audio('resources/push_start.mp3');
         ouch = new Audio('resources/ouch.mp3');
+		
+		setVolume(document.getElementById('sldVolume').value);
 
         //play welcome
         welcome.play();
