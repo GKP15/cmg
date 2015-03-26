@@ -353,7 +353,7 @@ function initialize() {
         //infoWindow.setPosition(home);
         infoWindow.setPosition(map.getCenter());
         infoWindow.open(map);
-
+		
         mainloop();
 
 
@@ -418,11 +418,11 @@ function codeAddress() {
                 newGhostPosition = new google.maps.LatLng(map.getCenter().lat() - step, map.getCenter().lng() + step);
                 ghost.setPosition(newGhostPosition);
                 ghost.setMap(map);
-
-
-
-
-
+				
+				map.set('disableDefaultUI', true);
+				map.set('scrollwheel', false);
+				map.set('draggable', false);
+				map.set('disableDoubleClickZoom', true);
 
         });
 
