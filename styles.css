@@ -1,0 +1,47 @@
+html, body, #map-canvas {
+	height: 100%;
+	margin: 0px;
+	padding: 0px
+}
+#panel {
+	position: absolute;
+	top: 5px;
+	left: 50%;
+	margin-left: -180px;
+	z-index: 5;
+	background-color: #fff;
+	padding: 5px;
+	border: 1px solid #999;
+}
+input {
+	display: inline-block;
+	float: left;
+	margin: 4px;
+}
+#hud {
+	position: absolute;
+	bottom: 5px;
+	width: 40%;
+	margin-left: 30%;
+	margin-right: 30%;
+	z-index: 5;
+	background-color: #fff;
+	padding: 5px;
+	border: 1px solid #999;
+}
+.box {
+	text-align: center;
+	width: 18.5%;
+	margin: 2%;
+	margin-left: 5%;
+	margin-right: 5%;
+	padding-left: 2%;
+	padding-right: 2%;
+	float: left;
+	background-color: #ffd;
+	border: 1px solid #999;
+}
+.box a {
+	text-decoration: none;
+	color: black;
+}

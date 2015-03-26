@@ -55,6 +55,9 @@ var ouch;
 // zahl fuer zufallsgenerator
 var number;
 
+// richtung für Geist ändern
+var changeDir = 0;
+
 
 /* Gameloop
  * frame, zeitabstand zwischen zwei spielbewegungen
@@ -67,7 +70,6 @@ var ONE_FRAME_TIME = 1000 / 2 ;
 var mainloop = function() {
         updateGame();
         drawGame();
-
     };
 
 /* zeitabstand zwischen den aufrufen von mainloop wird auf ONE_FRAME_TIME gesetzt
@@ -109,10 +111,15 @@ function checkCollision(playerOne,playerTwo) {
 
 
 
-//eine funktion die den geist bewegen soll...., funzt nicht....
+//eine funktion die den geist bewegen soll
 function goGhost() {
-        number = Math.floor( Math.random() * 3 );
-
+        if(changeDir == 0) {
+			number = Math.floor( Math.random() * 4 );
+			changeDir = 1 + Math.floor(Math.random() * 4);
+		}
+		
+		changeDir--;
+		
         switch (number) {
                 case 0: //left
                         moveLeft(ghost);
@@ -137,15 +144,15 @@ function goGhost() {
 function goPacman(key) {
         if (key != null) {
                 if (pacman == null) {
-                        pacman = new google.maps.Marker({
-                                    position: map.getCenter(),
-                                    map: map,
-                                    title: 'HERO',
+                    pacman = new google.maps.Marker({
+                                position: map.getCenter(),
+                                map: map,
+                                title: 'HERO',
                                 icon: pacmanIconRight,
-                                draggable: true
+                                draggable: false
                           });
-                        open = true;
-			infoWindow.close();
+                    open = true;
+					infoWindow.close();
                 }
                 //welche Taste wurde gedrueckt?
                         //var pressedKey = key.keyCode; //funktioniert nicht bei firefox
@@ -276,7 +283,8 @@ function initialize() {
         var latlng = new google.maps.LatLng(51.339852, 12.368916);
         var mapOptions = {
                 zoom: zoom,
-                center: latlng
+                center: latlng,
+				streetViewControl: false
         };
         mapDiv = document.getElementById('map-canvas');
         map = new google.maps.Map(mapDiv, mapOptions);
@@ -293,7 +301,7 @@ function initialize() {
         pushStart = new Audio('resources/push_start.mp3');
         ouch = new Audio('resources/ouch.mp3');
 
-        //play         welcome
+        //play welcome
         welcome.play();
 
         //initialisierung der markerIcons
@@ -342,7 +350,7 @@ function initialize() {
         ghost = new google.maps.Marker({
                                     title: 'ENEMY',
                                 icon: ghostIcon,
-                                draggable: true
+                                draggable: false
                           });
 
 
@@ -351,7 +359,7 @@ function initialize() {
         //infoWindow.setPosition(home);
         infoWindow.setPosition(map.getCenter());
         infoWindow.open(map);
-
+		
         mainloop();
 
 
@@ -365,7 +373,12 @@ function resetPlayer(player,position) {
 }
 
 
-
+function setVolume(value) {
+		audio.volume = value;
+		welcome.volume = value;
+		pushStart.volume = value;
+		ouch.volume = value;
+}
 
 
 function codeAddress() {
@@ -374,6 +387,7 @@ function codeAddress() {
         var home;
 
         var address = document.getElementById('address').value;
+		if(address == document.getElementById('address').defaultValue) address = 'Leipzig';
         geocoder.geocode( { 'address': address}, function(results, status) {
                 if (status == google.maps.GeocoderStatus.OK) {
 
@@ -400,7 +414,6 @@ function codeAddress() {
 
                 audio.play();
 
-
                 //google.maps.event.addDomListener(document, 'keypress', goGhost);
 
                 //soabld die geosuche abgeschlossen ist kann man pacman steuern.
@@ -411,11 +424,11 @@ function codeAddress() {
                 newGhostPosition = new google.maps.LatLng(map.getCenter().lat() - step, map.getCenter().lng() + step);
                 ghost.setPosition(newGhostPosition);
                 ghost.setMap(map);
-
-
-
-
-
+				
+				map.set('disableDefaultUI', true);
+				map.set('scrollwheel', false);
+				map.set('draggable', false);
+				map.set('disableDoubleClickZoom', true);
 
         });
 

@@ -1,39 +1,27 @@
 <!DOCTYPE html>
 <html>
   <head>
-<script src=js/key.js></script>
+	<script src=js/key.js></script>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
     <title>DIY G00GL3MAP</title>
-	<style>
-	      	html, body, 
-		#map-canvas {
-			height: 100%;
-			margin: 0px;
-			padding: 0px
-	      	}
-	      	#panel {
-			position: absolute;
-			top: 5px;
-			left: 50%;
-			margin-left: -180px;
-			z-index: 5;
-			background-color: #fff;
-			padding: 5px;
-			border: 1px solid #999;
-	      	}
-    	</style>
-<script src="https://maps.googleapis.com/maps/api/js?key=" + API_KEY></script>
-<script src=js/model.js></script>    
+	<link rel="stylesheet" href="styles.css">
+	<script src="https://maps.googleapis.com/maps/api/js?key=" + API_KEY></script>
+	<script src=js/model.js></script>    
   </head>
   <body>
     <div id="panel">
-      <input id="address" type="textbox" value="Leipzig">
-      <input type="button" value="Reset Pacman." onclick="resetPlayer(pacman,map.getCenter());key = null;newPosition = map.getCenter();resetPlayer(ghost,newGhostPosition);"> 
+      <input id="address" type="textbox" value="Search..." onfocus="if(this.value=='Search...') this.value='';" onkeydown="if(event.keyCode == 13) document.getElementById('btnGo').click();">
+      <input type="button" id="btnReset" value="Reset Pacman." onclick="resetPlayer(pacman,map.getCenter());key = null;newPosition = map.getCenter();resetPlayer(ghost,map.getCenter());"> 
      <! <input type="button" value="Go!!!" onclick="codeAddress();window.location.hash='map-canvas';">
-      <input type="button" value="Go!!!" onclick="codeAddress();">
-	
+      <input type="button" id="btnGo" value="Go!!!" onclick="document.getElementById('btnReset').click();codeAddress();">
+	  <input type="range" id="sldVolume" value="0.2" min="0" max="0.75" step="0.01" onchange="setVolume(this.value);" onload="setVolume(this.value)">
     </div>
     <div id="map-canvas"></div>
+	<div id="hud">
+		<div class="box"><p>Lives: <span id="lives">3</span></p></div>
+		<div class="box"><p>Score: <span id="score">0</span></p></div>
+		<div class="box" id="link"><p><a href="http://pcai042.informatik.uni-leipzig.de/~swp15-gkp/">Website</a></p></div>
+	</div>
   </body>
 </html>
