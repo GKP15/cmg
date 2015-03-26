@@ -377,7 +377,6 @@ function codeAddress() {
         var home;
 
         var address = document.getElementById('address').value;
-		if(address == document.getElementById('address').defaultValue) address='Leipzig';
         geocoder.geocode( { 'address': address}, function(results, status) {
                 if (status == google.maps.GeocoderStatus.OK) {
 
