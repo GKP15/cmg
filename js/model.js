@@ -52,9 +52,11 @@ var pushStart;
 var audio;
 var ouch;
 
-// zahlen fuer zufallsgenerator
+// zahl fuer zufallsgenerator
 var number;
-var changeDir;
+
+// richtung für Geist ändern
+var changeDir = 0;
 
 
 /* Gameloop
@@ -110,11 +112,15 @@ function checkCollision(playerOne,playerTwo) {
 
 
 
-//eine funktion die den geist bewegen soll...., funzt nicht....
+//eine funktion die den geist bewegen soll
 function goGhost() {
-        changeDir = Math.random() * 10;
-		if(changeDir <= 5) number = Math.floor( Math.random() * 3 );
-
+        if(changeDir == 0) {
+			number = Math.floor( Math.random() * 4 );
+			changeDir = 1 + Math.floor(Math.random() * 4);
+		}
+		
+		changeDir--;
+		
         switch (number) {
                 case 0: //left
                         moveLeft(ghost);
