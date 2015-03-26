@@ -28,7 +28,6 @@ input {
 	background-color: #fff;
 	padding: 5px;
 	border: 1px solid #999;
-	overflow: auto;
 }
 .box {
 	text-align: center;

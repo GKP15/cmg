@@ -70,7 +70,6 @@ var ONE_FRAME_TIME = 1000 / 2 ;
 var mainloop = function() {
         updateGame();
         drawGame();
-
     };
 
 /* zeitabstand zwischen den aufrufen von mainloop wird auf ONE_FRAME_TIME gesetzt
