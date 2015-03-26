@@ -294,10 +294,12 @@ function initialize() {
         welcome = new Audio('resources/welcome.mp3');
         pushStart = new Audio('resources/push_start.mp3');
         ouch = new Audio('resources/ouch.mp3');
+		
+		//setVolume(document.getElementById('sldVolume').value);
+		
 
         //play         welcome
         welcome.play();
-		welcome.volume = document.getElementById('sldVolume').value;
 
         //initialisierung der markerIcons
         pacmanIconLeft = {
@@ -368,7 +370,12 @@ function resetPlayer(player,position) {
 }
 
 
-
+function setVolume(value) {
+		audio.volume = value;
+		welcome.volume = value;
+		pushStart.volume = value;
+		ouch.volume = value;
+}
 
 
 function codeAddress() {
@@ -403,8 +410,6 @@ function codeAddress() {
 
 
                 audio.play();
-				audio.volume=document.getElementById('sldVolume').value;
-
 
                 //google.maps.event.addDomListener(document, 'keypress', goGhost);
 
