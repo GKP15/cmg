@@ -142,7 +142,7 @@ function goPacman(key) {
                                 map: map,
                                 title: 'HERO',
                                 icon: pacmanIconRight,
-                                draggable: true
+                                draggable: false
                           });
                     open = true;
 					infoWindow.close();
@@ -342,7 +342,7 @@ function initialize() {
         ghost = new google.maps.Marker({
                                     title: 'ENEMY',
                                 icon: ghostIcon,
-                                draggable: true
+                                draggable: false
                           });
 
 
