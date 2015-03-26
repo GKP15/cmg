@@ -26,14 +26,24 @@
 \BOOKMARK [2][-]{subsection.1.25}{GUI\(graphical user interface\)}{section.1}% 26
 \BOOKMARK [2][-]{subsection.1.26}{JavaScript}{section.1}% 27
 \BOOKMARK [2][-]{subsection.1.27}{Framework}{section.1}% 28
-\BOOKMARK [2][-]{subsection.1.28}{JUnit}{section.1}% 29
-\BOOKMARK [2][-]{subsection.1.29}{JSUnit}{section.1}% 30
-\BOOKMARK [1][-]{section.2}{Konzepte}{}% 31
-\BOOKMARK [2][-]{subsection.2.1}{Sematisches Web}{section.2}% 32
-\BOOKMARK [2][-]{subsection.2.2}{Graphdatenbanken}{section.2}% 33
-\BOOKMARK [2][-]{subsection.2.3}{RDF}{section.2}% 34
-\BOOKMARK [2][-]{subsection.2.4}{FOAF \(Friend of a Friend\)}{section.2}% 35
-\BOOKMARK [2][-]{subsection.2.5}{SPARQL}{section.2}% 36
-\BOOKMARK [2][-]{subsection.2.6}{OWL}{section.2}% 37
-\BOOKMARK [2][-]{subsection.2.7}{XML}{section.2}% 38
-\BOOKMARK [1][-]{section.3}{Quellen}{}% 39
+\BOOKMARK [2][-]{subsection.1.28}{JSUnit}{section.1}% 29
+\BOOKMARK [2][-]{subsection.1.29}{Jasmine}{section.1}% 30
+\BOOKMARK [2][-]{subsection.1.30}{JamJS}{section.1}% 31
+\BOOKMARK [2][-]{subsection.1.31}{Bower}{section.1}% 32
+\BOOKMARK [2][-]{subsection.1.32}{Google Maps API}{section.1}% 33
+\BOOKMARK [2][-]{subsection.1.33}{Versionskontrollsystem}{section.1}% 34
+\BOOKMARK [2][-]{subsection.1.34}{Client}{section.1}% 35
+\BOOKMARK [2][-]{subsection.1.35}{Server}{section.1}% 36
+\BOOKMARK [1][-]{section.2}{Konzepte}{}% 37
+\BOOKMARK [2][-]{subsection.2.1}{Sematisches Web}{section.2}% 38
+\BOOKMARK [2][-]{subsection.2.2}{Graphdatenbanken}{section.2}% 39
+\BOOKMARK [2][-]{subsection.2.3}{RDF}{section.2}% 40
+\BOOKMARK [2][-]{subsection.2.4}{FOAF \(Friend of a Friend\)}{section.2}% 41
+\BOOKMARK [2][-]{subsection.2.5}{SPARQL}{section.2}% 42
+\BOOKMARK [2][-]{subsection.2.6}{OWL}{section.2}% 43
+\BOOKMARK [2][-]{subsection.2.7}{XML}{section.2}% 44
+\BOOKMARK [2][-]{subsection.2.8}{KML}{section.2}% 45
+\BOOKMARK [2][-]{subsection.2.9}{HTML}{section.2}% 46
+\BOOKMARK [2][-]{subsection.2.10}{CSS}{section.2}% 47
+\BOOKMARK [2][-]{subsection.2.11}{MVC}{section.2}% 48
+\BOOKMARK [1][-]{section.3}{Quellen}{}% 49
