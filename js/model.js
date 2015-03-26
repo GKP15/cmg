@@ -297,7 +297,7 @@ function initialize() {
 
         //play         welcome
         welcome.play();
-		welcome.volume = 0.2;
+		welcome.volume = document.getElementById(sldVolume).value;
 
         //initialisierung der markerIcons
         pacmanIconLeft = {
@@ -402,7 +402,7 @@ function codeAddress() {
 
 
                 audio.play();
-				audio.volume='0.2';
+				audio.volume=document.getElementById(sldVolume).value;
 
 
                 //google.maps.event.addDomListener(document, 'keypress', goGhost);
