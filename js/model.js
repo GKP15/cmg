@@ -3,68 +3,73 @@ var map;
 var infoWindow;
 var mapDiv;
 
-// speichert pacman icon-daten
-var pacmanIcon;
+/** speichert pucman icon-daten */
+var pucmanIcon;
 
-// pacmanIcon nach links geoeffnet
-var pacmanIconLeft;
-// pacmanIcon nach rechts geoeffnet
-var pacmanIconRight;
-// pacmanIcon nach oben geoeffnet
-var pacmanIconUp;
-// pacmanIcon nach unten geoeffnet
-var pacmanIconDown;
-// pacmanIcon nach links geoeffnet
-var pacmanIconClose;
+/** pucmanIcon nach links geoeffnet */
+var pucmanIconLeft;
+/** pucmanIcon nach rechts geoeffnet */
+var pucmanIconRight;
+/** pucmanIcon nach oben geoeffnet */
+var pucmanIconUp;
+/** pucmanIcon nach unten geoeffnet */
+var pucmanIconDown;
+/** pucmanIcon nach links geoeffnet */
+var pucmanIconClose;
 
-// pacmanDaten
-var pacman;
+/** pucmanDaten */
+var pucman;
 
-// boolean wahr, wenn pacmanS mund offen ist
+/** boolean wahr, wenn pucmanS mund offen ist */
 var open;
 
-// geist icon
+/** geist icon */
 var ghostIcon;
-// geistDaten
+/** geistDaten */
 var ghost;
-// neue position des Geistes
+/** neue position des Geistes */
 var newGhostPosition;
 
-// zoomfaktor
+/** zoomfaktor */
 var zoom;
 
 
-/* Die Schrittweite auf der Karte
+/** Die Schrittweite auf der Karte
  * nur fuers vorprojekt, da spaeter nicht direkt auf der googlemap gelaufen wird
  * Leipzig Innenstadt
 */
 var step = 0.0001;
 
-// neue position von pacman
+/** neue position von pucman */ //@TODO genauere Beschreibung
 var newPosition;
 
-// tatstatureingabe
+/** tatstatureingabe */ //@TODO genauere Beschreibung
 var key = null;
 
-// eine varibalen fuer eine audiodateien
+//@TODO - die folgenden audiovariablen genauer beschreiben
+//eine varibalen fuer eine audiodateien
 var welcome;
 var pushStart;
 var audio;
 var ouch;
 
-// zahl fuer zufallsgenerator
+/** zahl fuer zufallsgenerator */
+// @TODO dokumentation dieser Variablen in doppelslash schreiben da unwichtig?
 var number;
 
-// richtung für Geist ändern
+//@TODO genauere Beschreibung
+/** richtung für Geist ändern */
 var changeDir = 0;
 
 
-/* Gameloop
+/** 
+ * Gameloop
  * frame, zeitabstand zwischen zwei spielbewegungen
 */
 var ONE_FRAME_TIME = 1000 / 2 ;
 
-/* mainloop wird alle ONE_FRAME_TIME aufgerufen
+/** 
+ * mainloop wird alle ONE_FRAME_TIME aufgerufen
  * zuerst werden alle spielveraenderungen berechnet, danach wird gemalt
 */
 var mainloop = function() {
@@ -72,54 +77,54 @@ var mainloop = function() {
         drawGame();
     };
 
-/* zeitabstand zwischen den aufrufen von mainloop wird auf ONE_FRAME_TIME gesetzt
+/** 
+ * zeitabstand zwischen den aufrufen von mainloop wird auf ONE_FRAME_TIME gesetzt
  *  @param mainloop funktion die wiederholt aufgerufen werden soll
  *  @param ONE_FRAME_TIME intervall zwischen den aufrufen
  */
 setInterval( mainloop, ONE_FRAME_TIME );
 
-// berechnet alle veraenderungen im spiel(bewegung von pacman)
+/** berechnet alle veraenderungen im spiel(bewegung von pucman) */
 function updateGame() {
-        goPacman(key);
+        gopucman(key);
         goGhost();
-
-        checkCollision(pacman,ghost);
-
+        checkCollision(pucman,ghost);
 }
 
-// malt das spielgeschehen
+/** 
+ * malt das spielgeschehen 
+ */
 function drawGame() {
-        //pacman.setMap(null);
+        //pucman.setMap(null);
 
-        pacman.setPosition(newPosition);
-		//pacman.setMap(map);
+        pucman.setPosition(newPosition);
+		//pucman.setMap(map);
 		
 		ghost.setPosition(newGhostPosition);
         //ghost.setMap(map);
 }
 
- /* ueberprueft ob sich zwei spieler auf dem selben laengen und breitengrad befinden, wenn ja wird eine "melodie" gespielt
- *  @param playerOne spieler dessen position verglichen werden soll
- *  @param playerTwo spieler dessen position verglichen werden soll
+ /**
+  *  ueberprueft ob sich zwei spieler auf dem selben laengen und breitengrad befinden, wenn ja wird eine "melodie" gespielt
+ *  @param playerOne: spieler dessen position verglichen werden soll
+ *  @param playerTwo: spieler dessen position verglichen werden soll
  */
 function checkCollision(playerOne,playerTwo) {
-        if (playerOne.getPosition().lat() == playerTwo.getPosition().lat() && playerOne.getPosition().lng() == playerTwo.getPosition().lng()) {
-
-                ouch.play();
+        if (playerOne.getPosition().lat() == playerTwo.getPosition().lat() 
+        		&& playerOne.getPosition().lng() == playerTwo.getPosition().lng()) {
+                	ouch.play();
         }
 }
 
-
-
-//eine funktion die den geist bewegen soll
+/**
+ * eine funktion die den geist bewegen soll
+ */
 function goGhost() {
         if(changeDir == 0) {
 			number = Math.floor( Math.random() * 4 );
 			changeDir = 1 + Math.floor(Math.random() * 4);
 		}
-		
 		changeDir--;
-		
         switch (number) {
                 case 0: //left
                         moveLeft(ghost);
@@ -136,142 +141,140 @@ function goGhost() {
         }
 }
 
-/* wenn pacman noch nicht gestzt wurde wird er auf die mitte der karte gesetzt
- * ansonsten wird je nach eingabe eine funktion aufgerfuen, die pacman in die
+/**
+ *  wenn pucman noch nicht gesetzt wurde wird er auf die Mitte der karte gesetzt
+ * ansonsten wird je nach eingabe eine funktion aufgerufen, die pucman in die
  * entsprechende richtung bewegt
- *  @param key taste die zuletzt gedrueckt wurde, w,a,s,d entsprechen den pfeiltasten alles andere wird auf null gesetzt
+ *  @param key: taste die zuletzt gedrueckt wurde, w,a,s,d entsprechen den pfeiltasten alles andere wird auf null gesetzt
  */
-function goPacman(key) {
-        if (key != null) {
-                if (pacman == null) {
-                    pacman = new google.maps.Marker({
-                                position: map.getCenter(),
-                                map: map,
-                                title: 'HERO',
-                                icon: pacmanIconRight,
-                                draggable: false
-                          });
-                    open = true;
-					infoWindow.close();
-                }
-                //welche Taste wurde gedrueckt?
-                        //var pressedKey = key.keyCode; //funktioniert nicht bei firefox
-                        //funktioniert bei firefox
-                        var pressedKey = key.charCode;
-						
-
-                        //jenachdem was gedrueckt wurde wird die entsprechende funktion aufgerufen
-                        switch (pressedKey) {
-                                    case 97: //left, a
-                                        moveLeft(pacman);
-                                        break;
-                                    case 100: //right, d
-                                        moveRight(pacman);
-                                        break;
-									case 119: //up, w
-                                        moveUp(pacman);
-                                        break;
-                                    case 115: //down, s
-                                        moveDown(pacman);
-                                        break;
-									default: //was anderes gedrückt
-                                       
-                                        //newPosition = pacman.getPosition();
-                                        break;
-                        }
-                }
-
+function gopucman(key) {
+	if (key != null) {
+		if (pucman == null) {
+			pucman = new google.maps.Marker({
+			            position: map.getCenter(),
+			            map: map,
+			            title: 'HERO',
+			            icon: pucmanIconRight,
+			            draggable: false
+			});
+			open = true;
+			infoWindow.close();
+		}
+		//welche Taste wurde gedrueckt?
+		//var pressedKey = key.keyCode; //funktioniert nicht bei firefox //@TODO was hiermit?
+		//funktioniert bei firefox
+		var pressedKey = key.charCode;
+		//jenachdem was gedrueckt wurde wird die entsprechende funktion aufgerufen
+		// ist das jetzt noch WASD oder cursortasten?
+		switch (pressedKey) {
+			case 97: //left, a
+			    moveLeft(pucman);
+			    break;
+			case 100: //right, d
+			    moveRight(pucman);
+			    break;
+			case 119: //up, w
+			    moveUp(pucman);
+			    break;
+			case 115: //down, s
+			    moveDown(pucman);
+			    break;
+			default: //was anderes gedrückt //@TODO: default belegen oder rausnehmen
+		    //newPosition = pucman.getPosition();
+				break;
+		}
+	}
 }
 
 
-/* bewegung nach links
+/**
+ * bewegung nach links
  * laengen und breitengrad werte werden entsprechend veraendert
- * @param player zu bewegendes spielObjekt(pacman oder geist)
+ * @param player: zu bewegendes spielObjekt(pucman oder geist)
  */
 function moveLeft(player){
-
-                if (player == pacman) {
-                        newPosition = new google.maps.LatLng(player.getPosition().lat(), player.getPosition().lng() - step);
-                        if (open) {
-                                pacman.setIcon(pacmanIconClose);
-                                open = false;
-                        } else {
-                                pacman.setIcon(pacmanIconLeft);
-                                open = true;
-                        }
-                }
-                if (player == ghost) {
-                        newGhostPosition = new google.maps.LatLng(player.getPosition().lat(), player.getPosition().lng() - step);
-                }
+		if (player == pucman) {
+		        newPosition = new google.maps.LatLng(player.getPosition().lat(), player.getPosition().lng() - step);
+		        if (open) {
+		                pucman.setIcon(pucmanIconClose);
+		                open = false;
+		        } else {
+		                pucman.setIcon(pucmanIconLeft);
+		                open = true;
+		        }
+		}
+		if (player == ghost) {
+		        newGhostPosition = new google.maps.LatLng(player.getPosition().lat(), player.getPosition().lng() - step);
+		}
 }
 
-/* bewegung nach rechts
+/**
+ * bewegung nach rechts
  * laengen und breitengrad werte werden entsprechend veraendert
- * @param player zu bewegendes spielObjekt(pacman oder geist)
+ * @param player: zu bewegendes spielObjekt(pucman oder geist)
  */
 function moveRight(player){
-                if (player == pacman) {
-                        newPosition = new google.maps.LatLng(player.getPosition().lat(), player.getPosition().lng() + step);
-                        if (open) {
-                                pacman.setIcon(pacmanIconClose);
-                                open = false;
-                        } else {
-                                pacman.setIcon(pacmanIconRight);
-                                open = true;
-                        }
-                }
-                if (player == ghost) {
-                        newGhostPosition = new google.maps.LatLng(player.getPosition().lat(), player.getPosition().lng() + step);
-                }
+		if (player == pucman) {
+		        newPosition = new google.maps.LatLng(player.getPosition().lat(), player.getPosition().lng() + step);
+		        if (open) {
+		                pucman.setIcon(pucmanIconClose);
+		                open = false;
+		        } else {
+		                pucman.setIcon(pucmanIconRight);
+		                open = true;
+		        }
+		}
+		if (player == ghost) {
+		        newGhostPosition = new google.maps.LatLng(player.getPosition().lat(), player.getPosition().lng() + step);
+		}
 }
 
-/* bewegung nach oben
+/**
+ * bewegung nach oben
  * laengen und breitengrad werte werden entsprechend veraendert
- * @param player zu bewegendes spielObjekt(pacman oder geist)
+ * @param player zu bewegendes spielObjekt(pucman oder geist)
  */
 function moveUp(player){
-
-                if (player == pacman) {
-                        newPosition = new google.maps.LatLng(player.getPosition().lat() + step, player.getPosition().lng());
-                        if (open) {
-                                pacman.setIcon(pacmanIconClose);
-                                open = false;
-                        } else {
-                                pacman.setIcon(pacmanIconUp);
-                                open = true;
-                        }
-                }
-                if (player == ghost) {
-                        newGhostPosition = new google.maps.LatLng(player.getPosition().lat() + step, player.getPosition().lng());
-                }
+		if (player == pucman) {
+		        newPosition = new google.maps.LatLng(player.getPosition().lat() + step, player.getPosition().lng());
+		        if (open) {
+		        		pucman.setIcon(pucmanIconClose);
+		                open = false;
+		        } else {
+		                pucman.setIcon(pucmanIconUp);
+		                open = true;
+		        }
+		}
+		if (player == ghost) {
+		        newGhostPosition = new google.maps.LatLng(player.getPosition().lat() + step, player.getPosition().lng());
+		}
 }
 
-/* bewegung nach unten
+/**
+ * bewegung nach unten
  * laengen und breitengrad werte werden entsprechend veraendert
- * @param player zu bewegendes spielObjekt(pacman oder geist)
+ * @param player zu bewegendes spielObjekt(pucman oder geist)
  */
 function moveDown(player){
-                if (player == pacman) {
-                        newPosition = new google.maps.LatLng(player.getPosition().lat() - step, player.getPosition().lng());
-                        if (open) {
-                                pacman.setIcon(pacmanIconClose);
-                                open = false;
-                        } else {
-                                pacman.setIcon(pacmanIconDown);
-                                open = true;
-                        }
-                }
-                if (player == ghost) {
-                        newGhostPosition = new google.maps.LatLng(player.getPosition().lat() - step, player.getPosition().lng());
-                }
+		if (player == pucman) {
+		        newPosition = new google.maps.LatLng(player.getPosition().lat() - step, player.getPosition().lng());
+		        if (open) {
+		                pucman.setIcon(pucmanIconClose);
+		                open = false;
+		        } else {
+		                pucman.setIcon(pucmanIconDown);
+		                open = true;
+		        }
+		}
+		if (player == ghost) {
+		        newGhostPosition = new google.maps.LatLng(player.getPosition().lat() - step, player.getPosition().lng());
+		}
 }
 
 
-/* googleMapsFunktion
- * initialisiert das infofenster
- * initialisiert die map
- * initialisiert die audiodateien
- * initialisiert die pacmanicons
+/**
+ * googleMapsFunktion
+ * initialisiert das infofenster, die map, die audiodateien und die pucmanicons
  */
 function initialize() {
         geocoder = new google.maps.Geocoder();
@@ -308,36 +311,36 @@ function initialize() {
         welcome.play();
 
         //initialisierung der markerIcons
-        pacmanIconLeft = {
-                            url: "resources/pacman_open_left.png", // url
+        pucmanIconLeft = {
+                            url: "resources/pucman_open_left.png", // url
                             scaledSize: new google.maps.Size(35, 35), // scaled size
                             origin: new google.maps.Point(0,0), // origin
                             anchor: new google.maps.Point(0, 0) // anchor
                 };
 
-        pacmanIconRight = {
-                            url: "resources/pacman_open_right.png", // url
+        pucmanIconRight = {
+                            url: "resources/pucman_open_right.png", // url
                             scaledSize: new google.maps.Size(35, 35), // scaled size
                             origin: new google.maps.Point(0,0), // origin
                             anchor: new google.maps.Point(0, 0) // anchor
                 };
 
-        pacmanIconUp = {
-                            url: "resources/pacman_open_up.png", // url
+        pucmanIconUp = {
+                            url: "resources/pucman_open_up.png", // url
                             scaledSize: new google.maps.Size(35, 35), // scaled size
                             origin: new google.maps.Point(0,0), // origin
                             anchor: new google.maps.Point(0, 0) // anchor
                 };
 
-        pacmanIconDown = {
-                            url: "resources/pacman_open_down.png", // url
+        pucmanIconDown = {
+                            url: "resources/pucman_open_down.png", // url
                             scaledSize: new google.maps.Size(35, 35), // scaled size
                             origin: new google.maps.Point(0,0), // origin
                             anchor: new google.maps.Point(0, 0) // anchor
                 };
 
-        pacmanIconClose = {
-                            url: "resources/pacman_close.png", // url
+        pucmanIconClose = {
+                            url: "resources/pucman_close.png", // url
                             scaledSize: new google.maps.Size(35, 35), // scaled size
                             origin: new google.maps.Point(0,0), // origin
                             anchor: new google.maps.Point(0, 0) // anchor
@@ -369,13 +372,14 @@ function initialize() {
 
 
 }
+//@TODO was macht die funktion?
 function resetPlayer(player,position) {
         player.setMap(null);
         player.setPosition(position);
         player.setMap(map);
 }
 
-
+//@TODO was macht die funktion?
 function setVolume(value) {
 		audio.volume = value;
 		welcome.volume = value;
@@ -383,67 +387,48 @@ function setVolume(value) {
 		ouch.volume = value;
 }
 
-
+//@TODO was macht die funktion?
 function codeAddress() {
-
         //speichert die Geodaten des Eingebenen Ortes
         var home;
-
         var address = document.getElementById('address').value;
 		if(address == document.getElementById('address').defaultValue) address = 'Leipzig';
         geocoder.geocode( { 'address': address}, function(results, status) {
                 if (status == google.maps.GeocoderStatus.OK) {
-
                         map.setCenter(results[0].geometry.location);
                         //setzt den Zoomfaktor nach der Eingabe eines Ortes
                         zoom = 18;
                         map.setZoom(zoom);
-
                         //speichert die geodaten des ergebnisses in die variable home
                         home = google.maps.LatLng(results[0].geometry.location);
-
-
                         // Set the info window's content and position.
                         infoWindow.setContent("Wenn du eine beliebige Taste drückst, <br> kannst den Geist mit awds steuern.");
                         //infoWindow.setPosition(home);
                         infoWindow.setPosition(map.getCenter());
-
                         infoWindow.open(map);
-
                 } else {
                         alert('Geocode was not successful for the following reason: ' + status);
                 }
-
-
                 audio.play();
-
                 //google.maps.event.addDomListener(document, 'keypress', goGhost);
-
-                //soabld die geosuche abgeschlossen ist kann man pacman steuern.
-                google.maps.event.addDomListener(document, 'keypress', function(pressedKey){
-                key = pressedKey;
-                } );
-
+                //soabld die geosuche abgeschlossen ist kann man pucman steuern.
+                google.maps.event.addDomListener(
+                		document, 'keypress', function(pressedKey){key = pressedKey;}
+                );
                 newGhostPosition = new google.maps.LatLng(map.getCenter().lat() - step, map.getCenter().lng() + step);
                 ghost.setPosition(newGhostPosition);
                 ghost.setMap(map);
-				
 				map.set('disableDefaultUI', true);
 				map.set('scrollwheel', false);
 				map.set('draggable', false);
 				map.set('disableDoubleClickZoom', true);
-
         });
-
-
-
-
 }
 
+//@TODO hier fehlt noch der comment
 google.maps.event.addDomListener(window, 'load', initialize);
-
         /*
-        *        Event Listener dass beim clicken ein pacmansymbol auf der karte erscheint.
+        *        Event Listener dass beim clicken ein pucmansymbol auf der karte erscheint.
         *
         */
 
@@ -453,11 +438,11 @@ google.maps.event.addDomListener(window, 'load', initialize);
 
 
 
-                var pacmanII = new google.maps.Marker({
+                var pucmanII = new google.maps.Marker({
                             position: event.latLng,
                             map: map,
                             title: lat + ' ' + lng,
-                        icon: pacmanIcon
+                        icon: pucmanIcon
                   });
 
         });
