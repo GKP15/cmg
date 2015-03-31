@@ -49,7 +49,8 @@ Das ganze Spielgeschehen ist durch einen Soundtrack unterlegt, der eine  funktio
 Desweiteren befinden sich bereits Platzhalter für den späteren Highscore, die verbleibende Anzahl an Leben und die Möglichkeit direkt auf die Website des Spiels zugreifen zu können.
 \clearpage
 \section{Grundsätzliche Struktur- und Entwurfsprinzipien}
-Die von uns umgesetzte Web-Anwedung basiert auf einer Client-Server Archiketkur.  Beim Server liegen die Daten, die vom Client abgefragt werden und an diesem übertragen werden. Die Googlemaps API stellt alle wichtigen Funktionen zur Verfügung, GameBlock Javascript 
+Als grundsätzliche Programmiersprache haben wir uns für Java-Script entschieden. Wobei der Java-Scriptcode von einer html-Seite aufgerufen wird. Vielleicht nehmen  wir auch Phaser. \\
+Die von uns umgesetzte Web-Anwendung basiert auf einer Client-Server Architektur. Wir arbeiten also mit einem Html-Server auf dem die Daten liegen, die vom Client abgefragt und an diesen übertragen werden. Diese Daten beinhalten auch den Gameblock, der dann vom Client ausgeführt wird. Darüber hinaus arbeiten wir mit der Googlemaps API, die alle wichtigen Funktionen zur Manipulation der Karte zur Verfügung stellt.\\
 \begin{figure}[htb]
   \centering
   \includegraphics[scale=0.4]{arch.png}
@@ -63,7 +64,7 @@ Die von uns umgesetzte Web-Anwedung basiert auf einer Client-Server Archiketkur.
 \subsection{Server} Vom Server werden die benötigten Spieldatein zur Verfügung gestellt und automatisch geladen.
 
 \subsection{Client - Gameblock}
-Der Gameblock wird an das Model-View-Controller Prinzip angelehnt, welches durch die Nutzung von Phaser umgesetzt wird. 
+Der Gameblock wird an das Model-View-Controller Prinzip angelehnt, welches durch die Nutzung von Phaser umgesetzt wird. \par\bigskip
 \begin{figure}[htb]
   \centering
   \includegraphics[scale=0.2]{mvc.jpg}
@@ -71,17 +72,19 @@ Der Gameblock wird an das Model-View-Controller Prinzip angelehnt, welches durch
   \label{PNFs}
 \end{figure} 
 
-\clearpage 
+%\clearpage 
 
 
 
 \textbf{Modell (model)} \\
 Das Modell enthält die darzustellenden Daten und ist von Präsentation und Steuerung unabhängig. Das Modell ist das zu beobachtende Subjekt.\\
-\textbf{Präsentation (view)} \par\bigskip \par\bigskip
 
+\par\bigskip \par\bigskip
+\textbf{Präsentation (view)} \\
 Die Präsentationsschicht ist für die Darstellung der benötigten Daten aus dem Modell und die Entgegennahme von Benutzerinteraktionen zuständig. Sie kennt sowohl ihre Steuerung als auch das Modell, dessen Daten sie präsentiert, ist aber nicht für die Weiterverarbeitung der vom Benutzer übergebenen Daten zuständig. \\
-\textbf{Steuerung (controller)} \par\bigskip \par\bigskip
 
+\par\bigskip \par\bigskip
+\textbf{Steuerung (controller)} \\
 Die Steuerung verwaltet die Präsentation, nimmt von ihr Benutzeraktionen entgegen, wertet diese aus und agiert entsprechend. Die Steuerung sorgt dafür, dass Benutzeraktionen wirksam werden, z. B. durch Änderung der Präsentation (z. B. Richtungsänderung von Pucman) oder  durch Weiterleiten an das Modell (z. B. Übernahme von Eingabedaten oder  Auslösen von Verarbeitungen). Die Steuerung beschränkt sich darauf Benutzereingaben (Daten und Methodenaufrufe) von der Präsentation an das Modell weiterzuleiten und enthält weiterhin Mechanismen, um die Benutzerinteraktionen der Präsentation einzuschränken.
 
 \subsection{Google Maps API}
