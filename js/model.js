@@ -1,11 +1,28 @@
+//map + Grafiken
+/** api zur Auflösung der Koordinaten  */
 var geocoder;
+/** in dieser Variablen werden die Daten der Map gespeichert */
 var map;
+/** Sprechblase */
 var infoWindow;
+/** Cannvas der Karte */
 var mapDiv;
+/** zoomfaktor */
+var zoom;
+/** Die Schrittweite auf der Karte fuer Leipzig Innenstadt */
+var step = 0.0001;
+/** neue Position von pucman */
+var newPosition;
+/** aktuelle Tatstatureingabe */
+var key = null;
+/** zahl fuer zufallsgenerator */
+var number;
 
+//pucman
+/** pucmanDaten */
+var pucman;
 /** speichert pucman icon-daten */
 var pucmanIcon;
-
 /** pucmanIcon nach links geoeffnet */
 var pucmanIconLeft;
 /** pucmanIcon nach rechts geoeffnet */
@@ -16,53 +33,32 @@ var pucmanIconUp;
 var pucmanIconDown;
 /** pucmanIcon nach links geoeffnet */
 var pucmanIconClose;
-
-/** pucmanDaten */
-var pucman;
-
 /** boolean wahr, wenn pucmanS mund offen ist */
-var open;
+var pucmanMouthOpen;
 
-/** geist icon */
-var ghostIcon;
+//ghost
 /** geistDaten */
 var ghost;
+/** geist icon */
+var ghostIcon;
 /** neue position des Geistes */
 var newGhostPosition;
-
-/** zoomfaktor */
-var zoom;
-
-
-/** Die Schrittweite auf der Karte
- * nur fuers vorprojekt, da spaeter nicht direkt auf der googlemap gelaufen wird
- * Leipzig Innenstadt
-*/
-var step = 0.0001;
-
-/** neue position von pucman */ //@TODO genauere Beschreibung
-var newPosition;
-
-/** tatstatureingabe */ //@TODO genauere Beschreibung
-var key = null;
-
-//@TODO - die folgenden audiovariablen genauer beschreiben
-//eine varibalen fuer eine audiodateien
-var welcome;
-var pushStart;
-var audio;
-var ouch;
-
-/** zahl fuer zufallsgenerator */
-// @TODO dokumentation dieser Variablen in doppelslash schreiben da unwichtig?
-var number;
-
-//@TODO genauere Beschreibung
 /** richtung für Geist ändern */
 var changeDir = 0;
 
+//audio
+/** audio datei - initialisiert das Abspielen von Audiodateien */
+var audio;
+/** audiodatei welcome-sound */
+var audioWelcome;
+/** audiodatei, wird abgespielt bei druecken von Start */
+var audioPushStart;
+/** audiodatei wird abgespielt wenn pucman gefressen wird */
+var audioOuch;
 
-/** 
+
+
+/**
  * Gameloop
  * frame, zeitabstand zwischen zwei spielbewegungen
 */
@@ -86,7 +82,7 @@ setInterval( mainloop, ONE_FRAME_TIME );
 
 /** berechnet alle veraenderungen im spiel(bewegung von pucman) */
 function updateGame() {
-        gopucman(key);
+        goPucman(key);
         goGhost();
         checkCollision(pucman,ghost);
 }
@@ -95,13 +91,8 @@ function updateGame() {
  * malt das spielgeschehen 
  */
 function drawGame() {
-        //pucman.setMap(null);
-
-        pucman.setPosition(newPosition);
-		//pucman.setMap(map);
-		
+        pucman.setPosition(newPosition);		
 		ghost.setPosition(newGhostPosition);
-        //ghost.setMap(map);
 }
 
  /**
@@ -112,7 +103,7 @@ function drawGame() {
 function checkCollision(playerOne,playerTwo) {
         if (playerOne.getPosition().lat() == playerTwo.getPosition().lat() 
         		&& playerOne.getPosition().lng() == playerTwo.getPosition().lng()) {
-                	ouch.play();
+                	audioOuch.play();
         }
 }
 
@@ -147,7 +138,7 @@ function goGhost() {
  * entsprechende richtung bewegt
  *  @param key: taste die zuletzt gedrueckt wurde, w,a,s,d entsprechen den pfeiltasten alles andere wird auf null gesetzt
  */
-function gopucman(key) {
+function goPucman(key) {
 	if (key != null) {
 		if (pucman == null) {
 			pucman = new google.maps.Marker({
@@ -157,35 +148,35 @@ function gopucman(key) {
 			            icon: pucmanIconRight,
 			            draggable: false
 			});
-			open = true;
+			pucmanMouthOpen = true;
 			infoWindow.close();
 		}
 		//welche Taste wurde gedrueckt?
-		//var pressedKey = key.keyCode; //funktioniert nicht bei firefox //@TODO was hiermit?
-		//funktioniert bei firefox
+			//mit keycode funktionieren die pfeiltasten, funktioniert aber nicht im firefox
+			//var pressedKey = key.keyCode; 
+			//funktioniert bei firefox
 		var pressedKey = key.charCode;
 		//jenachdem was gedrueckt wurde wird die entsprechende funktion aufgerufen
 		// ist das jetzt noch WASD oder cursortasten?
 		switch (pressedKey) {
-			case 97: //left, a
+			case 97: // a
 			    moveLeft(pucman);
 			    break;
-			case 100: //right, d
+			case 100: // d
 			    moveRight(pucman);
 			    break;
-			case 119: //up, w
+			case 119: // w
 			    moveUp(pucman);
 			    break;
-			case 115: //down, s
+			case 115: // s
 			    moveDown(pucman);
 			    break;
-			default: //was anderes gedrückt //@TODO: default belegen oder rausnehmen
-		    //newPosition = pucman.getPosition();
+			default: 
+				// falls andere Taste gedrueckt, passiert nichts
 				break;
 		}
 	}
 }
-
 
 /**
  * bewegung nach links
@@ -195,12 +186,12 @@ function gopucman(key) {
 function moveLeft(player){
 		if (player == pucman) {
 		        newPosition = new google.maps.LatLng(player.getPosition().lat(), player.getPosition().lng() - step);
-		        if (open) {
+		        if (pucmanMouthOpen) {
 		                pucman.setIcon(pucmanIconClose);
-		                open = false;
+		                pucmanMouthOpen = false;
 		        } else {
 		                pucman.setIcon(pucmanIconLeft);
-		                open = true;
+		                pucmanMouthOpen = true;
 		        }
 		}
 		if (player == ghost) {
@@ -216,12 +207,12 @@ function moveLeft(player){
 function moveRight(player){
 		if (player == pucman) {
 		        newPosition = new google.maps.LatLng(player.getPosition().lat(), player.getPosition().lng() + step);
-		        if (open) {
+		        if (pucmanMouthOpen) {
 		                pucman.setIcon(pucmanIconClose);
-		                open = false;
+		                pucmanMouthOpen = false;
 		        } else {
 		                pucman.setIcon(pucmanIconRight);
-		                open = true;
+		                pucmanMouthOpen = true;
 		        }
 		}
 		if (player == ghost) {
@@ -237,12 +228,12 @@ function moveRight(player){
 function moveUp(player){
 		if (player == pucman) {
 		        newPosition = new google.maps.LatLng(player.getPosition().lat() + step, player.getPosition().lng());
-		        if (open) {
+		        if (pucmanMouthOpen) {
 		        		pucman.setIcon(pucmanIconClose);
-		                open = false;
+		        		pucmanMouthOpen = false;
 		        } else {
 		                pucman.setIcon(pucmanIconUp);
-		                open = true;
+		                pucmanMouthOpen = true;
 		        }
 		}
 		if (player == ghost) {
@@ -258,12 +249,12 @@ function moveUp(player){
 function moveDown(player){
 		if (player == pucman) {
 		        newPosition = new google.maps.LatLng(player.getPosition().lat() - step, player.getPosition().lng());
-		        if (open) {
+		        if (pucmanMouthOpen) {
 		                pucman.setIcon(pucmanIconClose);
-		                open = false;
+		                pucmanMouthOpen = false;
 		        } else {
 		                pucman.setIcon(pucmanIconDown);
-		                open = true;
+		                pucmanMouthOpen = true;
 		        }
 		}
 		if (player == ghost) {
@@ -301,14 +292,14 @@ function initialize() {
         //init audio
         audio = new Audio('resources/test.mp3');
 		audio.loop = true;
-        welcome = new Audio('resources/welcome.mp3');
-        pushStart = new Audio('resources/push_start.mp3');
-        ouch = new Audio('resources/ouch.mp3');
+        audioWelcome = new Audio('resources/welcome.mp3');
+        audioPushStart = new Audio('resources/push_start.mp3');
+        audioOuch = new Audio('resources/ouch.mp3');
 		
 		setVolume(document.getElementById('sldVolume').value);
 
         //play welcome
-        welcome.play();
+        audioWelcome.play();
 
         //initialisierung der markerIcons
         pucmanIconLeft = {
@@ -359,35 +350,36 @@ function initialize() {
                                 draggable: false
                           });
 
-
         // Setzt ein Info Window am Startpunkt
         infoWindow.setContent("Suche erstmal einen Ort <br> an dem du Spielen willst <br> in dem Suchfenster");
         //infoWindow.setPosition(home);
         infoWindow.setPosition(map.getCenter());
         infoWindow.open(map);
-		
         mainloop();
-
-
-
-
 }
-//@TODO was macht die funktion?
+
+/**
+ * Hilfsfunktion: reset des Spielers
+ */
 function resetPlayer(player,position) {
         player.setMap(null);
         player.setPosition(position);
         player.setMap(map);
 }
 
-//@TODO was macht die funktion?
+/**
+ * Hilfsfunktion: steuert die Lautstärke
+ */
 function setVolume(value) {
 		audio.volume = value;
-		welcome.volume = value;
-		pushStart.volume = value;
-		ouch.volume = value;
+		audioWelcome.volume = value;
+		audioPushStart.volume = value;
+		audioOuch.volume = value;
 }
 
-//@TODO was macht die funktion?
+/**
+ * sucht geo-koordinaten zu eingegebener Adresse
+ */
 function codeAddress() {
         //speichert die Geodaten des Eingebenen Ortes
         var home;
@@ -410,7 +402,6 @@ function codeAddress() {
                         alert('Geocode was not successful for the following reason: ' + status);
                 }
                 audio.play();
-                //google.maps.event.addDomListener(document, 'keypress', goGhost);
                 //soabld die geosuche abgeschlossen ist kann man pucman steuern.
                 google.maps.event.addDomListener(
                 		document, 'keypress', function(pressedKey){key = pressedKey;}
@@ -425,25 +416,7 @@ function codeAddress() {
         });
 }
 
-//@TODO hier fehlt noch der comment
+/**
+ * initialer Aufruf des Event-Listeners
+ */
 google.maps.event.addDomListener(window, 'load', initialize);
-        /*
-        *        Event Listener dass beim clicken ein pucmansymbol auf der karte erscheint.
-        *
-        */
-
-        /*google.maps.event.addListener(map, "click", function(event) {
-                    var lat = event.latLng.lat();
-                    var lng = event.latLng.lng();
-
-
-
-                var pucmanII = new google.maps.Marker({
-                            position: event.latLng,
-                            map: map,
-                            title: lat + ' ' + lng,
-                        icon: pucmanIcon
-                  });
-
-        });
-        */

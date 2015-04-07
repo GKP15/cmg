@@ -236,7 +236,37 @@ ul.inheritsList
 								<div class="fixedFont">
 								<b><a href="../symbols/_global_.html#audio">audio</a></b>
 								</div>
-								<div class="description">Lautstärke</div>
+								<div class="description">audio datei - initialisiert das Abspielen von Audiodateien</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/_global_.html#audioOuch">audioOuch</a></b>
+								</div>
+								<div class="description">audiodatei wird abgespielt wenn pucman gefressen wird</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/_global_.html#audioPushStart">audioPushStart</a></b>
+								</div>
+								<div class="description">audiodatei, wird abgespielt bei druecken von Start</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/_global_.html#audioWelcome">audioWelcome</a></b>
+								</div>
+								<div class="description">audiodatei welcome-sound</div>
 							</td>
 						</tr>
 					
@@ -365,26 +395,6 @@ frame, zeitabstand zwischen zwei spielbewegungen</div>
 							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
 								<div class="fixedFont">
-								<b><a href="../symbols/_global_.html#open">open</a></b>
-								</div>
-								<div class="description">boolean wahr, wenn pucmanS mund offen ist</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont">
-								<b><a href="../symbols/_global_.html#ouch">ouch</a></b>
-								</div>
-								<div class="description">audiodatei wird abgespielt wenn pucman gefressen wird</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont">
 								<b><a href="../symbols/_global_.html#pucman">pucman</a></b>
 								</div>
 								<div class="description">pucmanDaten</div>
@@ -455,9 +465,9 @@ frame, zeitabstand zwischen zwei spielbewegungen</div>
 							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
 								<div class="fixedFont">
-								<b><a href="../symbols/_global_.html#pushStart">pushStart</a></b>
+								<b><a href="../symbols/_global_.html#pucmanMouthOpen">pucmanMouthOpen</a></b>
 								</div>
-								<div class="description">audiodatei, wird abgespielt bei druecken von Start</div>
+								<div class="description">boolean wahr, wenn pucmanS mund offen ist</div>
 							</td>
 						</tr>
 					
@@ -468,16 +478,6 @@ frame, zeitabstand zwischen zwei spielbewegungen</div>
 								<b><a href="../symbols/_global_.html#step">step</a></b>
 								</div>
 								<div class="description">Die Schrittweite auf der Karte fuer Leipzig Innenstadt</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont">
-								<b><a href="../symbols/_global_.html#welcome">welcome</a></b>
-								</div>
-								<div class="description">audiodatei welcome-sound</div>
 							</td>
 						</tr>
 					
@@ -551,7 +551,7 @@ frame, zeitabstand zwischen zwei spielbewegungen</div>
 						<tr>
 							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/_global_.html#gopucman">gopucman</a></b>(key:)
+								<div class="fixedFont"><b><a href="../symbols/_global_.html#goPucman">goPucman</a></b>(key:)
 								</div>
 								<div class="description">wenn pucman noch nicht gesetzt wurde wird er auf die Mitte der karte gesetzt
 ansonsten wird je nach eingabe eine funktion aufgerufen, die pucman in die
@@ -672,7 +672,82 @@ laengen und breitengrad werte werden entsprechend veraendert</div>
 					
 					</div>
 					<div class="description">
-						Lautstärke
+						audio datei - initialisiert das Abspielen von Audiodateien
+						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/model.js.html">model.js</a>.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="audioOuch"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>audioOuch</b>
+					
+					</div>
+					<div class="description">
+						audiodatei wird abgespielt wenn pucman gefressen wird
+						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/model.js.html">model.js</a>.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="audioPushStart"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>audioPushStart</b>
+					
+					</div>
+					<div class="description">
+						audiodatei, wird abgespielt bei druecken von Start
+						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/model.js.html">model.js</a>.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="audioWelcome"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>audioWelcome</b>
+					
+					</div>
+					<div class="description">
+						audiodatei welcome-sound
 						
 							<br />
 							<i>Defined in: </i> <a href="../symbols/src/model.js.html">model.js</a>.
@@ -990,56 +1065,6 @@ frame, zeitabstand zwischen zwei spielbewegungen
 
 					<hr />
 				
-					<a name="open"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>open</b>
-					
-					</div>
-					<div class="description">
-						boolean wahr, wenn pucmanS mund offen ist
-						
-							<br />
-							<i>Defined in: </i> <a href="../symbols/src/model.js.html">model.js</a>.
-						
-						
-					</div>
-					
-					
-
-						
-						
-						
-						
-
-					<hr />
-				
-					<a name="ouch"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>ouch</b>
-					
-					</div>
-					<div class="description">
-						audiodatei wird abgespielt wenn pucman gefressen wird
-						
-							<br />
-							<i>Defined in: </i> <a href="../symbols/src/model.js.html">model.js</a>.
-						
-						
-					</div>
-					
-					
-
-						
-						
-						
-						
-
-					<hr />
-				
 					<a name="pucman"> </a>
 					<div class="fixedFont">
 					
@@ -1215,15 +1240,15 @@ frame, zeitabstand zwischen zwei spielbewegungen
 
 					<hr />
 				
-					<a name="pushStart"> </a>
+					<a name="pucmanMouthOpen"> </a>
 					<div class="fixedFont">
 					
 					
-					<b>pushStart</b>
+					<b>pucmanMouthOpen</b>
 					
 					</div>
 					<div class="description">
-						audiodatei, wird abgespielt bei druecken von Start
+						boolean wahr, wenn pucmanS mund offen ist
 						
 							<br />
 							<i>Defined in: </i> <a href="../symbols/src/model.js.html">model.js</a>.
@@ -1249,31 +1274,6 @@ frame, zeitabstand zwischen zwei spielbewegungen
 					</div>
 					<div class="description">
 						Die Schrittweite auf der Karte fuer Leipzig Innenstadt
-						
-							<br />
-							<i>Defined in: </i> <a href="../symbols/src/model.js.html">model.js</a>.
-						
-						
-					</div>
-					
-					
-
-						
-						
-						
-						
-
-					<hr />
-				
-					<a name="welcome"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>welcome</b>
-					
-					</div>
-					<div class="description">
-						audiodatei welcome-sound
 						
 							<br />
 							<i>Defined in: </i> <a href="../symbols/src/model.js.html">model.js</a>.
@@ -1452,11 +1452,11 @@ frame, zeitabstand zwischen zwei spielbewegungen
 
 					<hr />
 				
-					<a name="gopucman"> </a>
+					<a name="goPucman"> </a>
 					<div class="fixedFont">
 					
 					
-					<b>gopucman</b>(key:)
+					<b>goPucman</b>(key:)
 					
 					</div>
 					<div class="description">
@@ -1835,7 +1835,7 @@ laengen und breitengrad werte werden entsprechend veraendert
 <!-- ============================== footer ================================= -->
 		<div class="fineprint" style="clear:both">
 			
-			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Tue Apr 07 2015 15:19:44 GMT+0200 (MESZ)
+			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Tue Apr 07 2015 15:40:11 GMT+0200 (MESZ)
 		</div>
 	</body>
 </html>
