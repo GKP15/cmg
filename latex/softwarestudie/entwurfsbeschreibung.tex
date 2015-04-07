@@ -16,12 +16,12 @@
 \pagestyle{fancy}
 \lhead{\today}
 \author{Gruppe: SWT15-GKP}
-\rhead{Author: PP,FB}
+\rhead{Author: KV}
 \chead{Gruppe: SWT15-GKP}
 %\cfoot{center of the footer!}
 \renewcommand{\headrulewidth}{0.8pt}
 %\renewcommand{\footrulewidth}{0.4pt}
-\title{Universität Leipzig - Softwaretechnik Praktikum 2014/2015 \\  Entwurfsbeschreibung zum Vorprojekt \\ zum Projekt: Ein kartenbasiertes “Multiplayer”-Spiel}
+\title{Universität Leipzig - Softwaretechnik Praktikum 2014/2015 \\  Entwurfsbeschreibung \\ zum Projekt: Ein kartenbasiertes “Multiplayer”-Spiel}
 
 \begin{document}
 \maketitle
@@ -34,76 +34,66 @@
 
 \flushleft
 \section{Allgemeines}
-Im Rahmen des SWT-Praktikums wird ein kartenbasiertes Multiplayerspiel entwickelt, das es ermöglicht, ein an das alte Pacman angelehnte Computerspiel auf einem realen Kartenausschnitt zu spielen. \\
-Im Vorprojekt wird eine kleine Web Applikation erstellt, welche die Architektur minimal implementiert und eine einfache Interaktion mit der Karte ermöglicht.
-Genauer gesagt ist es möglich einen Spielort auszuwählen und dort mit einer Spielfigur über den Kartenausschnitt zu laufen, sowie mit einer weiteren Spielfigur zu interagieren.
+Im Rahmen des SWT-Praktikums wird ein kartenbasiertes Multiplayerspiel entwickelt, das es ermöglicht, ein an das alte Pacman angelehnte Computerspiel auf einem realen Kartenausschnitt zu spielen. Die entstehenden Highscores werden dann zu den jeweiligen Karten gespeichert um sich mit anderen Spielern messen zu können.
 
 
 \section{Produktübersicht}
 Der Nutzer kann online über die Spiele-Website auf das Programm zugreifen.
-Dabei stehen dem Nutzer ein Suchfeld zum finden der gewünschten Spielumgebung zur Verfügung, die Möglichkeit die Spielfigur zurück zusetzen und die Lautstärke über einen Regler anzupassen. \\
-Hat man den Ort ausgewählt, kommt eine weitere Spielfigur (der Geist) ins Spiel, die sich zufallsgeneriert über die Karte bewegt. \\
-Man kann die Spielfigur, den Pucman, nun steuern und wenn man es schafft mit Pucman den Geist einzufangen, wird ein Geräusch ausgelöst. \\
-Während des Spielens werden die Möglichkeiten zur Veränderung der Kartenansicht deaktiviert um sicherzustellen, dass der Spieler sich nicht unabsichtlich vom Spielgeschehen entfernen kann. \\
-Das ganze Spielgeschehen ist durch einen Soundtrack unterlegt, der eine  funktionale und inhaltliche Verbindung zwischen Bild und Musik  generiert. \\
-Desweiteren befinden sich bereits Platzhalter für den späteren Highscore, die verbleibende Anzahl an Leben und die Möglichkeit direkt auf die Website des Spiels zugreifen zu können.
+Dabei stehen dem Nutzer ein Suchfeld zum finden der gewünschten Spielumgebung zur Verfügung, wobei nur Städte ab einer bestimmten größe zugelassen sind, damit auf jedenfall eine spielbare Karte erstellt werden kann. Ebenfalls ist es möglich Spielorte über die Highscoreliste auswählen zu können. Desweiteren besteht die Möglichkeit die Spielfigur zu resetten und die Lautstärke über einen Regler anzupassen.
+Hat man den Ort ausgewählt, wird das Spielfeld erzeugt und man kann ein neues Spiel beginnen. 
+
+Man kann den Pucman nun mit Hilfe der Pfeiltasten steuern.
+Es gibt unterschiedliche Geister, die durch ihr aussehen unterschieden werden können und sich anhand verschiedener Logiken bewegen. Fängt ein Geist den Spieler so wird dieser auf seinen Ausgangspunkt zurück gesetzt und die Anzahl seiner Leben wird um eins verringert. Falls keine Leben mehr übrig waren wird das Spiel beendet und der erreichte Highscore zusammen mit der Karten URI und dem Namen des Spielers abgespeichert
+
+Während des Spielens werden die Möglichkeiten zur Veränderung der Kartenansicht  deaktiviert. Das Spielgeschehen ist durch einen Soundtrack unterlegt, der eine funktionale und inhaltliche Verbindung zwischen Bild und Musik generiert.
+Desweiteren werden spielwichtige Informationen wie aktueller Highscore, die verbleibende Anzahl an Leben und die Möglichkeit direkt auf die Website des Spiels zugreifen zu können angezeigt.
 \clearpage
 \section{Grundsätzliche Struktur- und Entwurfsprinzipien}
-Als grundsätzliche Programmiersprache haben wir uns für Java-Script entschieden. Wobei der Java-Scriptcode von einer html-Seite aufgerufen wird. Vielleicht nehmen  wir auch Phaser. \\
-Die von uns umgesetzte Web-Anwendung basiert auf einer Client-Server Architektur. Wir arbeiten also mit einem Html-Server auf dem die Daten liegen, die vom Client abgefragt und an diesen übertragen werden. Diese Daten beinhalten auch den Gameblock, der dann vom Client ausgeführt wird. Darüber hinaus arbeiten wir mit der Googlemaps API, die alle wichtigen Funktionen zur Manipulation der Karte zur Verfügung stellt.\\
+Als grundsätzliche Programmiersprache haben wir uns für Java-Script entschieden. Wobei der Java-Scriptcode von einer HTML-Seite aufgerufen wird. Desweiteren benutzen wir Phaser als Gameframework.
+
+Die von uns umgesetzte Web-Anwendung basiert auf einer Client-Server Architektur. Wir arbeiten also mit einem HTML-Server auf dem die Daten liegen, die vom Client abgefragt und an diesen übertragen werden. Diese Daten beinhalten auch den Gameblock, der dann vom Client ausgeführt wird. Darüber hinaus arbeiten wir mit der Googlemaps API, die alle wichtigen Funktionen zur Manipulation der Karte zur Verfügung stellt. Außerdem gibt es noch ein Map-Module, welches das Level aus den Geo-Daten erstellt, die mithilfe der Linked Geo Data API von OpenStreetMaps bezogen werden. Dazu kommt das Highscore-Module, welches für die Verwaltung der Highscores verantwortlich ist. Desweiteren kommt noch ein Datenserver hinzu, der die Highscores unter Verwendung eines Tripplestores speichert.\\
 \begin{figure}[htb]
   \centering
   \includegraphics[scale=0.4]{arch.png}
-%\caption{der rote Punkt bezeichnet unser gesuchtes Teilwort}
+%\caption{}
   \label{PNFs}
 \end{figure} 
 
 
 
 \section{Struktur- und Entwurfsprinzipien der einzelnen Pakete}
-\subsection{Server} Vom Server werden die benötigten Spieldatein zur Verfügung gestellt und automatisch geladen.
+\subsection{Server} Vom Server werden die benötigten Spieldateien zur Verfügung gestellt und automatisch geladen. Desweiteren werden Highscoreanfragen und Manipulationen zwischen dem Dataserver und dem Client verarbeitet und anschließend weitergeleitet.
 
-\subsection{Client - Gameblock}
-Der Gameblock wird an das Model-View-Controller Prinzip angelehnt, welches durch die Nutzung von Phaser umgesetzt wird. \par\bigskip
-\begin{figure}[htb]
-  \centering
-  \includegraphics[scale=0.2]{mvc.jpg}
-%\caption{der rote Punkt bezeichnet unser gesuchtes Teilwort}
-  \label{PNFs}
-\end{figure} 
+\subsection{Client}
+Der Gameblock wird an das Model-View-Controller Prinzip angelehnt, welches durch die Nutzung von Phaser umgesetzt wird. \bigskip
 
-%\clearpage 
+Das Modell (model) enthält die darzustellenden Daten und ist von Präsentation und Steuerung unabhängig.\bigskip
 
+Die Präsentationsschicht (view) ist für die Darstellung der benötigten Daten aus dem Modell und die Entgegennahme von Benutzerinteraktionen zuständig.\bigskip
 
+Die Steuerung (controller) verwaltet die Präsentation, nimmt von ihr Benutzeraktionen entgegen, wertet diese aus und agiert entsprechend.\bigskip
 
-\textbf{Modell (model)} \\
-Das Modell enthält die darzustellenden Daten und ist von Präsentation und Steuerung unabhängig. Das Modell ist das zu beobachtende Subjekt.\\
+Das Highscore Module verwaltet die Highscores der Spieler, d.h. es stellt Anfragen an den Server zum Triplestore und kann sie über den Server auch abfragen, falls sie im Spiel angezeigt werden sollen.\bigskip
 
-\par\bigskip \par\bigskip
-\textbf{Präsentation (view)} \\
-Die Präsentationsschicht ist für die Darstellung der benötigten Daten aus dem Modell und die Entgegennahme von Benutzerinteraktionen zuständig. Sie kennt sowohl ihre Steuerung als auch das Modell, dessen Daten sie präsentiert, ist aber nicht für die Weiterverarbeitung der vom Benutzer übergebenen Daten zuständig. \\
+Die Linked GeoData API extrahiert aus OpenStreetMap die Geo-Daten für das Erstellen des Spiel-Levels.\bigskip
 
-\par\bigskip \par\bigskip
-\textbf{Steuerung (controller)} \\
-Die Steuerung verwaltet die Präsentation, nimmt von ihr Benutzeraktionen entgegen, wertet diese aus und agiert entsprechend. Die Steuerung sorgt dafür, dass Benutzeraktionen wirksam werden, z. B. durch Änderung der Präsentation (z. B. Richtungsänderung von Pucman) oder  durch Weiterleiten an das Modell (z. B. Übernahme von Eingabedaten oder  Auslösen von Verarbeitungen). Die Steuerung beschränkt sich darauf Benutzereingaben (Daten und Methodenaufrufe) von der Präsentation an das Modell weiterzuleiten und enthält weiterhin Mechanismen, um die Benutzerinteraktionen der Präsentation einzuschränken.
+Das Map Module besteht zum Einen aus dem Map Creator Module, welches lediglich den Graphen des Levels aus den Straßenzügen bildet, und zum Anderen aus dem Map Enricher Module, welches semantische Daten in die Kartenerstellung mit einbindet (z.B. Krankenhäuser, etc.). Das Map Module arbeitet mit den Geo-Daten die von der GeoData API geliefert werden.
 
 \subsection{Google Maps API}
 
-Das Herzstück der Anwendung ist die Googlemaps Api, die das Anzeigen der Karte  übernimmt.\\
-Die folgenden integrierten Steuerelemente sind bei der Suche nach einem geeigneten Spielort verfügbar, danach werden die Elemente deaktiviert um einen flüssigen Spielbetrieb zu gewährleisten. \par\bigskip
-Das \textbf{Zoomsteuerelement} zeigt für große Karten einen Schieberegler und für kleine Karten kleine Schaltflächen "+" und "-" an, damit die Zoomstufe der Karte gesteuert werden kann. Dieses Steuerelement wird auf berührungslosen Geräten standardmäßig links oben auf der Karte angezeigt bzw. unten links auf Geräten mit Berührungssteuerung.\par\bigskip
-Das \textbf{Kartentyp-Steuerelement} ermöglicht das Umschalten zwischen Kartentypen, wie z. B. ROADMAP und SATELLITE. Dieses Steuerelement wird standardmäßig rechts oben auf der Karte angezeigt.\par\bigskip
-Das \textbf{Schwenksteuerelement} zeigt Schaltflächen zum Schwenken der Karte an. Dieses Steuerelement wird auf berührungslosen Geräten standardmäßig links oben auf der Karte  angezeigt. Mit dem Schwenksteuerelement können Sie 45$^\circ$ -Bildmaterial drehen, sofern verfügbar.
-
+Das Herzstück der Anwendung ist die Googlemaps API, die das Anzeigen der Karte sowie das Suchen des eingegebenen Ortes übernimmt.
+Die integrierten Steuerelemente sind bei der Suche nach einem  geeigneten Spielort verfügbar, danach werden die Elemente deaktiviert um  einen flüssigen Spielbetrieb zu gewährleisten.
 
 \section{Datenmodell}
-Für das Vorprojekt benutzen wir keine Daten, mit außnahme der Sound- und Bild-Dateien, welche sich auf dem Server befinden, und der Karte, die uns die Google Maps API liefert.
+
+\begin{figure}[htb]
+  \centering
+  \includegraphics[scale=0.5]{Architecture.png}
+  \label{PNFs}
+\end{figure} 
 
 \section{Testkonzept}
-Alle nötigen Funktionen werden von der Google Maps Api bereitgestellt.
-Aufgrund des einfachen Programmaufbaus verzichten wir daher für das Vorprojekt auf ein besonderes Testkonzept und führen stattdessen manuelle Tests in Hinsicht auf die Funktionalität durch.
+Jasmine ist eine freie Modultest-Bibliothek für JavaScript. Jasmine ist praktisch, da sie auf jeder JavaScript-fähigen Plattform ausführbar ist und keine Anpassung des Prüfsystems erfordert. Es ist eine sehr einfach gehaltene Testsprache und dadurch auch einfach lesbar
 \section{Glossar}
 Das Glossar wurde überarbeitet und als externes Dokument angefügt.
-Die folgenden Begriffe und Konzepte wurden aufgenommen: \\
-Jasmine, JamJS, Bower, HTML, CSS, Google Maps API, MVC, Versionskontrollsystem, KML Layer, Client, Server, Phaser, Open-Source.
 \end{document}
