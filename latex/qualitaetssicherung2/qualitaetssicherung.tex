@@ -1,0 +1,105 @@
+\documentclass[11pt,a4paper]{article}
+%\usepackage{beamerarticle}
+
+%\usefonttheme[onlymath]{serif}
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{tikz}
+\usetikzlibrary{positioning, arrows}
+\usepackage{listings}
+\usepackage{fancybox}
+\usepackage{color}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\usepackage{verbatim}
+\pagestyle{fancy}
+\lhead{\today}
+\rhead{Jonathan Haller}
+\chead{Gruppe: swp15.gkp}
+%\cfoot{center of the footer!}
+\renewcommand{\headrulewidth}{0.8pt}
+%\renewcommand{\footrulewidth}{0.4pt}
+
+\usepackage{pifont}% http://ctan.org/pkg/pifont
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\ding{55}}%
+
+\begin{document}
+\center { \huge  \textbf{Qualitätssicherungskonzept}} \\
+
+\tableofcontents
+
+\flushleft
+\section{Vorbemerkung}
+Dieses Qualitätssicherungskonzept ist eine Überarbeitete Version des ursprünglich abgegebenen Konzepts.
+\section{Qualitätsanforderungen}
+(keine Veränderung)\\
+Die folgenden Qulaitätsanforderungen werden in unserem Projekt angestrebt:
+\begin{center}
+    \begin{tabular}{ | l | c | c | c | c | c | c | c | }
+    \hline
+     Produktqualität & Relevant & Nicht relevant \\ \hline
+	 Funktionalität   & \cmark & \\ \hline
+	 Zuverlässigkeit  &  & \cmark  \\ \hline	
+	 Benutzbarkeit & \cmark &  \\ \hline
+	 Effizienz & & \cmark  \\ \hline
+	 Änderbarkeit &  \cmark &  \\ \hline
+	 Übertragbarkeit &  \cmark & \\ \hline
+	 
+    \end{tabular}
+\end{center}
+\textbf{Begründung} \\
+In unserem Projekt wollen wir mithilfe eines agilen Vorgehensmodels eine Webapplikation erschaffen, in der mithilfe von Georealdaten ein einfaches Spielprinzig verwirklicht wird. 
+Dementsprechend liegt das Hauptaugenmerk auf der Funktionalität und der Benutzbarkeit.
+Das von uns Entwickelte Spiel sollte spielbar sein und im Optimalfall auch noch Spass machen.
+Alles was im Hintergrund passiert ist nicht relevant, solange das Spiel flüssig funktioniert.
+Falls es Abstürze geben sollte, ist das natürlich ärgerlich, jedoch gehen keine wirklich wichtigen Daten verloren, was die Zuverlässigkeit in den Hintergrund stellt.
+
+Da wir mit Geodaten arbeiten, diese mithilfe von SPARQL Anfragen aus der GeoDatenbank ziehen und genau diese Operationen zu Latenzen führen kann, ist für uns an diesem Punkt wichtig, dass die Anzahl der Anfragen, als auch die Komplexität der Anfragen möglichst gering gehalten wird.
+Da es aber nicht um riesige Datenmengen geht, sollte auf die Effizienz kein übermäßig großes Augenmerk gelegt werden, solange das Spiel spielbar bleibt.
+
+Die Übertragbarkeit ist relevant, da wir im Vorprojekt einen Teil der Software entwickeln, der auch für andere Spielkonzepte, als das vorn uns Angestrebte, wiederverwendet werden kann.
+Zumindest dieser Teil soll übertragbar, als auch änderbar sein.
+
+
+
+
+\section{Dokumentationskonzept}
+
+Unser Dokumentationskonzept beschreibt die Vorgehensweise bei der Dokumentation des Quelltextes und anderer anfallender Aufgaben. Eine gute Dokumentation verkürzt die Einarbeitungszeit projektfremder Entwickler in den Quellcode und erleichtert damit die Wartung und Weiterentwicklung der Software. Sie trägt ebenfalls wesentlich zur Qualität eines Softwareproduktes bei. Ohne programmbezogene Dokumentation ist der Zweck des Programms nicht problemlos erkennbar. Eine Dokumentation unserer Arbeit dient weiterhin dazu, Fehler zu dokumentieren und einen Überblick über den Arbeitsaufwand darzustellen.
+
+\subsection{Programmierstandards}
+
+Wir halten uns grundätzlich bei unserem Programmiercode an die Sun-Java-Codeconventions von 1997, zu finden unter \url{www.oracle.com/technetwork/java/codeconventions-150003.pdf}. Nach eingehender Prüfung haben wir bisher keine Notwendigkeit gefunden, hieran projektspezifische Ausnahmen oder Änderungen vorzunehmen. Sollte dies später noch notwendig sein, werden wir dies an geeigneter Stelle dokumentieren.
+Da wir auch andere Programmiersprachen benutzen werden, ist es weiterhin notwenig auch dafuer Coding Standards zu definieren. An dieser stelle möchten wir das zunächst nur konkret für Java Script tun, dafür werden wir diese Code-Conventions nutzen:  \url{http://javascript.crockford.com/code.html}. Das Vorgehen wird hierbei analog zu Java sein. Sollten wir andere Programmiersprachen verwenden, werden wir versuchen die Sun Java Coding conventions analog zu verwenden, und etwaige notwenige Änderungen sinnvoll dokumentieren.
+
+\subsection{Quelltextdokumentation}
+
+Die von uns genutzen Programmierstandards beinhalten auch Standards zur Dokumentation des Quelltextes. So müssen Funktionen dokumentiert sein, und sollten auch einezlne Schritte innerhalb der Funktionen beschrieben sein. Da wir grundätzlich auch immer sprechende Variablen in der sogenannten Camel-Case Schreibweise nutzen, sollte auch fuer externe Programmierer der Programmcode gut lesbar sein. Nach Möglichkeit wird auch eine Dokumentation exportiert.
+
+\subsection{Beispielcode}
+
+\begin{figure}[htb]
+  \centering
+  \includegraphics[scale=0.3]{Unbenannt.jpg}
+%\caption{hier wird anhand von code gezeigt auf welchen Standard wir uns geeinigt haben}
+  \label{PNFs}
+\end{figure} 
+
+
+%\subsection{Bespielcode}
+
+\section{Testkonzept}
+
+Zum Testen der einzelnen Klassen und Komponenten, kommt bei uns das Framework JUnit (für Java) bzw. JSUnit (für JavaScript) zum Einsatz. Da unser Ziel fehlerarmer Code ist, werden wir usneren Erzeugten Code laufend prüfen um auf etwaige Fehler immer schnellstmöglich aufmerksam zu werden. 
+Die folgende genauere Erklaerung für JUnit gilt analog so auch für JSUnit.
+Da JUnit komplett in Java geschrieben ist, kann es alle sprachspezifischen Aspekte testen. Ein weiterer Vorteil von JUnit liegt darin, dass ein ausgereiftes Plug-in für die allermeisten bekannten IDEs existiert. Funktionsweise der Testumgebung: Es wird eine Funktion geschrieben, die einen Test auslöst. Dieser Test ist entweder grün oder rot. Sollte der Test rot sein, wird der auslösende Fehler genauestmöglich angezeigt. Diese Tests kann man manuell auslösen, oder in bestimmten Intervallen oder nach bestimmten Änderungen auslösen. So stellen wir sicher dass nichts implementiert wird, was nicht auch getestet ist. Während des Programmierens sollten die Fehler und die Fehlerbehandlung dokumentiert werden.
+Im späteren Verlauf, sobald das Spiel lauffähig ist, müssen Tests derart durchgeführt werden, dass tatsächliches Spielen simuliert wird. Die dabei gefundenen Fehler werden dokumentiert. Der Tester führt darüber Protokoll welche Fehler auftreten. Ein Fehlerbehandler wird die Fehler im Programmcode suchen und behandeln. Die Fehlerbehandlung sollte ebenfalls dokumentiert werden, damit der nächste identische Fehler schneller behandelt werden kann. 
+
+\section{Organisatorische Festlegungen}
+
+Es findet jede Woche an einem neu festzulegenden Termin ein Teamtreffen mit dem Auftraggeber und Betreuer statt. Dabei analysieren wir die aktuellen Aufgabenstellungen, verteilen die Aufgaben auf die Teammitglieder und haben die Möglichkeit mit dem Auftraggeber und/oder dem Betreuer Rücksprache zu halten. Nach Bedarf halten wir außerhalb dieser Treffen weitere Meetings ab um offene Fragen zu klären oder gemeinsam an Aufagben zu arbeiten. Die Koordination der Aufgaben organisieren wir mit Hilfe von trello (\url{https://trello.com/b/O1FKsQ6W/homepage}). Die Kommunikation untereinander läuft ebenfalls über trello sowie per telegram-chat oder per Mail. Dokumente an denen wir arbeiten, speichern und teilen wir mit Hilfe von GitHub. Vorteilhaft an dieser Methode ist weiterhin, die dezentrale Speicherung der Dokumente. Der Quelltext den wir erstellen, wird ebenfalls per dezentralem Versionsverwaltungssystem git gespeichert und verteilt. Das hilft auch bei der Überprüfung der einzuhaltenden Coding-Standards und Dokumentatiosanforderungen.
+
+
+\end{document}

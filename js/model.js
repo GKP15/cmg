@@ -62,29 +62,29 @@ var audioOuch;
  * Gameloop
  * frame, zeitabstand zwischen zwei spielbewegungen
 */
-var ONE_FRAME_TIME = 1000 / 2 ;
+var ONE_FRAME_TIME = 1000 / 2;
 
 /** 
  * mainloop wird alle ONE_FRAME_TIME aufgerufen
  * zuerst werden alle spielveraenderungen berechnet, danach wird gemalt
 */
-var mainloop = function() {
-        updateGame();
-        drawGame();
-    };
+var mainloop = function () {
+	updateGame();
+	drawGame();
+};
 
 /** 
  * zeitabstand zwischen den aufrufen von mainloop wird auf ONE_FRAME_TIME gesetzt
  *  @param mainloop funktion die wiederholt aufgerufen werden soll
  *  @param ONE_FRAME_TIME intervall zwischen den aufrufen
  */
-setInterval( mainloop, ONE_FRAME_TIME );
+setInterval( mainloop, ONE_FRAME_TIME);
 
 /** berechnet alle veraenderungen im spiel(bewegung von pucman) */
 function updateGame() {
         goPucman(key);
         goGhost();
-        checkCollision(pucman,ghost);
+        checkCollision(pucman, ghost);
 }
 
 /** 
@@ -100,7 +100,7 @@ function drawGame() {
  *  @param playerOne: spieler dessen position verglichen werden soll
  *  @param playerTwo: spieler dessen position verglichen werden soll
  */
-function checkCollision(playerOne,playerTwo) {
+function checkCollision(playerOne, playerTwo) {
         if (playerOne.getPosition().lat() == playerTwo.getPosition().lat() 
         		&& playerOne.getPosition().lng() == playerTwo.getPosition().lng()) {
                 	audioOuch.play();
