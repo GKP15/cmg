@@ -283,12 +283,6 @@ function initialize() {
         mapDiv = document.getElementById('map-canvas');
         map = new google.maps.Map(mapDiv, mapOptions);
 
-        // klm layer
-         var ctaLayer = new google.maps.KmlLayer({
-                 url: 'http://dopa.lima-city.de/pucMap.kml'
-         });
-         ctaLayer.setMap(map);
-
         //init audio
         audio = new Audio('resources/test.mp3');
 		audio.loop = true;
