@@ -15,7 +15,7 @@
 \usepackage{verbatim}
 \pagestyle{fancy}
 \lhead{\today}
-\rhead{Formatiert von: PP}
+\rhead{Jonathan Haller}
 \chead{Gruppe: swp15.gkp}
 %\cfoot{center of the footer!}
 \renewcommand{\headrulewidth}{0.8pt}
@@ -31,9 +31,10 @@
 \tableofcontents
 
 \flushleft
-
+\section{Vorbemerkung}
+Dieses Qualitätssicherungskonzept ist eine Überarbeitete Version des ursprünglich abgegebenen Konzepts.
 \section{Qualitätsanforderungen}
-
+(keine Veränderung)\\
 Die folgenden Qulaitätsanforderungen werden in unserem Projekt angestrebt:
 \begin{center}
     \begin{tabular}{ | l | c | c | c | c | c | c | c | }
@@ -70,12 +71,12 @@ Unser Dokumentationskonzept beschreibt die Vorgehensweise bei der Dokumentation 
 
 \subsection{Programmierstandards}
 
-Wir halten uns grundätzlich bei unserem Programmiercode an die Sun-Java-Codeconventions von 1997, zu finden unter \url{ www.oracle.com/technetwork/java/codeconventions-150003.pdf}. Nach eingehender Prüfung haben wir bisher keine Notwendigkeit gefunden, hieran projektspezifische Ausnahmen oder Änderungen vorzunehmen. Sollte dies später noch notwendig sein, werden wir dies an geeigneter Stelle dokumentieren. Die Einhaltung der Code-Conventions stellen wir mit Hilfe des Code-Checker "checkstyle" (\url{http://checkstyle.sourceforge.net/}) sicher. Der Vorteil dieses Code-Checkers ist, dass er plattformunabhängig und unabhängig von der benutzten IDE arbeitet und als Plugin in den bekanntesten Entwicklungsumgebungen verwendbar ist.
-Da wir auch andere Programmiersprachen benutzen werden, ist es weiterhin notwenig auch dafuer Coding Standards zu definieren. An dieser stelle möchten wir das zunächst nur konkret für Java Script tun, dafür werden wir diese Code-Conevntions nutzen: javascript: \url{http://javascript.crockford.com/code.html}. Das Vorgehen wird heirbei analog zu Java sein, auch hier werden wir einen Codechecker einsetzen der die Einhaltung der Standards überwacht. Sollten wir andere Programmiersprachen verwenden, werden wir versuchen die Sun Java Coding conventions analog zu verwenden, und etwaige notwenige Änderungen sinnvoll dokumentieren.
+Wir halten uns grundätzlich bei unserem Programmiercode an die Sun-Java-Codeconventions von 1997, zu finden unter \url{www.oracle.com/technetwork/java/codeconventions-150003.pdf}. Nach eingehender Prüfung haben wir bisher keine Notwendigkeit gefunden, hieran projektspezifische Ausnahmen oder Änderungen vorzunehmen. Sollte dies später noch notwendig sein, werden wir dies an geeigneter Stelle dokumentieren.
+Da wir auch andere Programmiersprachen benutzen werden, ist es weiterhin notwenig auch dafuer Coding Standards zu definieren. An dieser stelle möchten wir das zunächst nur konkret für Java Script tun, dafür werden wir diese Code-Conventions nutzen:  \url{http://javascript.crockford.com/code.html}. Das Vorgehen wird hierbei analog zu Java sein. Sollten wir andere Programmiersprachen verwenden, werden wir versuchen die Sun Java Coding conventions analog zu verwenden, und etwaige notwenige Änderungen sinnvoll dokumentieren.
 
 \subsection{Quelltextdokumentation}
 
-Die von uns genutzen Programmierstandards beinhalten auch Standards zur Dokumentation des Quelltextes. So muessen Funktionen dokumentiert sein, und sollten auch einezlne Schritte innerhalb der Funktionen beschrieben sein. Da wir grundätzlich auch immer sprechende Variablen in der sogenannten Camel-Case Schreibweise nutzen, sollte auch fuer externe Programmierer der Programmcode gut lesbar sein. Nach Möglichkeit wird auch eine Dokumentation exportiert.
+Die von uns genutzen Programmierstandards beinhalten auch Standards zur Dokumentation des Quelltextes. So müssen Funktionen dokumentiert sein, und sollten auch einezlne Schritte innerhalb der Funktionen beschrieben sein. Da wir grundätzlich auch immer sprechende Variablen in der sogenannten Camel-Case Schreibweise nutzen, sollte auch fuer externe Programmierer der Programmcode gut lesbar sein. Nach Möglichkeit wird auch eine Dokumentation exportiert.
 
 \subsection{Beispielcode}
 
@@ -92,13 +93,13 @@ Die von uns genutzen Programmierstandards beinhalten auch Standards zur Dokument
 \section{Testkonzept}
 
 Zum Testen der einzelnen Klassen und Komponenten, kommt bei uns das Framework JUnit (für Java) bzw. JSUnit (für JavaScript) zum Einsatz. Da unser Ziel fehlerarmer Code ist, werden wir usneren Erzeugten Code laufend prüfen um auf etwaige Fehler immer schnellstmöglich aufmerksam zu werden. 
-Die folgende geneuere Erklaerung für JUnit gilt analog so auch für JSUnit.
+Die folgende genauere Erklaerung für JUnit gilt analog so auch für JSUnit.
 Da JUnit komplett in Java geschrieben ist, kann es alle sprachspezifischen Aspekte testen. Ein weiterer Vorteil von JUnit liegt darin, dass ein ausgereiftes Plug-in für die allermeisten bekannten IDEs existiert. Funktionsweise der Testumgebung: Es wird eine Funktion geschrieben, die einen Test auslöst. Dieser Test ist entweder grün oder rot. Sollte der Test rot sein, wird der auslösende Fehler genauestmöglich angezeigt. Diese Tests kann man manuell auslösen, oder in bestimmten Intervallen oder nach bestimmten Änderungen auslösen. So stellen wir sicher dass nichts implementiert wird, was nicht auch getestet ist. Während des Programmierens sollten die Fehler und die Fehlerbehandlung dokumentiert werden.
 Im späteren Verlauf, sobald das Spiel lauffähig ist, müssen Tests derart durchgeführt werden, dass tatsächliches Spielen simuliert wird. Die dabei gefundenen Fehler werden dokumentiert. Der Tester führt darüber Protokoll welche Fehler auftreten. Ein Fehlerbehandler wird die Fehler im Programmcode suchen und behandeln. Die Fehlerbehandlung sollte ebenfalls dokumentiert werden, damit der nächste identische Fehler schneller behandelt werden kann. 
 
 \section{Organisatorische Festlegungen}
 
-Es findet jede Woche Donnerstags um 11 Uhr ein Teamtreffen mit dem Auftraggeber und Betreuer statt. Dabei analysieren wir die aktuellen Aufgabenstellungen, verteilen die Aufagben auf die Teammitglieder und haben die Möglichkeit mit dem Auftraggeber und/oder dem Betreuer Rücksprache zu halten. Nach Bedarf halten wir außerhalb dieser Treffen weitere Meetings ab um offene Fragen zu klären oder gemeinsam an Aufagben zu arbeiten. Die Koordination der Aufgaben organisieren wir mit Hilfe von trello (\url{https://trello.com/b/O1FKsQ6W/homepage}). Die Kommunikation untereinander läuft ebenfalls über trello sowie per xmpp-chat und per Mail. Dokumente an denen wir arbeiten, erstellen wir per PiratePad, so dass jedes Teammitglied jederzeit sieht wie der Fortschirtt ist, und jeder mithelfen kann einzelne Dokumente zu erstellen. Vorteilhaft an dieser Methode ist weiterhin, die dezentrale Speicherung der Dokumente. Der Quelltext den wir erstellen, wird per dezentralem Versionsverwaltungssystem git gespeichert und verteilt. Das hilft auch bei der Überprüfung der einzuhaltenden Coding-Standards und Dokumentatiosanforderungen.
+Es findet jede Woche an einem neu festzulegenden Termin ein Teamtreffen mit dem Auftraggeber und Betreuer statt. Dabei analysieren wir die aktuellen Aufgabenstellungen, verteilen die Aufgaben auf die Teammitglieder und haben die Möglichkeit mit dem Auftraggeber und/oder dem Betreuer Rücksprache zu halten. Nach Bedarf halten wir außerhalb dieser Treffen weitere Meetings ab um offene Fragen zu klären oder gemeinsam an Aufagben zu arbeiten. Die Koordination der Aufgaben organisieren wir mit Hilfe von trello (\url{https://trello.com/b/O1FKsQ6W/homepage}). Die Kommunikation untereinander läuft ebenfalls über trello sowie per telegram-chat oder per Mail. Dokumente an denen wir arbeiten, speichern und teilen wir mit Hilfe von GitHub. Vorteilhaft an dieser Methode ist weiterhin, die dezentrale Speicherung der Dokumente. Der Quelltext den wir erstellen, wird ebenfalls per dezentralem Versionsverwaltungssystem git gespeichert und verteilt. Das hilft auch bei der Überprüfung der einzuhaltenden Coding-Standards und Dokumentatiosanforderungen.
 
 
 \end{document}
