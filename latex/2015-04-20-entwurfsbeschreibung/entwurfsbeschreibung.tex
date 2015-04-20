@@ -52,11 +52,11 @@ Desweiteren werden spielwichtige Informationen wie aktueller Highscore, die verb
 \section{Grundsätzliche Struktur- und Entwurfsprinzipien}
 Als grundsätzliche Programmiersprache haben wir uns für Java-Script entschieden. Wobei der Java-Scriptcode von einer HTML-Seite aufgerufen wird. Desweiteren benutzen wir Phaser als Gameframework.
 
-Die von uns umgesetzte Web-Anwendung basiert auf einer Client-Server Architektur. Wir arbeiten also mit einem HTML-Server auf dem die Daten liegen, die vom Client abgefragt und an diesen übertragen werden. Diese Daten beinhalten auch den Gameblock, der dann vom Client ausgeführt wird. Darüber hinaus arbeiten wir mit der Googlemaps API, die alle wichtigen Funktionen zur Manipulation der Karte zur Verfügung stellt. Außerdem gibt es noch ein Map-Module, welches das Level aus den Geo-Daten erstellt, die mithilfe der Linked Geo Data API von OpenStreetMaps bezogen werden. Dazu kommt das Highscore-Module, welches für die Verwaltung der Highscores verantwortlich ist. Desweiteren kommt noch ein Datenserver hinzu, der die Highscores unter Verwendung eines Tripplestores speichert.\\
+Die von uns umgesetzte Web-Anwendung basiert auf einer Client-Server Architektur. Wir arbeiten also mit einem HTML-Server auf dem die Daten liegen, die vom Client abgefragt und an diesen übertragen werden. Diese Daten beinhalten auch den Gameblock, der dann vom Client ausgeführt wird. Außerdem gibt es noch ein Map-Module, welches das Level aus den Geo-Daten erstellt, die mithilfe der Linked Geo Data API von OpenStreetMaps bezogen werden. Dazu kommt das Highscore-Module, welches für die Verwaltung der Highscores verantwortlich ist. Desweiteren kommt noch ein Datenserver hinzu, der die Highscores unter Verwendung eines Tripplestores speichert.\\
 \begin{figure}[htb]
   \centering
   \includegraphics[scale=0.4]{arch.png}
-%\caption{}
+\caption{Abb.1}
   \label{PNFs}
 \end{figure} 
 
@@ -80,10 +80,6 @@ Die Linked GeoData API extrahiert aus OpenStreetMap die Geo-Daten für das Erste
 
 Das Map Module besteht zum Einen aus dem Map Creator Module, welches lediglich den Graphen des Levels aus den Straßenzügen bildet, und zum Anderen aus dem Map Enricher Module, welches semantische Daten in die Kartenerstellung mit einbindet (z.B. Krankenhäuser, etc.). Das Map Module arbeitet mit den Geo-Daten die von der GeoData API geliefert werden.
 
-\subsection{Google Maps API}
-
-Das Herzstück der Anwendung ist die Googlemaps API, die das Anzeigen der Karte sowie das Suchen des eingegebenen Ortes übernimmt.
-Die integrierten Steuerelemente sind bei der Suche nach einem  geeigneten Spielort verfügbar, danach werden die Elemente deaktiviert um  einen flüssigen Spielbetrieb zu gewährleisten.
 
 \section{Datenmodell}
 
@@ -91,14 +87,16 @@ Die integrierten Steuerelemente sind bei der Suche nach einem  geeigneten Spielo
   \centering
   \includegraphics[scale=0.5]{Architecture.png}
   \label{PNFs}
+  \caption{Abb.2}
 \end{figure} 
 
-Beschreibung: \\
-$A \xlongrightarrow{\text{Datenfluß}} B $ beschreibt den Datenfluss von A nach B, wobei A und B Module Beschreibt.
+Beschreibung zu Abb.2: \\
+$A \xlongrightarrow{\text{Datenfluß}} B $ beschreibt den Datenfluss von A nach B, wobei A und B Module Softwaremodule sind.
 
 
 \section{Testkonzept}
-überarbeiten
+Das Testkonzept hat sich in der ersten Woche aus zeitlichen Gründen auf die Funtionalität der Software beschränkt. 
+
 \section{Glossar}
 Das Glossar wurde überarbeitet und als externes Dokument angefügt.
 \end{document}
