@@ -75,8 +75,8 @@ var mainloop = function () {
 
 /** 
  * zeitabstand zwischen den aufrufen von mainloop wird auf ONE_FRAME_TIME gesetzt
- *  @param mainloop funktion die wiederholt aufgerufen werden soll
- *  @param ONE_FRAME_TIME intervall zwischen den aufrufen
+ * @param mainloop funktion die wiederholt aufgerufen werden soll
+ * @param ONE_FRAME_TIME intervall zwischen den aufrufen
  */
 setInterval( mainloop, ONE_FRAME_TIME);
 
@@ -95,10 +95,10 @@ function drawGame() {
 		ghost.setPosition(newGhostPosition);
 }
 
- /**
-  *  ueberprueft ob sich zwei spieler auf dem selben laengen und breitengrad befinden, wenn ja wird eine "melodie" gespielt
- *  @param playerOne: spieler dessen position verglichen werden soll
- *  @param playerTwo: spieler dessen position verglichen werden soll
+/**
+ * ueberprueft ob sich zwei spieler auf dem selben laengen und breitengrad befinden, wenn ja wird eine "melodie" gespielt
+ * @param playerOne: spieler dessen position verglichen werden soll
+ * @param playerTwo: spieler dessen position verglichen werden soll
  */
 function checkCollision(playerOne, playerTwo) {
         if (playerOne.getPosition().lat() == playerTwo.getPosition().lat() 
@@ -133,10 +133,10 @@ function goGhost() {
 }
 
 /**
- *  wenn pucman noch nicht gesetzt wurde wird er auf die Mitte der karte gesetzt
+ * wenn pucman noch nicht gesetzt wurde wird er auf die Mitte der karte gesetzt
  * ansonsten wird je nach eingabe eine funktion aufgerufen, die pucman in die
  * entsprechende richtung bewegt
- *  @param key: taste die zuletzt gedrueckt wurde, w,a,s,d entsprechen den pfeiltasten alles andere wird auf null gesetzt
+ * @param key: taste die zuletzt gedrueckt wurde, w,a,s,d entsprechen den pfeiltasten alles andere wird auf null gesetzt
  */
 function goPucman(key) {
 	if (key != null) {
