@@ -55,7 +55,7 @@ Als grundsätzliche Programmiersprache haben wir uns für Java-Script entschiede
 Die von uns umgesetzte Web-Anwendung basiert auf einer Client-Server Architektur. Wir arbeiten also mit einem HTML-Server auf dem die Daten liegen, die vom Client abgefragt und an diesen übertragen werden. Diese Daten beinhalten auch den Gameblock, der dann vom Client ausgeführt wird. Außerdem gibt es noch ein Map-Module, welches das Level aus den Geo-Daten erstellt, die mithilfe der Linked Geo Data API von OpenStreetMaps bezogen werden. Dazu kommt das Highscore-Module, welches für die Verwaltung der Highscores verantwortlich ist. Desweiteren kommt noch ein Datenserver hinzu, der die Highscores unter Verwendung eines Tripplestores speichert.\\
 \begin{figure}[htb]
   \centering
-  \includegraphics[scale=0.4]{arch.png}
+  \includegraphics[scale=0.4]{arch_new.png}
 \caption{Abb.1}
   \label{PNFs}
 \end{figure} 
@@ -76,21 +76,18 @@ Die Steuerung (controller) verwaltet die Präsentation, nimmt von ihr Benutzerak
 
 Das Highscore Module verwaltet die Highscores der Spieler, d.h. es stellt Anfragen an den Server zum Triplestore und kann sie über den Server auch abfragen, falls sie im Spiel angezeigt werden sollen.\bigskip
 
-Die Linked GeoData API extrahiert aus OpenStreetMap die Geo-Daten für das Erstellen des Spiel-Levels.\bigskip
+Die Linked GeoData API extrahiert aus OpenStreetMap die Geo-Daten für das Erstellen der Hintergrundkarte in Abhänigkeit vom gewählten Ort.\bigskip
 
-Das Map Module besteht zum Einen aus dem Map Creator Module, welches lediglich den Graphen des Levels aus den Straßenzügen bildet, und zum Anderen aus dem Map Enricher Module, welches semantische Daten in die Kartenerstellung mit einbindet (z.B. Krankenhäuser, etc.). Das Map Module arbeitet mit den Geo-Daten die von der GeoData API geliefert werden.
+Die Overpass API extrahiert die Geo-Daten aus OpenStreetMap, die zum Hervorheben der benutzbaren Straßenzüge und zur Erstellung des Levels benutzt werden.\bigskip
+
+Das Map Module besteht zum Einen aus dem Map Creator Module, welches lediglich den Graphen des Levels aus den Straßenzügen bildet, und zum Anderen aus dem Map Enricher Module, welches semantische Daten in die Kartenerstellung mit einbindet (z.B. Krankenhäuser, etc.). Das Map Module arbeitet mit den Geo-Daten die von der GeoData API und der Overpass API geliefert werden.
 
 
 \section{Datenmodell}
 
-\begin{figure}[htb]
-  \centering
-  \includegraphics[scale=0.5]{Architecture.png}
-  \label{PNFs}
-  \caption{Abb.2}
-\end{figure} 
+Siehe Abb.1.\bigskip
 
-Beschreibung zu Abb.2: \\
+Beschreibung zu Abb.1: \\
 $A \xlongrightarrow{\text{Datenfluß}} B $ beschreibt den Datenfluss von A nach B, wobei A und B Module der Software sind.
 
 
