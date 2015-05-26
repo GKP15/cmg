@@ -4,9 +4,9 @@
 \BOOKMARK [1][-]{section.4}{Struktur- und Entwurfsprinzipien der einzelnen Pakete}{}% 4
 \BOOKMARK [2][-]{subsection.4.1}{Server}{section.4}% 5
 \BOOKMARK [2][-]{subsection.4.2}{Client}{section.4}% 6
-\BOOKMARK [3][-]{subsubsection.4.2.1}{Map Modul}{subsection.4.2}% 7
-\BOOKMARK [3][-]{subsubsection.4.2.2}{Game Modul}{subsection.4.2}% 8
-\BOOKMARK [3][-]{subsubsection.4.2.3}{Highscoremodul}{subsection.4.2}% 9
+\BOOKMARK [3][-]{subsubsection.4.2.1}{Map-Modul}{subsection.4.2}% 7
+\BOOKMARK [3][-]{subsubsection.4.2.2}{Game-Modul}{subsection.4.2}% 8
+\BOOKMARK [3][-]{subsubsection.4.2.3}{Highscore-Modul}{subsection.4.2}% 9
 \BOOKMARK [2][-]{subsection.4.3}{Bibliotheken}{section.4}% 10
 \BOOKMARK [1][-]{section.5}{Datenmodell}{}% 11
 \BOOKMARK [1][-]{section.6}{Testkonzept}{}% 12
