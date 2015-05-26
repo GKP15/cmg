@@ -39,8 +39,6 @@ Im Rahmen des SWT-Praktikums wird ein kartenbasiertes Multiplayerspiel entwickel
 \section{Produktübersicht}
 Der Nutzer kann online über die Spiele-Website auf das Programm zugreifen.
 Dabei stehen dem Nutzer ein Suchfeld zum finden der gewünschten Spielumgebung zur Verfügung, es kann auch manuell durch Scrollen über die Karte ein Spielort ausgewählt werden, wobei nur Städte ab einer bestimmten Größe zugelassen sind, damit auf jeden Fall eine spielbare Karte erstellt werden kann und die Highscore vergelichbar bleibt. 
-\textcolor{red}{Ebenfalls ist es möglich Spielorte über die Highscoreliste auswählen zu können. 
-Desweiteren besteht die Möglichkeit die Spielfigur zu resetten und die Lautstärke über einen Regler anzupassen.}
 Hat man den Ort ausgewählt, wird das Spielfeld erzeugt und man kann ein neues Spiel beginnen. 
 Man kann den Pucman nun mit Hilfe der Pfeiltasten steuern.
 Ziel des Spiels ist es den Pucman über die Karte zu steuern und die Kekse die auf der Karte verteilt liegen zu fressen. An dieser Aufgabe wollen den Spieler Geister hindern, die sich auch über das Spielfeld bewegen und Pucman fressen können. Frisst ein Geist den Spieler so wird dieser auf den Startpunkt zurückgesetzt und die Anzahl seiner Leben wird um eins verringert.
@@ -52,11 +50,15 @@ Desweiteren werden für das Spiel wichtige Informationen wie aktueller Highscore
 \clearpage
 \section{Grundsätzliche Struktur- und Entwurfsprinzipien}
 Als grundsätzliche Programmiersprache haben wir uns für Java-Script entschieden. Wobei der Java-Scriptcode von einer HTML-Seite aufgerufen wird. Desweiteren benutzen wir Phaser als Gameframework.
+
 Ein Teil der Software wurde mithilfe der Java-Script Bibliothek JQuery geschrieben, da es keine adäquaten Funktionen in Java-Script gibt. 
-Die von uns umgesetzte Web-Anwendung basiert auf einer Client-Server Architektur. Wir arbeiten also mit einem HTML-Server auf dem die Daten liegen, die vom Client abgefragt und an diesen übertragen werden. Diese Daten beinhalten auch den Gameblock, der dann vom Client ausgeführt wird. Außerdem gibt es noch ein Map-Module, welches das Level aus den Geo-Daten erstellt, die mithilfe der Linked Geo Data API von OpenStreetMaps bezogen werden. Dazu kommt das Highscore-Module, welches für die Verwaltung der Highscores verantwortlich ist. Desweiteren kommt noch ein Datenserver hinzu, der die Highscores unter Verwendung eines Tripplestores speichert.\\
+Die von uns umgesetzte Web-Anwendung basiert auf einer Client-Server Architektur. Wir arbeiten also mit einem HTML-Server auf dem die Daten liegen, die vom Client abgefragt und an diesen übertragen werden. Diese Daten beinhalten auch den Gameblock, der dann vom Client ausgeführt wird. Außerdem gibt es noch ein Map-Module, welches das Level aus den Geo-Daten erstellt, die mithilfe der Linked Geo Data API von OpenStreetMaps bezogen werden. Dazu kommt das Highscore-Module, welches für die Verwaltung der Highscores verantwortlich ist.
+
+
+Desweiteren kommt noch ein Datenserver hinzu, der die Highscores unter Verwendung eines Tripplestores speichert.\\
 \begin{figure}[htb]
   \centering
-  \includegraphics[scale=0.4]{arch_new.png}
+  \includegraphics[scale=0.6]{dia_2.png}
 \caption{Architekur}
   \label{arch}
 \end{figure} 
@@ -67,24 +69,46 @@ Die von uns umgesetzte Web-Anwendung basiert auf einer Client-Server Architektur
 \subsection{Server} Vom Server werden die benötigten Spieldateien zur Verfügung gestellt und automatisch geladen. Desweiteren werden Highscoreanfragen und Manipulationen zwischen dem Dataserver und dem Client verarbeitet und anschließend weitergeleitet.
 
 \subsection{Client}
-Der Gameblock wird an das Model-View-Controller Prinzip angelehnt, welches durch die Nutzung von Phaser umgesetzt wird. \bigskip
+\subsubsection{Map Modul}
+Die Linked GeoData API extrahiert aus OpenStreetMap die Geo-Daten für das Erstellen der Hintergrundkarte in Abhänigkeit vom gewählten Ort.\\
+Die Overpass API extrahiert die Geo-Daten aus OpenStreetMap, die zum Hervorheben der benutzbaren Straßenzüge und zur Erstellung des Levels benutzt werden.\\
+Die Datei \textbf{Graph.js} sorgt dafür, dass aus den Geo-Daten von OpenSteetMap weiterverarbeitet werden.
+Die Erstellung des Spielgraphen ist in dieser Software, der aufwendigste Teil. \\
+Durch eine Vorselektierung durch eine angepasste Query für die Overpass API werden die ersten Straßenzüge entfernt, wenn diese bestimmte Kriterien nicht erfüllen, so wurden z.B. Fußwege, Fahhradwege, aber auch Treppen entfernt, da das Straßennetz ansonsten nicht verwendbar gewesen wäre. \\
+Auf dem bereitgestellten Graphen, werden nun verschieden Graphtheoretische Algorithmen angewendet um das Ergebnis spielbar zu machen. \\
+Es wird der größte zusammenhängende Teilgraph gesucht, dieser in eine eigene Datenstruktur überführt, und eine Interpolation gestartet, die zwischen den Knoten des Graphens die fehlenden Pixel setzt, s.d. die Spielfigur, sich über ein Netzt aus Pixeln bewegen kann, die eine bestimmte Dichte ausweisen.
+\subsubsection{Game Modul}
+Der Gameblock wird an das Model-View-Controller Prinzip angelehnt, welches durch die Nutzung von Phaser umgesetzt wird. 
+Phaser übernimmt für uns die Eingabe und Ausgabeverarbeitung und stellt den Gameloop zur Verfügung, dies ist eine Schleife, die währen des Spielablaufs immer wieder durchlaufen wird.
+Dabei werden im wesentlichen zwei Dinge ausgeführt:
+Die Update-Methode, enthält: Tastatur- und Mauseingabe, Bewegung, Kollisionserkennung, ... \\
+Die Render-Methode, enthält: Anzeige aller Sprites an den neuen Positionen, Hintergrund animieren, ... \\
+Die Game Loop wird abgebrochen, wenn das Spiel beendet wird.
+\par\bigskip
+{\flushleft \textbf{Interface.js}} \\
+In diesem Modul wird die Schnittstelle zum Benutzer definiert.
+So werden hier z.B. Knöpfe und Anzeigen, die dem Benutzer Informationen über den aktuellen Spielstand liefern, bzw. diese Abrufbar machen erstellt.
+Die Schnittstelle ist der Teil eines Systems, welcher der Kommunikation dient. \par\bigskip
+{\flushleft \textbf{Load.js}} \\
+Zeigt einen neuen Ladescreen, während die Karte lädt. \par\bigskip
+{\flushleft \textbf{Game.js}} \\
+Stellt den Gameloop dar. \par\bigskip
+{\flushleft\textbf{Character.js}} \\
+In diesem Modul wird die Speilfigur, also der Pucman definiert.
 
-Das Modell (model) enthält die darzustellenden Daten und ist von Präsentation und Steuerung unabhängig.\bigskip
-
-Die Präsentationsschicht (view) ist für die Darstellung der benötigten Daten aus dem Modell und die Entgegennahme von Benutzerinteraktionen zuständig.\bigskip
-
-Die Steuerung (controller) verwaltet die Präsentation, nimmt von ihr Benutzeraktionen entgegen, wertet diese aus und agiert entsprechend.\bigskip
-
-Das Highscore Module verwaltet die Highscores der Spieler, d.h. es stellt Anfragen an den Server zum Triplestore und kann sie über den Server auch abfragen, falls sie im Spiel angezeigt werden sollen.\bigskip
-
-Die Linked GeoData API extrahiert aus OpenStreetMap die Geo-Daten für das Erstellen der Hintergrundkarte in Abhänigkeit vom gewählten Ort.\bigskip
-
-Die Overpass API extrahiert die Geo-Daten aus OpenStreetMap, die zum Hervorheben der benutzbaren Straßenzüge und zur Erstellung des Levels benutzt werden.\bigskip
-
-Das Map Module besteht zum Einen aus dem Map Creator Module, welches lediglich den Graphen des Levels aus den Straßenzügen bildet, und zum Anderen aus dem Map Enricher Module, welches semantische Daten in die Kartenerstellung mit einbindet (z.B. Krankenhäuser, etc.). Das Map Module arbeitet mit den Geo-Daten die von der GeoData API und der Overpass API geliefert werden.
-Innerhalb dieses Moduls kommen auch Funktionen der  JQuery Bibliothek zum Einsatz.
-
-
+\subsubsection{Highscoremodul}
+Das Highscore Module verwaltet die Highscores der Spieler, d.h. es stellt Anfragen an den Server zum Triplestore und kann sie über den Server auch abfragen, falls sie im Spiel angezeigt werden sollen.
+Die Highscores werden in einem Tripelstore gespeichert, welche mithilfe von SPARQL Queries abgefragt werden, bzw. durch  SPARQL Update Methoden in die Datenbank eingepflegt werden.
+\subsection{Bibliotheken}
+{\flushleft \textbf{Cytoscape.js}} \\
+Diese Bibliothek wird von dem Map Modul benötigt um die Graphalgorithmen auszuführen. In der Bibiothek sind bereits viele Algorithmen enthalten.
+{\flushleft \textbf{JQuery.js}} \\
+Diese Bibliothek wurde vor allem benötigt um Http Anfragen zu realisieren.
+{\flushleft \textbf{OsmtoGeoJson.js}} \\
+Diese Bibliothek wird auch von dem Map Modul benötigt, um Geodaten aus dem OSM Format in das GeoJson Format zu übertragen. 
+{\flushleft \textbf{Phaser.js}} \\
+Wie betreits erwähnt stellt Phaser als Gameframework einen sehr wichtigen Teil unseres Projektes dar, die Bibliothek stellt alle Funktionen zur Verfügung die man als Spieleentwickler benötigt um einen flüssigen Spielefluß, eine Eingabe- und Ausgabeverarbeitung etc. 
+zu haben. 
 \section{Datenmodell}
 
 Siehe Abbildung \ref{arch}.\bigskip

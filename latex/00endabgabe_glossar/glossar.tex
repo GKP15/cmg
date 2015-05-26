@@ -22,11 +22,11 @@
 %\renewcommand{\footrulewidth}{0.4pt}
 
 \begin{document}
-\center \large Universität Leipzig - Softwaretechnik Praktikum 2014/2015\\
-\center \Huge Glossar \\
+{\center \large Universität Leipzig - Softwaretechnik Praktikum 2014/2015\\}
+{\center \Huge Glossar \\}
 \par\bigskip
 
-\small zum Projekt: Ein kartenbasiertes “Multiplayer”-Spiel
+{\small zum Projekt: Ein kartenbasiertes “Multiplayer”-Spiel}
 
 \par\bigskip
 
@@ -34,10 +34,28 @@
 
 \clearpage
 
-\flushleft
+%\flushleft
+
+
+
+
+    
+    
+    
+
+    
+    
+
+    
+
+    
+    
 \section{Begriffe}
 \subsection{Abfragesprachen}
 Abfragesprachen sind formale Sprachen zur Informationssuche. Eine  Abfrage (Query) liefert einen Teil der zugrundeliegenden Informationen, filtert diese also.
+\subsection{Animation}
+Aneinanderreihung mehrerer Sprites, welche hintereinander angezeigt werden.
+Hat bestimmte Länge und kann sich wiederholen.
 \subsection{API}
 Eine API, eine  Anwendungsprogrammierschnittstelle, ist ein von einem Softwaresystem zur  Verfügung gestellter Programmteil, um anderen Programmen die  Verknüpfung mit dem System zu ermöglichen.
 \subsection{Bower}
@@ -53,27 +71,45 @@ Ein Client (deutsch „Kunde“, auch clientseitige Anwendung oder Clientanwendu
 Menge von Regeln, die bezüglich des Programmcodes eingehalten werden sollen z.b. Tabulatorlänge, Variablenbezeichner, Klammerverwendung, Einrückungen etc.
 \subsection{Codingstandards}
 siehe Codeconvention
+\subsection{Collision Detection}
+Kollisionserkennung zwischen verschiedenen Spielobjekten. Mehrere Möglichkeiten: \\
+Tilebased Collision: Entweder Objekt kann ein Tile betreten oder nicht. \\
+Collision Box: Jedes Objekt besitzt eine Collision Box (Rechteck). Wenn sich die Rechtecke von zwei Objekten schneiden, gibt es eine Kollision.\\
+Pixelbased Collision: Pixelgenaue Kollision, also nur dann, wenn sich die Sprites wirklich überlappen.
 \subsection{Compiler}
 Ein Compiler wandeln  den menschenlesbaren Programmiercode in maschinenlesbaren Programmiercode um.
+\subsection{Cytoscape.js}
+Eine Graphentheorie Bibliothek, für die Analyse und Visualisierung.
 \subsection{Datenbankensystem}
 Ein Datenbanksystem ist ein  System zur dauerhaften, effizienten und widerspruchsfreien Speicherung  und Verwaltung großer Datenmengen.
 \subsection{Entwicklungsumgebung}
 Eine Entwicklungsumgebung ist eine Sammlung von Programmen, mit denen Softwareentwicklung bearbeitet werden kann. Verfügt in der Regel mindestens über die Komponenten Texteditor(mit Syntax-Highlighter), Compiler und Debugger.
 \subsection{Framework}
 Ein Framework stellt ein Programmiergerüst dar, nach dessen Vorgaben ein Programmierer eine Anwendung erstellt.
+\subsection{Game Loop}
+Schleife die währen des Spielablaufs immer wieder durchlaufen wird.
+Dabei werden im wesentlichen zwei Dinge ausgeführt:
+Die Update-Methode, enthält: Tastatur- und Mauseingabe, Bewegung, Kollisionserkennung, ... \\
+Die Render-Methode, enthält: Anzeige aller Sprites an den neuen Positionen, Hintergrund animieren, ... \\
+Die Game Loop wird abgebrochen, wenn das Spiel beendet wird.
+\subsection{GameState}
+Ein bestimmter Abschnitt des Spiels, zB: Hauptmenü, Pausemenü, GameOverScreen und das eigentliche Spiel.
+Enthält alle für den jeweiligen Zustand relevanten Daten.
 \subsection{Geodaten}  
 Digitale Informationen, denen auf der Erdoberfläche eine bestimmte räumliche Lage zugewiesen werden kann. Von besonderer Bedeutung für Geodaten sind Metadaten, die die eigentlichen räumlichen Daten zum Beispiel hinsichtlich eines Zeitbezugs oder der Entstehung beschreiben.
+\subsection{GeoJSON}
+GeoJSON ist ein Format zum kodieren von geographischen Datenstrukturen.
 \subsection{Git}
 Web-basierte Anwendung zum Speichern, Synchronisieren und zur Versionskontrolle von Quelltext.
 \subsection{Google Maps API}
 Eine API bereitgestellt von Google, zur Erstellung eigener Apps die als Grundlage Karten von Google Maps nutzen.
 \subsection{Graph}
 Ein Graph ist eine abstrakte Struktur, die eine Menge von Objekten zusammen mit den zwischen diesen Objekten bestehenden Verbindungen repräsentiert.
-\subsection{GUI(graphical user interface)} Ist eine graphische Benutzeroberfläche mit derer Hilfe ein Anwender in einem Programm agieren kann.
+\subsection{GUI (graphical user interface)} Ist eine graphische Benutzeroberfläche mit derer Hilfe ein Anwender in einem Programm agieren kann.
 \subsection{IDE} 
 IDE steht für Entwicklungsumgebung, ausgeschrieben: Integrated Development Environment.
 \subsection{JavaScript} Ist eine scriptbasierte Programmiersprache.
-\subsection{Jasmine} Ein Framework zum Testen von JavaScript-Programmen. Eine Vorführung von JSUnit.
+\subsection{Jasmine} Ein Framework zum Testen von JavaScript-Programmen. Eine Vortführung von JSUnit.
 \subsection{JamJS}
 Ein Paket-Manager für JavaScript.
 \subsection{JQuery}
@@ -84,10 +120,16 @@ Linked Open Data (LOD) bezeichnet im World Wide Web frei verfügbare Daten, die 
 Bezeichnet die Verknüpfung von Geodaten als Linked Data.
 \subsection{Metadaten}
 Metadaten enthalten Informationen über andere Daten, aber nicht die Daten selbst.
+\subsection{node.js}
+Node.js ist eine serverseitige Plattform zum Betrieb von Netzwerkanwendungen. Insbesondere lassen sich Webserver damit realisieren. Node.js basiert auf der JavaScript-Laufzeitumgebung „V8“, die ursprünglich für Google Chrome entwickelt wurde, und bietet daher eine ressourcensparende Architektur, die eine besonders große Anzahl gleichzeitig bestehender Netzwerkverbindungen ermöglicht.
 \subsection{Ontologie}
 Ontologien in der Informatik  sind meist sprachlich gefasste und formal geordnete Darstellungen einer  Menge von Begrifflichkeiten und der zwischen ihnen bestehenden  Beziehungen in einem bestimmten Gegenstandsbereich. Sie werden dazu  genutzt, „Wissen“ in digitalisierter und formaler Form zwischen Anwendungsprogrammen  und Diensten auszutauschen. Wissen umfasst dabei sowohl Allgemeinwissen  als auch Wissen über sehr spezielle Themengebiete und Vorgänge.
 \subsection{OpenStreetMap}
 OpenStreetMap ist eine  Datenbank mit geographischen Daten, welche unter der Open Database License verwendet werden dürfen. Eine Nutzung durch Webseiten und  Anwendung ist also unbeschränkt und unentgeltlich möglich.
+\subsection{OSM}
+siehe OpenStreetMap.
+\subsection{osmtogeojson.js}
+Wandelt Osm Dateien in Geojson Dateien um.
 \subsection{Phaser}
 Phaser ist ein Open-Source HTML5 Game-Framework.
 \subsection{Plattformunabhängig} Damit ist im Informatikkontext gemeint, dass ein Programm unabhängig von seinem Wirts-Betriebssystem lauffähig ist.
@@ -96,10 +138,36 @@ Phaser ist ein Open-Source HTML5 Game-Framework.
 siehe Codeconvention
 \subsection{Quelltext}
 siehe Programmcode
+\subsection{require.js}
+RequireJS ist ein JavaScript Datei und Modul Ladeprogramm.
 \subsection{Server}
 Ein Server (Software) ist ein Programm, das im Client-Server-Modell mit einem anderen Programm, dem Client (englisch für Kunde), kommuniziert, um ihm Zugang zu speziellen Dienstleistungen zu verschaffen. \par\bigskip
 
 Ein Server (Hardware) ist ein Computer, auf dem ein oder mehrere Server (Software) laufen.
+\subsection{SPARQL}
+\textbf{S}PARQL \textbf{P}rotocol \textbf{A}nd \textbf{R}DF \textbf{Q}uery \textbf{L}anguage, ist eine auf Graphen basierende Abfragesprache für RDF.
+\subsection{SPARQL query}
+Bezeichnet eine SPARQL Abfrage auf einer Graph-Datenbank.
+\subsection{SPARQL update}
+Eine Update Sprache für RDF Graphen.
+\subsection{SPARQL Endpunkt}
+Ein SPARQL Endpunkt ist ein angepasster SPARQL Protokoll Dienst.
+Dieser Endpunkt ermöglicht es Benutzern mittels der SPARQL Sprache Abfragen an eine Datenbank zu schicken. 
+\subsection{Sprite}
+Grafik eines bestimmtem Spielobjekts, welches im Spiel angezeigt wird.
+\subsection{Spritesheet}
+Grafikdatei aus mehreren Sprites eines Objekts. Zum Beispiel Charakter schaut nach links, rechts, oben, unten.
+Die Sprites einer Animation stammen meistens aus einem Spritesheet.
+\subsection{Tile}
+Ein (meist quadratisches) Rechteck, welches eine Art Kachel auf der Spielkarte repräsentiert.
+Einem Tile ist meist ein Sprite zugeordnet, welcher angezeigt wird.
+Der Spieler bewegt sich sozusagen über die Tiles hinweg.
+\subsection{Tilemap}
+Darstellung der Spielkarte als Raster aus mehreren Tiles. Die Tilemap legt fest an welcher stelle welches Tile liegt.
+Solche Spiele heißen tilebased, gridbased oder kachelbasiert.
+\subsection{Tileset}
+Grafikdatei aus mehreren Sprites. Jeder Tilemap ist ein Tileset zugeordnet, welches die Sprites enthält,
+die den Tiles zugeordnet werden können.
 \subsection{Tripel}
 Ein Tripel ist ein 3-Tupel. In unserem Zusammenhang beschäftigen wir uns mit Tripel, bestehend aus einem Subjekt, einem Prädikat und einem Objekt. Als Relationen werden URIs verwendet.
 \subsection{URI}
@@ -108,6 +176,7 @@ Ein URI, besteht aus einer  Zeichenfolge und dient zu Identifizierung von abstra
 Ein Versionskontrollsystem, auch Versionsverwaltung, ist ein System, das zur Erfassung von Änderungen an Dokumenten oder Dateien verwendet wird. Alle Versionen werden in einem Archiv mit Zeitstempel und Benutzerkennung gesichert und können später wiederhergestellt werden.
 
 
+\clearpage
 \section{Konzepte}
 \subsection{CSS}
 \textbf{Cascading Style Sheets}, kurz CSS genannt, ist eine Gestaltungssprache für elektronische Dokumente.
@@ -138,7 +207,8 @@ Das Semantische Web (engl. Semantic Web) ist ein Konzept bei der Entwicklung des
 \subsection{XML}
 Die \textbf{Extensible Markup Language} (engl. „erweiterbare Auszeichnungssprache“), abgekürzt XML, ist eine Auszeichnungssprache zur Darstellung hierarchisch strukturierter Daten in Form von Textdateien. XML wird u. a. für den plattform- und implementationsunabhängigen Austausch von Daten zwischen Computersystemen eingesetzt, insbesondere über das Internet.
 
-\section{Quellen}
+\clearpage
+\section{Quellen/Links}
 \begin{itemize}
 \item \url{http://de.wikipedia.org/wiki/Geodaten}
 \item \url{http://linkeddatabook.com/editions/1.0/}
@@ -180,6 +250,17 @@ Die \textbf{Extensible Markup Language} (engl. „erweiterbare Auszeichnungsspra
 \item \url{http://phaser.io/}
 \item \url{http://opensource.org/}
 \item \url{http://jquery.com/}
+\item \url{http://js.cytoscape.org/}
+\item \url{https://nodejs.org/}
+\item \url{http://www.requirejs.org/}
+\item \url{https://github.com/tyrasd/osmtogeojson}
+\item \url{http://geojson.org/}
+\item \url{http://www.w3.org/TR/rdf-sparql-query/}
+\item \url{http://www.w3.org/TR/sparql11-update/}
+\item \url{http://www.w3.org/wiki/SparqlEndpoints}
+
+
+%\item \url{}
 
 
 \end{itemize}

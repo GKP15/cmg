@@ -1,53 +1,72 @@
 \select@language {ngerman}
 \contentsline {section}{\numberline {1}Begriffe}{3}{section.1}
 \contentsline {subsection}{\numberline {1.1}Abfragesprachen}{3}{subsection.1.1}
-\contentsline {subsection}{\numberline {1.2}API}{3}{subsection.1.2}
-\contentsline {subsection}{\numberline {1.3}Bower}{3}{subsection.1.3}
-\contentsline {subsection}{\numberline {1.4}Camel-Case}{3}{subsection.1.4}
-\contentsline {subsection}{\numberline {1.5}Client}{3}{subsection.1.5}
-\contentsline {subsection}{\numberline {1.6}Codechecker}{3}{subsection.1.6}
-\contentsline {subsection}{\numberline {1.7}Codeconvention}{3}{subsection.1.7}
-\contentsline {subsection}{\numberline {1.8}Codingstandards}{3}{subsection.1.8}
-\contentsline {subsection}{\numberline {1.9}Compiler}{3}{subsection.1.9}
-\contentsline {subsection}{\numberline {1.10}Datenbankensystem}{4}{subsection.1.10}
-\contentsline {subsection}{\numberline {1.11}Entwicklungsumgebung}{4}{subsection.1.11}
-\contentsline {subsection}{\numberline {1.12}Framework}{4}{subsection.1.12}
-\contentsline {subsection}{\numberline {1.13}Geodaten}{4}{subsection.1.13}
-\contentsline {subsection}{\numberline {1.14}Git}{4}{subsection.1.14}
-\contentsline {subsection}{\numberline {1.15}Google Maps API}{4}{subsection.1.15}
-\contentsline {subsection}{\numberline {1.16}Graph}{4}{subsection.1.16}
-\contentsline {subsection}{\numberline {1.17}GUI(graphical user interface)}{4}{subsection.1.17}
-\contentsline {subsection}{\numberline {1.18}IDE}{4}{subsection.1.18}
-\contentsline {subsection}{\numberline {1.19}JavaScript}{5}{subsection.1.19}
-\contentsline {subsection}{\numberline {1.20}Jasmine}{5}{subsection.1.20}
-\contentsline {subsection}{\numberline {1.21}JamJS}{5}{subsection.1.21}
-\contentsline {subsection}{\numberline {1.22}JQuery}{5}{subsection.1.22}
-\contentsline {subsection}{\numberline {1.23}JSUnit}{5}{subsection.1.23}
-\contentsline {subsection}{\numberline {1.24}Linked Open Data}{5}{subsection.1.24}
-\contentsline {subsection}{\numberline {1.25}LinkedGeoData}{5}{subsection.1.25}
-\contentsline {subsection}{\numberline {1.26}Metadaten}{5}{subsection.1.26}
-\contentsline {subsection}{\numberline {1.27}Ontologie}{5}{subsection.1.27}
-\contentsline {subsection}{\numberline {1.28}OpenStreetMap}{6}{subsection.1.28}
-\contentsline {subsection}{\numberline {1.29}Phaser}{6}{subsection.1.29}
-\contentsline {subsection}{\numberline {1.30}Plattformunabh\IeC {\"a}ngig}{6}{subsection.1.30}
-\contentsline {subsection}{\numberline {1.31}Programmcode}{6}{subsection.1.31}
-\contentsline {subsection}{\numberline {1.32}Programmierstandards}{6}{subsection.1.32}
-\contentsline {subsection}{\numberline {1.33}Quelltext}{6}{subsection.1.33}
-\contentsline {subsection}{\numberline {1.34}Server}{6}{subsection.1.34}
-\contentsline {subsection}{\numberline {1.35}Tripel}{6}{subsection.1.35}
-\contentsline {subsection}{\numberline {1.36}URI}{7}{subsection.1.36}
-\contentsline {subsection}{\numberline {1.37}Versionskontrollsystem}{7}{subsection.1.37}
-\contentsline {section}{\numberline {2}Konzepte}{7}{section.2}
-\contentsline {subsection}{\numberline {2.1}CSS}{7}{subsection.2.1}
-\contentsline {subsection}{\numberline {2.2}FOAF (Friend of a Friend)}{7}{subsection.2.2}
-\contentsline {subsection}{\numberline {2.3}Graphdatenbanken}{7}{subsection.2.3}
-\contentsline {subsection}{\numberline {2.4}HTML}{7}{subsection.2.4}
-\contentsline {subsection}{\numberline {2.5}KML}{8}{subsection.2.5}
-\contentsline {subsection}{\numberline {2.6}MVC}{8}{subsection.2.6}
-\contentsline {subsection}{\numberline {2.7}Open-Source}{8}{subsection.2.7}
-\contentsline {subsection}{\numberline {2.8}OWL}{8}{subsection.2.8}
-\contentsline {subsection}{\numberline {2.9}RDF}{8}{subsection.2.9}
-\contentsline {subsection}{\numberline {2.10}Sematisches Web}{8}{subsection.2.10}
-\contentsline {subsection}{\numberline {2.11}SPARQL}{8}{subsection.2.11}
-\contentsline {subsection}{\numberline {2.12}XML}{9}{subsection.2.12}
-\contentsline {section}{\numberline {3}Quellen}{9}{section.3}
+\contentsline {subsection}{\numberline {1.2}Animation}{3}{subsection.1.2}
+\contentsline {subsection}{\numberline {1.3}API}{3}{subsection.1.3}
+\contentsline {subsection}{\numberline {1.4}Bower}{3}{subsection.1.4}
+\contentsline {subsection}{\numberline {1.5}Camel-Case}{3}{subsection.1.5}
+\contentsline {subsection}{\numberline {1.6}Client}{3}{subsection.1.6}
+\contentsline {subsection}{\numberline {1.7}Codechecker}{3}{subsection.1.7}
+\contentsline {subsection}{\numberline {1.8}Codeconvention}{4}{subsection.1.8}
+\contentsline {subsection}{\numberline {1.9}Codingstandards}{4}{subsection.1.9}
+\contentsline {subsection}{\numberline {1.10}Collision Detection}{4}{subsection.1.10}
+\contentsline {subsection}{\numberline {1.11}Compiler}{4}{subsection.1.11}
+\contentsline {subsection}{\numberline {1.12}Cytoscape.js}{4}{subsection.1.12}
+\contentsline {subsection}{\numberline {1.13}Datenbankensystem}{4}{subsection.1.13}
+\contentsline {subsection}{\numberline {1.14}Entwicklungsumgebung}{4}{subsection.1.14}
+\contentsline {subsection}{\numberline {1.15}Framework}{4}{subsection.1.15}
+\contentsline {subsection}{\numberline {1.16}Game Loop}{5}{subsection.1.16}
+\contentsline {subsection}{\numberline {1.17}GameState}{5}{subsection.1.17}
+\contentsline {subsection}{\numberline {1.18}Geodaten}{5}{subsection.1.18}
+\contentsline {subsection}{\numberline {1.19}GeoJSON}{5}{subsection.1.19}
+\contentsline {subsection}{\numberline {1.20}Git}{5}{subsection.1.20}
+\contentsline {subsection}{\numberline {1.21}Google Maps API}{5}{subsection.1.21}
+\contentsline {subsection}{\numberline {1.22}Graph}{5}{subsection.1.22}
+\contentsline {subsection}{\numberline {1.23}GUI (graphical user interface)}{5}{subsection.1.23}
+\contentsline {subsection}{\numberline {1.24}IDE}{6}{subsection.1.24}
+\contentsline {subsection}{\numberline {1.25}JavaScript}{6}{subsection.1.25}
+\contentsline {subsection}{\numberline {1.26}Jasmine}{6}{subsection.1.26}
+\contentsline {subsection}{\numberline {1.27}JamJS}{6}{subsection.1.27}
+\contentsline {subsection}{\numberline {1.28}JQuery}{6}{subsection.1.28}
+\contentsline {subsection}{\numberline {1.29}JSUnit}{6}{subsection.1.29}
+\contentsline {subsection}{\numberline {1.30}Linked Open Data}{6}{subsection.1.30}
+\contentsline {subsection}{\numberline {1.31}LinkedGeoData}{6}{subsection.1.31}
+\contentsline {subsection}{\numberline {1.32}Metadaten}{7}{subsection.1.32}
+\contentsline {subsection}{\numberline {1.33}node.js}{7}{subsection.1.33}
+\contentsline {subsection}{\numberline {1.34}Ontologie}{7}{subsection.1.34}
+\contentsline {subsection}{\numberline {1.35}OpenStreetMap}{7}{subsection.1.35}
+\contentsline {subsection}{\numberline {1.36}OSM}{7}{subsection.1.36}
+\contentsline {subsection}{\numberline {1.37}osmtogeojson.js}{7}{subsection.1.37}
+\contentsline {subsection}{\numberline {1.38}Phaser}{7}{subsection.1.38}
+\contentsline {subsection}{\numberline {1.39}Plattformunabh\IeC {\"a}ngig}{7}{subsection.1.39}
+\contentsline {subsection}{\numberline {1.40}Programmcode}{8}{subsection.1.40}
+\contentsline {subsection}{\numberline {1.41}Programmierstandards}{8}{subsection.1.41}
+\contentsline {subsection}{\numberline {1.42}Quelltext}{8}{subsection.1.42}
+\contentsline {subsection}{\numberline {1.43}require.js}{8}{subsection.1.43}
+\contentsline {subsection}{\numberline {1.44}Server}{8}{subsection.1.44}
+\contentsline {subsection}{\numberline {1.45}SPARQL}{8}{subsection.1.45}
+\contentsline {subsection}{\numberline {1.46}SPARQL query}{8}{subsection.1.46}
+\contentsline {subsection}{\numberline {1.47}SPARQL update}{8}{subsection.1.47}
+\contentsline {subsection}{\numberline {1.48}SPARQL Endpunkt}{8}{subsection.1.48}
+\contentsline {subsection}{\numberline {1.49}Sprite}{9}{subsection.1.49}
+\contentsline {subsection}{\numberline {1.50}Spritesheet}{9}{subsection.1.50}
+\contentsline {subsection}{\numberline {1.51}Tile}{9}{subsection.1.51}
+\contentsline {subsection}{\numberline {1.52}Tilemap}{9}{subsection.1.52}
+\contentsline {subsection}{\numberline {1.53}Tileset}{9}{subsection.1.53}
+\contentsline {subsection}{\numberline {1.54}Tripel}{9}{subsection.1.54}
+\contentsline {subsection}{\numberline {1.55}URI}{9}{subsection.1.55}
+\contentsline {subsection}{\numberline {1.56}Versionskontrollsystem}{9}{subsection.1.56}
+\contentsline {section}{\numberline {2}Konzepte}{10}{section.2}
+\contentsline {subsection}{\numberline {2.1}CSS}{10}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}FOAF (Friend of a Friend)}{10}{subsection.2.2}
+\contentsline {subsection}{\numberline {2.3}Graphdatenbanken}{10}{subsection.2.3}
+\contentsline {subsection}{\numberline {2.4}HTML}{10}{subsection.2.4}
+\contentsline {subsection}{\numberline {2.5}KML}{10}{subsection.2.5}
+\contentsline {subsection}{\numberline {2.6}MVC}{11}{subsection.2.6}
+\contentsline {subsection}{\numberline {2.7}Open-Source}{11}{subsection.2.7}
+\contentsline {subsection}{\numberline {2.8}OWL}{11}{subsection.2.8}
+\contentsline {subsection}{\numberline {2.9}RDF}{11}{subsection.2.9}
+\contentsline {subsection}{\numberline {2.10}Sematisches Web}{11}{subsection.2.10}
+\contentsline {subsection}{\numberline {2.11}SPARQL}{12}{subsection.2.11}
+\contentsline {subsection}{\numberline {2.12}XML}{12}{subsection.2.12}
+\contentsline {section}{\numberline {3}Quellen/Links}{13}{section.3}
