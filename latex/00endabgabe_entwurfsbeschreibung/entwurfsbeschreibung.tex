@@ -33,29 +33,30 @@
 \clearpage
 
 \section{Allgemeines}
-Im Rahmen des SWT-Praktikums wird ein kartenbasiertes Multiplayerspiel entwickelt, das es ermöglicht, ein an das alte Pacman angelehnte Computerspiel auf einem realen Kartenausschnitt zu spielen. Die entstehenden Highscores werden dann zu den jeweiligen Karten gespeichert um sich mit anderen Spielern messen zu können.
+Im Rahmen des SWT-Praktikums wird ein kartenbasiertes Multiplayerspiel entwickelt, das es ermöglicht, ein an das alte Pacman angelehnte Computerspiel auf einem realen Kartenausschnitt zu spielen. Die entstehenden Highscores werden dann zu den jeweiligen Karten gespeichert, um sich mit anderen Spielern messen zu können.
 
 
 \section{Produktübersicht}
-Der Nutzer kann online über die Spiele-Website auf das Programm zugreifen.
+Der Nutzer kann online über die Spiele Website auf das Programm zugreifen.
 %Dabei stehen dem Nutzer ein Suchfeld zum finden der gewünschten Spielumgebung zur Verfügung, es kann auch manuell durch Scrollen über die Karte ein Spielort ausgewählt werden, wobei nur Städte ab einer bestimmten Größe zugelassen sind, damit auf jeden Fall eine spielbare Karte erstellt werden kann und die Highscore vergelichbar bleibt. 
-Der Spieler kann duch Scrollen über die Karte einen Spieleort auswählen. Es sind nur bestimmte Orte als Spielort zugelassen, um eine Vergleichbarkeit zu gewährleisten.
+Der Spieler kann durch Scrollen über die Karte einen Spieleort auswählen. Es sind nur bestimmte Orte als Spielort zugelassen, um eine Vergleichbarkeit zu gewährleisten.
 Hat man den Ort ausgewählt, wird das Spielfeld erzeugt und man kann ein neues Spiel beginnen. 
 Man kann den Pucman nun mit Hilfe der Pfeiltasten steuern.
-Ziel des Spiels ist es den Pucman über die Karte zu steuern und die Kekse die auf der Karte verteilt liegen zu fressen. 
+Ziel des Spiels ist es den Pucman über die Karte zu steuern und die Kekse, die auf der Karte verteilt liegen, zu fressen. 
 
-An dieser Aufgabe wollen den Spieler Geister hindern, die sich auch über das Spielfeld bewegen und Pucman fressen können. Frisst ein Geist den Spieler so wird dieser auf den Startpunkt zurückgesetzt und die Anzahl seiner Leben wird um eins verringert.
-Es gibt unterschiedliche Geister, die durch ihr aussehen unterschieden werden können und sich anhand verschiedener Logiken bewegen. 
+An dieser Aufgabe will den Spieler der Geist hindern, der sich auch über das Spielfeld bewegt und Pucman fressen kann. Frisst ein Geist den Spieler, so wird %dieser auf den Startpunkt zurückgesetzt und 
+die Anzahl seiner Leben wird um eins verringert.
+%Es gibt unterschiedliche Geister, die durch ihr aussehen unterschieden werden können und sich anhand verschiedener Logiken bewegen. 
 Falls keine Leben mehr übrig sind, wird das Spiel beendet und die erreichte Highscore zusammen mit der Karten URI und dem Namen des Spielers abgespeichert.
 Während des Spielens werden die Möglichkeiten zur Veränderung der Kartenansicht deaktiviert. 
 Das Spielgeschehen ist durch einen Soundtrack unterlegt, der eine funktionale und inhaltliche Verbindung zwischen Bild und Ton generiert.
-Desweiteren werden für das Spiel wichtige Informationen wie aktueller Highscore, die verbleibende Anzahl an Leben und die Möglichkeit direkt auf die Website des Spiels zugreifen zu können angezeigt.
+Desweiteren werden für das Spiel wichtige Informationen wie aktueller Highscore, die verbleibende Anzahl an Leben und die Möglichkeit, direkt auf die Website des Spiels zugreifen zu können, angezeigt.
 \clearpage
 \section{Grundsätzliche Struktur- und Entwurfsprinzipien}
-Als grundsätzliche Programmiersprache haben wir uns für Java-Script entschieden. Wobei der Java-Scriptcode von einer HTML-Seite aufgerufen wird. Desweiteren benutzen wir Phaser als Gameframework.
+Als grundsätzliche Programmiersprache haben wir uns für Java-Script entschieden, wobei der Java-Scriptcode von einer HTML-Seite aufgerufen wird. Desweiteren benutzen wir Phaser als Gameframework.
 Ein Teil der Software wurde mithilfe von Funktionen aus der Java-Script Bibliothek JQuery geschrieben, da diese eine intuitive Herangehensweise bietet und für uns verständlicher als klassiches JavaScript ist.
-Die von uns umgesetzte Web-Anwendung basiert auf einer Client-Server Architektur. Wir arbeiten mit einem HTML-Server auf dem die Daten liegen, die vom Client abgefragt und an diesen übertragen werden. Diese Daten beinhalten auch den Gameblock, der dann vom Client ausgeführt wird. Außerdem gibt es noch ein Map-Module, welches das Level aus den Geo-Daten erstellt, die mithilfe der Overpass API von OpenStreetMaps bezogen werden. Dazu kommt das Highscore-Module, welches für die Verwaltung der Highscores verantwortlich ist.
-Desweiteren kommt noch ein Datenserver hinzu, der die Highscores unter Verwendung eines Tripplestores speichert.\\
+Die von uns umgesetzte Web-Anwendung basiert auf einer Client-Server Architektur. Wir arbeiten mit einem HTML-Server auf dem die Daten liegen, die vom Client abgefragt und an diesen übertragen werden. Diese Daten beinhalten auch den Gameblock, der dann vom Client ausgeführt wird. Außerdem gibt es noch ein Map-Modul, welches das Level aus den Geo-Daten erstellt, die mithilfe der Overpass API von OpenStreetMaps bezogen werden. Dazu kommt das Highscore-Modul, welches für die Verwaltung der Highscores verantwortlich ist.
+Desweiteren kommt noch ein Datenserver hinzu, der die Highscores unter Verwendung eines Triplestores speichert.\\
 \begin{figure}[htb]
   \centering
   \includegraphics[scale=0.6]{dia_2.png}
@@ -66,39 +67,42 @@ Desweiteren kommt noch ein Datenserver hinzu, der die Highscores unter Verwendun
 
 
 \section{Struktur- und Entwurfsprinzipien der einzelnen Pakete}
-\subsection{Server} Vom Server werden die benötigten Spieldateien zur Verfügung gestellt und automatisch geladen. Desweiteren werden Highscoreanfragen und Manipulationen zwischen dem Dataserver und dem Client verarbeitet und anschließend weitergeleitet.
+\subsection{Server} Vom Server werden die benötigten Spieldateien zur Verfügung gestellt und automatisch geladen. Desweiteren werden Highscoreanfragen und sonstiger Datenverkehr zwischen dem Dataserver und dem Client verarbeitet und anschließend weitergeleitet.
 
 \subsection{Client}
 \subsubsection{Map-Modul}
 %Die Linked GeoData API extrahiert aus OpenStreetMap die Geo-Daten für das Erstellen der Hintergrundkarte in Abhänigkeit vom gewählten Ort.\\
 
 Die Overpass API extrahiert die Geo-Daten aus OpenStreetMap, die zum Hervorheben der benutzbaren Straßenzüge und zur Erstellung des Levels benutzt werden.\\
-Die Datei \textbf{Graph.js} sorgt dafür, dass aus den Geo-Daten von OpenSteetMap weiterverarbeitet werden.
+Die Datei \textbf{Graph.js} sorgt dafür, dass die Geo-Daten von OpenSteetMap weiterverarbeitet werden.
 Die Erstellung des Spielgraphen ist in dieser Software, der aufwendigste Teil. \\
-Durch eine Vorselektierung durch eine angepasste Query für die Overpass API werden die ersten Straßenzüge entfernt, wenn diese bestimmte Kriterien erfüllen, so wurden z.B. Fußwege, Fahhradwege, aber auch Treppen entfernt, die Herangehensweise dieser Anfrage war \glqq so wenig wie möglich, so viel wie nötig\grqq, das führt unter anderem dazu, dass die erstellten Graphen nicht zu groß werden, da wir ansonsten Probleme mit der Komplexität bekommen hätten. Es werden nur Straßen berücksichtigt, die in dem sichtbaren Bereich des Browser-Fensters liegen.\\
-Die Anfrage liefert als Rückgabe eine Datei im GeoJson Format, welche wir mittels einem Parser durchlaufen und die relevanten Informationen in einen Graphen der Cytoscape Bibliothek übergeben, wir haben also nun einen Graphen im klassischen Sinne, Knoten, mit Geo-Koordinaten, und Kanten zwischen den Knoten. \\
+Durch eine Vorselektierung durch eine angepasste Query für die Overpass API werden die ersten Straßenzüge entfernt, wenn diese bestimmte Kriterien erfüllen, so wurden z.B. Fußwege, Fahhradwege, aber auch Treppen entfernt. Die Herangehensweise dieser Anfrage sit umgangsprachlich gesagt:\glqq so wenig wie möglich, so viel wie nötig\grqq. Das führt unter anderem dazu, dass die erstellten Graphen nicht zu groß werden, da wir ansonsten Probleme mit der Komplexität bekommen hätten. Es werden nur Straßen berücksichtigt, die in dem sichtbaren Bereich des Browser Fensters liegen.\\
+Die Anfrage liefert als Rückgabe eine Datei im GeoJson Format, welche wir mittels einem Parser durchlaufen und die relevanten Informationen in einen Graphen der Cytoscape Bibliothek übergeben, wir haben also nun einen ungerichteten Graphen. Knoten mit Geo-Koordinaten, und Kanten zwischen den Knoten. \\
 Als nächsten Schritt haben wir die Koordinaten in Pixel auf dem Bildschirm umgewandelt.
 In einer Iteration über alle Knoten werden nun Sackgassen gelöscht, da diese für uns unbrauchbar sind.
 Wir haben auch Straßen aus dem Graphen entfernt, die in einer Kreuzung mit mehr als fünf Straßen münden. Wir wollen nicht zufallsgesteuert eine Straße auswählen müssen, wenn die Spielfigur an einer Sternkreuzung steht und zwei Straßen in die selbe Himmelsrichtung führen. \\
-Da wir am jetzigen Zeitpunkt eventuell mehrere Graphen duch die Selektion der Straßenzüge erhalten haben, lassen wir einen Algorithmus über den Graphen laufen, der uns den größten zusammenhängenden Teilgraphen ausgibt. 
-Als letzten Schritt müssen wir nun noch die Karte für uns spielbar machen, wir haben eine Knoten- und eine Kantenliste, um eine flüssige Bewegung zu gewährleisten, brauchen wir aber Pixel in bestimmten Abständen.
-Es wird eine Interpolation gestartet, die zwischen den Knoten des Graphens die fehlenden Pixel setzt, s.d. die Spielfigur, sich über ein Netzt aus Pixeln bewegen kann, die eine bestimmte Dichte ausweisen. 
+Da wir am jetzigen Zeitpunkt eventuell mehrere Graphen durch die Selektion der Straßenzüge erhalten haben, lassen wir einen Algorithmus über den Graphen laufen, der uns den größten zusammenhängenden Teilgraphen ausgibt. 
+Als letzten Schritt müssen wir nun noch die Karte für uns spielbar machen. Wir haben eine Knoten- und eine Kantenliste, um jedoch eine flüssige Bewegung zu gewährleisten, braucht man Pixel in bestimmten Abständen.
+Es wird eine Interpolation gestartet, die zwischen den Knoten des Graphens die fehlenden Pixel setzt, so dass die Spielfigur sich über ein Netzt aus Pixeln bewegen kann, die eine bestimmte Dichte ausweisen. 
+Die flüssige Bewegung ist leider nicht immer gegeben, da die ausgeführten Funktionen teilweise sehr Rechenaufwändig sind.
+Bei alten CPUs (z.B. einem Doppelkernprozessor) läuft das Spiel langsamer, als auf einem neuwertigen i7-Prozessor.
+
 \subsubsection{Game-Modul}
-Der Gameblock wird an das Model-View-Controller Prinzip angelehnt, welches durch die Nutzung von Phaser umgesetzt wird. 
+Der Gameblock entspricht dem Model-View-Controller Prinzip, welches durch die Nutzung von Phaser umgesetzt wird. 
 Phaser übernimmt für uns die Eingabe und Ausgabeverarbeitung und stellt den Gameloop zur Verfügung, dies ist eine Schleife, die währen des Spielablaufs immer wieder durchlaufen wird.
 Dabei werden im wesentlichen zwei Dinge ausgeführt:
-Die Update-Methode, enthält: Tastatur- und Mauseingabe, Bewegung, Kollisionserkennung, ... \\
-Die Render-Methode, enthält: Anzeige aller Sprites an den neuen Positionen, Hintergrund animieren, ... \\
+Die Update-Methode enthält: Tastatur- und Mauseingabe, Bewegung, Kollisionserkennung, etc. \\
+Die Render-Methode enthält: Anzeige aller Sprites an den neuen Positionen, Hintergrund animieren, etc. \\
 Die Game Loop wird abgebrochen, wenn das Spiel beendet wird.
 \par\bigskip
 {\flushleft \textbf{Interface.js}} \\
 In diesem Modul wird die Schnittstelle zum Benutzer definiert.
-So werden hier z.B. Knöpfe und Anzeigen, die dem Benutzer Informationen über den aktuellen Spielstand liefern, bzw. diese Abrufbar machen erstellt.
+So werden hier z.B. Knöpfe und Anzeigen, die dem Benutzer Informationen über den aktuellen Spielstand liefern, bzw. diese abrufbar machen, erstellt.
 Die Schnittstelle ist der Teil eines Systems, welcher der Kommunikation dient. \par\bigskip
 {\flushleft \textbf{Load.js}} \\
 Zeigt einen neuen Ladescreen, während die Karte lädt. \par\bigskip
 {\flushleft \textbf{Game.js}} \\
-Stellt den Gameloop dar. \par\bigskip
+Hier ist der Gameloop implementiert. \par\bigskip
 {\flushleft\textbf{Character.js}} \\
 In diesem Modul wird die Spielfigur, also der Pucman definiert.
 
@@ -109,9 +113,9 @@ Die Highscores werden in einem Tripelstore gespeichert, welche mithilfe von SPAR
 {\flushleft \textbf{Cytoscape.js}} \\
 Diese Bibliothek wird von dem Map Modul benötigt um die Graphalgorithmen auszuführen. In der Bibiothek sind bereits viele Algorithmen enthalten.
 {\flushleft \textbf{JQuery.js}} \\
-Diese Bibliothek vereinfacht den Umgang mit verschiedenen Problem die auftraten.
+Diese Bibliothek vereinfacht den Umgang mit verschiedenen aufgetretenen Problem.
 {\flushleft \textbf{Phaser.js}} \\
-Wie betreits erwähnt stellt Phaser als Gameframework einen sehr wichtigen Teil unseres Projektes dar, die Bibliothek stellt alle Funktionen zur Verfügung die man als Spieleentwickler benötigt um einen flüssigen Spielefluß, eine Eingabe- und Ausgabeverarbeitung etc. 
+Wie betreits erwähnt, stellt Phaser als Gameframework einen sehr wichtigen Teil unseres Projektes dar. Die Bibliothek stellt alle Funktionen zur Verfügung die man als Spieleentwickler benötigt, um einen flüssigen Spielfluß, eine Eingabe- und Ausgabeverarbeitung etc. 
 zu haben. 
 \section{Datenmodell}
 
@@ -123,6 +127,52 @@ $A \xlongrightarrow{\text{Datenfluß}} B $ beschreibt den Datenfluss von A nach 
 
 \section{Testkonzept}
 Am Ende des Sprints wird die aktuelle Version der Software auf den Webserver geladen. Diese wird anhand eines \href{https://github.com/GKP15/pucman/wiki/Test-workflow}{Test-Workflows} geprüft. Dabei werden die angegebenen Eingaben getätigt und die Reaktion der Software mit der erwarteten Ausgabe verglichen. Sollten dabei Abweichungen auftreten, gilt der Test als nicht bestanden.
+\subsection{Testumgebungen}
+\begin{enumerate}
+\item OS: Ubuntu 15.04 \\
+Kernel: Linux version 3.19.0-18-generic \\
+CPU: Intel(R) Core(TM) i7-4712MQ CPU @ 2.30GHz \\
+RAM: 8GiB \\
+Firefox 30.0 \\
+\textbf{Resultat: Läuft flüssig.}
+\item OS: Ubuntu 15.04\\
+Kernel: Linux version 3.19.0-18-generic \\ 
+CPU: Intel Core i5-2520M CPU @ 2.50GHz x 4 \\
+RAM: 7,7 GiB \\
+Chrome 42.0.2311.90 (64-bit) \\
+\textbf{Resultat: Läuft flüssig bei 30\% Auslastung mit 15\% Idle.}
+\item OS: Arch Linux \\
+Kernel: x86\_64 Linux 4.0.3-1-ARCH \\
+CPU: Intel Core2 Duo CPU T7300 @ 2.001GHz \\
+RAM: 3883MB \\
+Firefox 38.0.1 \\
+\textbf{Resultat: Läuft eher langsam, eine Kern voll ausgelastet.}
+\end{enumerate}
+
+\section{Erweiterbarkeit}
+Die entwickelte Software ist in verschiedene Module zerlegt, so dass eine Erweiterbarkeit an diversen Punkten denkbar ist.
+Wir benutzen Mapstraction um die Hintergrundkarte anzuzeigen.
+Mithilfe von Mapstraction kann man mit nur wenigen Zeilen Codeänderung die Karten API austauschen, wenn z.B. andere Features benötigt werden.
+Der Geist ist in der /textbf{ghost.js} definiert, was es ermöglicht diese Datei zu editieren um die Bewegung des Geistes intelligenter zu gestalten.
+Es ist auch denkbar weitere semantische Daten in das Programm einfließen zu lassen. Etwa Powerups einzuführen, die an bestimmten Orten auf der Karte erscheinen, wie z.B. Kraftpillen an Krankenhäusern , oder die Geister an bestimmten Orten starten zu lassen, z.B. an einer Polizeistation.
+\clearpage
+\section{Das Projekt im Netz}
+Die Projekt Website findet man unter \\ \url{http://pcai042.informatik.uni-leipzig.de/~swp15-gkp/}, \\ hier liegen alle wichtigen Dokumente zu dem Projekt.\\
+Der Source-Code ist unter \url{https://github.com/GKP15/pucman} abrufbar. Eine Einführung in GitHub gibt es unter \url{http://lmgtfy.com/?q=github+tutorial}.
+ \par\bigskip
+{\flushleft \textbf{Struktur des Source-Codes:}} \par\bigskip
+{\flushleft \textbf{/lib}} \\
+Hier liegen die Bibliotheken, die wir benötigt haben, wie Phaser, Cytoscape, etc. \par\bigskip
+{\flushleft \textbf{/rdf}} \\
+Daten für den Triplestore. \par\bigskip
+{\flushleft \textbf{/resources}} \\
+Bilder, Musik, etc. \par\bigskip
+{\flushleft \textbf{/src}} \\
+Die einzelnen Module für das Spiel, als Java-Script Code. \par\bigskip
+{\flushleft \textbf{/}} \\
+Die Html-Dateien, Config-Dateien, etc.  
+
+
 
 \section{Glossar}
 Das Glossar wurde überarbeitet und als externes Dokument angefügt.
