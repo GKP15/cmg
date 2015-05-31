@@ -13,6 +13,7 @@
 \usepackage{hyperref}
 \usepackage{fancyhdr}
 \usepackage{extarrows}
+\lstset{backgroundcolor=\color[rgb]{0.9,0.9,0.9}, basicstyle=\footnotesize}
 
 \pagestyle{fancy}
 \lhead{\today}
@@ -57,8 +58,21 @@ Um das Repository zu klonen ist folgender Befehl auszuführen:
 git clone git://github.com/GKP15/pucman.git
 \end{lstlisting}
 Die Daten befinden sich nun im Verzeichnis Pucman.
-\subsection{Virtuoso installieren}
-
+\subsection{Mongoose installieren}
+Um die Software lokal zu starten, wird ein lokaler http-Server benötigt. Dazu kann zum Beispiel mongoose verwendet werden.
+Unter 
+\begin{lstlisting}
+http://cesanta.com/mongoose.shtml
+\end{lstlisting}
+findet man eine Version für Linux und Windows.
+Die Datei wird ausgeführt und in der Systemleiste erscheint das Icon des Programms.
+Durch einen Rechtsklick auf dieses kann das Verzeichnis gewechselt werden, in welchem der Webserver ausgeführt wird. 
+Dazu ändere man den Pfad in den des Repositoriys.
+Ein weiterer Rechtsklick auf das Icon und Auswahl des Befehls
+\begin{lstlisting}
+Go to my address: http://...
+\end{lstlisting}
+öffnet die Website der Software und sie wird gestartet.
 \section{Installation auf einem Webserver}
 Die ersten Schritte entsprechen der Anleitung zu Installation der lokalen Version:
 \subsection{Git installieren}
@@ -116,6 +130,16 @@ heruntergefahren und mit
 isql-vt <Ihr-V-Port> dba YourVerySecretPassword
 \end{lstlisting}
 wieder hochgefahren.
-\subsection{Auf Server laden}
 
+Eine bereits installierte Version von Virtuoso steht unter folgendem Link zur Verfügung:
+\begin{lstlisting}
+http://pcai042.informatik.uni-leipzig.de:1540/
+\end{lstlisting}
+\subsection{Daten auf den Webserver laden}
+Folgende Dateien und Ordner sind aus dem Repository auf einen Webserver zu Laden:
+\begin{lstlisting}
+
+\end{lstlisting}
+Die Datei \lstinline$index.html$ kann verlinkt und umbenannt werden, um die Software in eine bestehende Website einzubinden.
+Um die Software zu starten muss diese Website über den Browser aufgerufen werden.
 \end{document}
