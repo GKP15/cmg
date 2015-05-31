@@ -1,0 +1,121 @@
+\documentclass[11pt,a4paper]{article}
+%\usepackage{beamerarticle}
+
+%\usefonttheme[onlymath]{serif}
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{tikz}
+\usetikzlibrary{positioning, arrows}
+\usepackage{listings}
+\usepackage{fancybox}
+\usepackage{color}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\usepackage{extarrows}
+
+\pagestyle{fancy}
+\lhead{\today}
+\author{Gruppe: SWT15-GKP}
+\rhead{Author: FT}
+\chead{Gruppe: SWT15-GKP}
+%\cfoot{center of the footer!}
+\renewcommand{\headrulewidth}{0.8pt}
+%\renewcommand{\footrulewidth}{0.4pt}
+\title{Universität Leipzig - Softwaretechnik Praktikum 2014/2015 \\  Installationsanleitung \\ zum Projekt: Ein kartenbasiertes “Multiplayer”-Spiel}
+
+\begin{document}
+\maketitle
+
+\tableofcontents
+
+\clearpage
+
+\section{Lokale Installation}
+\subsection{Git installieren}
+Um das Repository mit den Daten zu klonen, muss zu erst die Versionsverwaltungssoftware git installiert werden.
+\subsubsection{Linux}
+Installation über den Paketmanager, welcher vom Betriebssystem bereitgestellt wird.
+Auf einem Debian basierten System ist dazu folgender Befehl ausführen:
+\begin{lstlisting}
+sudo apt-get install git
+\end{lstlisting}
+oder zum Beispiel unter Fedora:
+\begin{lstlisting}
+yum install git-core
+\end{lstlisting}
+\subsubsection{Windows}
+Herunterladen und ausführen des Installationsprogramms von:
+\begin{lstlisting}
+http://msysgit.github.com/
+\end{lstlisting}
+Damit erhält man eine graphische Benutzeroberfläche, sowie eine Kommandozeilenversion.
+Um die weiteren git-Befehle auszuführen, sollte die in msysGit enthaltene Shell verwendet werden.
+\subsection{Repository klonen}
+Um das Repository zu klonen ist folgender Befehl auszuführen:
+\begin{lstlisting}
+git clone git://github.com/GKP15/pucman.git
+\end{lstlisting}
+Die Daten befinden sich nun im Verzeichnis Pucman.
+\subsection{Virtuoso installieren}
+
+\section{Installation auf einem Webserver}
+Die ersten Schritte entsprechen der Anleitung zu Instalaltion der lokalen Version:
+\subsection{Git installieren}
+Um das Repository mit den Daten zu klonen, muss zu erst die Versionsverwaltungssoftware git installiert werden.
+\subsubsection{Linux}
+Installation über den Paketmanager, welcher vom Betriebssystem bereitgestellt wird.
+Auf einem Debian basierten System ist dazu folgender Befehl ausführen:
+\begin{lstlisting}
+sudo apt-get install git
+\end{lstlisting}
+oder zum Beispiel unter Fedora:
+\begin{lstlisting}
+yum install git-core
+\end{lstlisting}
+\subsubsection{Windows}
+Herunterladen und ausführen des Installationsprogramms von:
+\begin{lstlisting}
+http://msysgit.github.com/
+\end{lstlisting}
+Damit erhält man eine graphische Benutzeroberfläche, sowie eine Kommandozeilenversion.
+Um die weiteren git-Befehle auszuführen, sollte die in msysGit enthaltene Shell verwendet werden.
+\subsection{Repository klonen}
+Um das Repository zu klonen ist folgender Befehl auszuführen:
+\begin{lstlisting}
+git clone git://github.com/GKP15/pucman.git
+\end{lstlisting}
+Die Daten befinden sich nun im Verzeichnis Pucman.
+\subsection{Virtuoso installieren}
+Aus dem Olat, technisches Wiki:
+Für jede Virtuoso-Instanz ist ein eigener Server aufzusetzen, der auf gemeinsame Binaries der Virtuoso Open Source Edition zugreift. Die Datenbasis (die den Zustand Ihrer Virtuoso-Instanz persistiert und kapselt) und weitere zum Betrieb erforderliche Dateien werden dazu in einem Verzeichnis Ihrer Wahl verwaltet, das Sie dazu anlegen und vorbereiten müssen.
+Entpacken Sie dazu die angehängte Datei virtuoso.zip. Es entsteht ein Verzeichnis virtuoso mit den Dateien start.sh und virtuoso.ini, die weiter anzupassen sind:
+
+\begin{enumerate}
+	\item Ersetzen Sie in beiden Dateien /Pfad/zu/ durch den absoluten Pfad Ihrer Installation.
+	\item Nutzen Sie einen der oben gelisteten freien Ports (und tragen Sie das Projekt dort ein), unter dem Ihr Virtuoso-Server laufen wird. Der erste Eintrag [NameDerSektion] ist der Name der Sektion in die Datei /etc/odbc.ini, über die Ihre Anwendungen auf Virtuoso zugreifen kann (wenn erforderlich, etwa OntoWiki oder xodx). Der zweite Eintrag (SP) ist der V-Serverport. Ersetzen Sie in der Datei virtuoso.ini den Port 1111 durch diesen V-Serverport. Der dritte Eintrag (HSP) ist der HTTPS-Port des zugehörigen Virtuoso Sparql Endpunkts. Tragen Sie diesen in der Datei virtuoso.ini statt 8890 ein.
+\end{enumerate}
+Starten Sie den Server mit
+\begin{lstlisting}
+sh start.sh
+\end{lstlisting}
+Greifen Sie mit der Kommandozeilenversion
+\begin{lstlisting}
+isql-vt <Ihr-V-Port> dba dba
+\end{lstlisting}
+auf die neu angelegte Instanz zu und ändern zunächst das Default Passwort 'dba':
+\begin{lstlisting}
+SQL> set password dba YourVerySecretPassword ;
+\end{lstlisting}
+Der Server wird mit
+\begin{lstlisting}
+SQL> shutdown() ;
+\end{lstlisting}
+heruntergefahren und mit
+\begin{lstlisting}
+isql-vt <Ihr-V-Port> dba YourVerySecretPassword
+\end{lstlisting}
+wieder hochgefahren.
+\subsection{Auf Server laden}
+
+\end{document}

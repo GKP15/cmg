@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/W32TeX) (preloaded format=pdflatex 2015.3.26)  29 MAY 2015 18:17
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/W32TeX) (preloaded format=pdflatex 2015.3.26)  31 MAY 2015 16:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**entwurfsbeschreibung.tex
-(./entwurfsbeschreibung.tex
+**instalaltionsanleitung.tex
+(./instalaltionsanleitung.tex
 LaTeX2e <2014/05/01>
 Babel <3.9l> and hyphenation patterns for 79 languages loaded.
 (d:/Programme 32bit/texlive/2014/texmf-dist/tex/latex/base/article.cls
@@ -846,8 +846,8 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 567.
 LaTeX Info: Redefining \[ on input line 2665.
 LaTeX Info: Redefining \] on input line 2666.
 ))
-(./entwurfsbeschreibung.aux)
-\openout1 = `entwurfsbeschreibung.aux'.
+(./instalaltionsanleitung.aux)
+\openout1 = `instalaltionsanleitung.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 27.
 LaTeX Font Info:    ... okay on input line 27.
@@ -910,34 +910,62 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 27.
 LaTeX Info: Redefining \pageref on input line 27.
 LaTeX Info: Redefining \nameref on input line 27.
- (./entwurfsbeschreibung.out) (./entwurfsbeschreibung.out)
+ (./instalaltionsanleitung.out) (./instalaltionsanleitung.out)
 \@outlinefile=\write5
-\openout5 = `entwurfsbeschreibung.out'.
+\openout5 = `instalaltionsanleitung.out'.
 
 
-(./entwurfsbeschreibung.toc)
+(./instalaltionsanleitung.toc)
 \tf@toc=\write6
-\openout6 = `entwurfsbeschreibung.toc'.
+\openout6 = `instalaltionsanleitung.toc'.
 
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 33.
+(babel)             in language  on input line 32.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 33.
+(babel)             in language  on input line 32.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 33.
+(babel)             in language  on input line 32.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 33.
+(babel)             in language  on input line 32.
  [1
 
 {d:/Programme 32bit/texlive/2014/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 34.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 34.
+Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 35.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 35.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 38.
+(babel)             in language  on input line 37.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 38.
+(babel)             in language  on input line 37.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 47.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 47.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 54.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 54.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 60.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 60.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 62.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 62.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 64.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 64.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 66.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 66.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -946,175 +974,93 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 53.
+(babel)             in language  on input line 69.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 53.
+(babel)             in language  on input line 69.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 53.
+(babel)             in language  on input line 69.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 53.
+(babel)             in language  on input line 69.
 [2
 
 ]
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 54.
+(babel)             in language  on input line 76.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 54.
-
-Underfull \hbox (badness 10000) in paragraph at lines 55--59
-
- []
-
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 63.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 63.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 64.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 64.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 66.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 66.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 67.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 67.
+(babel)             in language  on input line 76.
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 83.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 83.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 83.
+(babel)             in language  on input line 89.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 83.
-[3
-
-]
+(babel)             in language  on input line 89.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 84.
+(babel)             in language  on input line 97.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 84.
-
-Overfull \hbox (2.83858pt too wide) in paragraph at lines 85--91
-\T1/cmr/m/n/10.95 Der Ga-me-block ent-spricht dem Model-View-Controller Prin-zi
-p, wel-ches durch
- []
-
+(babel)             in language  on input line 97.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 95.
+(babel)             in language  on input line 97.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 95.
+(babel)             in language  on input line 97.
+ [3]
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 95.
+(babel)             in language  on input line 119.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 95.
-[4]
+(babel)             in language  on input line 119.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 103.
+(babel)             in language  on input line 121.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 103.
+(babel)             in language  on input line 121.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 106.
+(babel)             in language  on input line 121.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 106.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 114.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 114.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 122.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 122.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 124.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 124.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 124.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 124.
- [5]
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 124.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 124.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 146.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 146.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 152.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 152.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 152.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 152.
- [6]
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 153.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 153.
-LaTeX Font Info:    Try loading font information for T1+cmtt on input line 154.
+(babel)             in language  on input line 121.
+ [4]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 121.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 121.
+ (./instalaltionsanleitung.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 121.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 121.
 
 
-(d:/Programme 32bit/texlive/2014/texmf-dist/tex/latex/base/t1cmtt.fd
-File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
-)
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 171.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 171.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 173.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 173.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 173.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 173.
- [7
+Package rerunfilecheck Warning: File `instalaltionsanleitung.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
 
-]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 173.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 173.
-
-(./entwurfsbeschreibung.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 173.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 173.
-Package rerunfilecheck Info: File `entwurfsbeschreibung.out' has not changed.
-(rerunfilecheck)             Checksum: CCCA59144C636B1D75137D373E1A48CC;963.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 173.
+Package rerunfilecheck Info: Checksums for `instalaltionsanleitung.out':
+(rerunfilecheck)             Before: E2AFEA871CA2640D8B9FF671631D883E;786
+(rerunfilecheck)             After:  0CB21901F5B14718AF8E733118E146B5;852.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 121.
  ) 
 Here is how much of TeX's memory you used:
- 18478 strings out of 493109
- 341620 string characters out of 6131395
- 407035 words of memory out of 5000000
- 21593 multiletter control sequences out of 15000+600000
- 15437 words of font info for 40 fonts, out of 8000000 for 9000
+ 18728 strings out of 493109
+ 343246 string characters out of 6131395
+ 406005 words of memory out of 5000000
+ 21829 multiletter control sequences out of 15000+600000
+ 13593 words of font info for 37 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,12n,54p,639b,348s stack positions out of 5000i,500n,10000p,200000b,80000s
-pdfTeX warning (dest): name{figure.1} has been referenced but does not exist,
- replaced by a fixed one
+ 55i,11n,54p,648b,990s stack positions out of 5000i,500n,10000p,200000b,80000s
+pdfTeX warning (dest): name{subsubsection.2.0.2} has been referenced but does
+ not exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsubsection.2.0.1} has been referenced but does n
+ot exist, replaced by a fixed one
 
 {d:/Programme 32bit/texlive/2014/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t
 1.enc}<d:/Programme 32bit/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmmi10.pfb><d:/Programme 32bit/texlive/2014/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmsy10.pfb><d:/Programme 32bit/texlive/2014/texmf-dist/fonts/type1/pub
-lic/cm-super/sfbx1095.pfb><d:/Programme 32bit/texlive/2014/texmf-dist/fonts/typ
-e1/public/cm-super/sfbx1200.pfb><d:/Programme 32bit/texlive/2014/texmf-dist/fon
-ts/type1/public/cm-super/sfbx1440.pfb><d:/Programme 32bit/texlive/2014/texmf-di
-st/fonts/type1/public/cm-super/sfrm0800.pfb><d:/Programme 32bit/texlive/2014/te
-xmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb><d:/Programme 32bit/texlive/2
-014/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb><d:/Programme 32bit/tex
-live/2014/texmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb><d:/Programme 32b
-it/texlive/2014/texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb>
-Output written on entwurfsbeschreibung.pdf (7 pages, 204526 bytes).
+m/cmsy10.pfb><d:/Programme 32bit/texlive/2014/texmf-dist/fonts/type1/public/cm-
+super/sfbx1095.pfb><d:/Programme 32bit/texlive/2014/texmf-dist/fonts/type1/publ
+ic/cm-super/sfbx1200.pfb><d:/Programme 32bit/texlive/2014/texmf-dist/fonts/type
+1/public/cm-super/sfbx1440.pfb><d:/Programme 32bit/texlive/2014/texmf-dist/font
+s/type1/public/cm-super/sfrm1095.pfb><d:/Programme 32bit/texlive/2014/texmf-dis
+t/fonts/type1/public/cm-super/sfrm1200.pfb><d:/Programme 32bit/texlive/2014/tex
+mf-dist/fonts/type1/public/cm-super/sfrm1728.pfb>
+Output written on instalaltionsanleitung.pdf (4 pages, 124314 bytes).
 PDF statistics:
- 182 PDF objects out of 1000 (max. 8388607)
- 161 compressed objects within 2 object streams
- 29 named destinations out of 1000 (max. 500000)
- 141 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 162 PDF objects out of 1000 (max. 8388607)
+ 147 compressed objects within 2 object streams
+ 49 named destinations out of 1000 (max. 500000)
+ 109 words of extra memory for PDF output out of 10000 (max. 10000000)
 
