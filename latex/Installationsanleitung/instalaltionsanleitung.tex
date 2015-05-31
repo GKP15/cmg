@@ -57,7 +57,7 @@ Um das Repository zu klonen ist folgender Befehl auszuführen:
 \begin{lstlisting}
 git clone git://github.com/GKP15/pucman.git
 \end{lstlisting}
-Die Daten befinden sich nun im Verzeichnis Pucman.
+Die Daten befinden sich nun im Verzeichnis \lstinline$pucman$.
 \subsection{Mongoose installieren}
 Um die Software lokal zu starten, wird ein lokaler http-Server benötigt. Dazu kann zum Beispiel mongoose verwendet werden.
 Unter 
@@ -100,10 +100,12 @@ Um das Repository zu klonen ist folgender Befehl auszuführen:
 git clone git://github.com/GKP15/pucman.git
 \end{lstlisting}
 Die Daten befinden sich nun im Verzeichnis Pucman.
+\newpage
 \subsection{Virtuoso installieren}
-Aus dem Olat, technisches Wiki:
+Eine Version von Virtuoso muss auf einem Server installiert werden.
+Anleitung aus dem Olat, technisches Wiki:
 Für jede Virtuoso-Instanz ist ein eigener Server aufzusetzen, der auf gemeinsame Binaries der Virtuoso Open Source Edition zugreift. Die Datenbasis (die den Zustand Ihrer Virtuoso-Instanz persistiert und kapselt) und weitere zum Betrieb erforderliche Dateien werden dazu in einem Verzeichnis Ihrer Wahl verwaltet, das Sie dazu anlegen und vorbereiten müssen.
-Entpacken Sie dazu die angehängte Datei virtuoso.zip. Es entsteht ein Verzeichnis virtuoso mit den Dateien start.sh und virtuoso.ini, die weiter anzupassen sind:
+Entpacken Sie dazu die angehängte Datei virtuoso.zip\footnote{http://pcai042.informatik.uni-leipzig.de/$\sim$swp15-gkp/docs/virtuoso.zip}. Es entsteht ein Verzeichnis virtuoso mit den Dateien start.sh und virtuoso.ini, die weiter anzupassen sind:
 
 \begin{enumerate}
 	\item Ersetzen Sie in beiden Dateien /Pfad/zu/ durch den absoluten Pfad Ihrer Installation.
@@ -135,6 +137,7 @@ Eine bereits installierte Version von Virtuoso steht unter folgendem Link zur Ve
 \begin{lstlisting}
 http://pcai042.informatik.uni-leipzig.de:1540/
 \end{lstlisting}
+\newpage
 \subsection{Daten auf den Webserver laden}
 Folgende Dateien und Ordner sind aus dem Repository auf einen Webserver zu Laden:
 \begin{lstlisting}
