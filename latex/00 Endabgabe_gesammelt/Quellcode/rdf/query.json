@@ -1,0 +1,19 @@
+{
+  "head": {
+    "vars": [ "City" , "Person" , "Score" ]
+  } ,
+  "results": {
+    "bindings": [
+      {
+        "City": { "type": "literal" , "value": "57657" } ,
+        "Person": { "type": "literal" , "value": "HorstDieWurst0813" } ,
+        "Score": { "type": "literal" , "value": "219" }
+      } ,
+      {
+        "City": { "type": "literal" , "value": "6786875" } ,
+        "Person": { "type": "literal" , "value": "KayVollers0815" } ,
+        "Score": { "type": "literal" , "value": "17" }
+      }
+    ]
+  }
+}

@@ -1,0 +1,56 @@
+html {
+    margin: 0px;
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    margin: 0px;
+    min-height: 100%;
+    width: 100%;
+}
+
+#map {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    margin: 0px;
+    height: 100%;
+    width: 100%;
+    z-index: 100;
+}
+
+#gameContainer {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    margin: 0px;
+    height: 100%;
+    width: 100%;
+    z-index: 10;
+}
+
+
+#loadText {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+	padding-left: 35%;
+	padding-top: 20%;
+    height: 100%;
+    width: 100%;
+    color: red;
+	font-family: "Arial", serif;
+	font-style: bold;
+	font-size: 4em;
+    z-index = -1;
+}
+
+#cover {
+	position: fixed;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    z-index = 1;
+}

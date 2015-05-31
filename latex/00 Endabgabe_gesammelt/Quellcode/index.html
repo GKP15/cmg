@@ -1,0 +1,184 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+
+    <head>
+        <meta charset="UTF-8" />
+        <title>Pucman</title>
+        <link rel="stylesheet" href="styles.css">
+        <script src="lib/jquery.js"></script>
+        <script src="lib/phaser.js"></script>
+        <script src="lib/osmtogeojson.js"></script>
+        <script src="src/TextField.js"></script>
+        <script src="lib/cytoscape.js"></script>
+        <script src="src/Load.js"></script>
+        <script src="src/Game.js"></script>
+        <script src="src/Graph.js"></script>
+        <script src="src/Character.js"></script>
+        <script src="src/Ghost.js"></script>
+        <script src="src/Interface.js"></script>
+        <script src="src/Dbquery.js"></script>
+		<script src="src/Dbupdate.js"></script>
+        <script src="src/Highscore.js"></script>
+        <script src="http://openlayers.org/api/2.11/OpenLayers.js"></script>
+        <script src="http://mapstraction.com/mxn/build/latest/mxn.js?(openlayers,[geocoder])" type="text/javascript"></script>
+    </head>
+
+    <body>
+        <div id="map"></div>
+        <div id="gameContainer"></div>
+        <div id="loadText"><p>Preparing map...</p></div>
+        <div id="cover"><img src="resources/cover.png"></div>
+        <script type="text/javascript">
+window.onload = function() {
+
+    Menu = {};
+    rdfmarkerget(11111);
+    map = new mxn.Mapstraction('map', 'openlayers');
+	
+    /**
+     * initialisation of the map
+     */
+    Menu.initMap = function() {
+        document.getElementById("gameContainer").style.zIndex = "100";
+        document.getElementById("map").style.zIndex = "200";
+        var latlon = new mxn.LatLonPoint(51.3365278, 12.3764688);
+        map.setCenterAndZoom(latlon, 10);
+        //map.setOption('enableDragging', true);
+        //map.addControls('pan', true);
+        getLocTimeOut = setTimeout(Menu.getLocations, 1);
+
+
+        map.changeZoom.addHandler(function(eventName, eventSource, eventArgs) {
+            clearTimeout(getLocTimeOut);
+            map.removeAllMarkers();
+            getLocTimeOut = setTimeout(Menu.getLocations, 1);
+        });
+        map.endPan.addHandler(function(eventName, eventSource, eventArgs) {
+            clearTimeout(getLocTimeOut);
+            //map.removeAllMarkers();
+            getLocTimeOut = setTimeout(Menu.getLocations, 1);
+        });
+    }
+    
+    /**
+     * set the highscore
+     * @param nick is the name of the player
+     * @param score is the score of the player
+     */
+    Menu.Highscore = function(nick, score) {
+        this.nick = nick;
+        this.score = score;
+    }
+
+    /**
+     * get the visible locations for playing
+     */
+    Menu.getLocations = function() {
+        var zoom = map.getZoom();
+        var bbox = "(" +
+            map.getBounds().sw.lat + "," + map.getBounds().sw.lon + "," +
+            map.getBounds().ne.lat + "," + map.getBounds().ne.lon + ");";
+        var apiUrlBase = 
+            "http://overpass-api.de/api/interpreter?data=[out:json];";
+        var apiUrlData =  function(zoom) {
+            var url = "(node[capital = yes]" + bbox;  
+            if (zoom >= 9) { 
+                url += 
+                    "node[place = 'city']" + bbox +  
+                    "node[place = 'town']" + bbox  
+            }
+            if (zoom >= 12) {
+                url +=
+                    "node[place = 'borough']" + bbox +  
+                    "node[place = 'suburb']" + bbox +  
+                    "node[place = 'quarter']" + bbox +  
+                    "node[place = 'neighbourhood']" + bbox
+            } 
+            return url += ");" + "out body; >; out skel qt;";
+        };
+        $.ajax({
+            url: apiUrlBase + apiUrlData(zoom),
+            DataType: 'json',
+            async: true,
+            success: function(data) {
+                Menu.buildMarkers(data.elements);
+            }
+        });
+    }
+
+    /**
+     * sets the markes at the locations
+     */
+    Menu.buildMarkers = function (locations){
+        for( var i = 0; i < locations.length; i++) {
+            var loc = new mxn.LatLonPoint( 
+                    locations[i].lat, 
+                    locations[i].lon 
+                    );
+            var marker = new mxn.Marker(loc);
+            marker.setLabel(locations[i].tags.name);
+            marker.id = locations[i].id;
+            marker.setIcon("resources/marker.png");
+            Menu.getHighscore(marker);
+        }
+    }
+
+    /**
+     * get the highscore for a marker
+     * @param the marker
+     */
+    Menu.getHighscore = function (marker) {
+		//Saves String for Bubbletext
+		var bubblestring = "<p>" + marker.labelText + ": </p>";
+		//Get Array from Database
+        var markdat = rdfmarkerget(marker.id);
+		// If never played ther before
+        if (markdat[0][2] == null) {
+            var infoBubble = "Never played!\n Be the first in " + marker.labelText + " !";
+		}   else {
+			for(var i in markdat) {	
+			// Add string row for row
+				bubblestring += "<p>" + markdat[i][1] + ": " + markdat[i][2] + "</p>";
+			}
+			var infoBubble = bubblestring;
+		}
+        marker.setInfoBubble(infoBubble);
+        marker.setHover(true);
+        marker.click.addHandler(function(eventName, eventSource, eventArgs) {
+            Menu.startGame(eventSource);
+            marker.closeBubble();
+            map.removeMarker(eventSource);
+        });
+        map.addMarker(marker);
+    }
+
+    /**
+     * start the game
+     * @param the source which clicked the marker
+     */
+    Menu.startGame = function(source) {
+        map.changeZoom.removeAllHandlers();
+        map.endPan.removeAllHandlers();
+        map.setCenterAndZoom(source.location, 16);
+        map.removeAllMarkers();
+        document.getElementById("gameContainer").style.zIndex = "200";
+        document.getElementById("map").style.zIndex = "100";
+        document.getElementById("loadText").style.zIndex = "300";
+        var game = new Phaser.Game(
+                "100", "100", Phaser.AUTO, 'gameContainer', null, true, false);
+        game.state.add('Load', Pucman.Load);
+        game.state.add('Game', Pucman.Game);
+        game.state.add('Highscore', Pucman.Highscore);
+
+        //prevent default function of backspace
+        $(document).unbind('keydown').bind('keydown', function (event) { if(event.keyCode === 8) event.preventDefault();});
+		
+		//start 'Load' state
+        game.state.start('Load', true, false, map, source.id);
+    };
+    Menu.initMap();
+};
+        </script>
+    </body>
+</html>

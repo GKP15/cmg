@@ -1,0 +1,23 @@
+{
+  "head": {
+    "vars": [ "City" , "longi" , "lat" , "Person" , "Score" ]
+  } ,
+  "results": {
+    "bindings": [
+      {
+        "City": { "type": "literal" , "value": "Leipzig" } ,
+        "longi": { "type": "literal" , "value": "51.340333" } ,
+        "lat": { "type": "literal" , "value": "12.37475" } ,
+        "Person": { "type": "literal" , "value": "HubertEimer0815" } ,
+        "Score": { "type": "literal" , "value": "17" }
+      } ,
+      {
+        "City": { "type": "literal" , "value": "Halle" } ,
+        "longi": { "type": "literal" , "value": "11.965" } ,
+        "lat": { "type": "literal" , "value": "11.965" } ,
+        "Person": { "type": "literal" , "value": "HorstDieWurst0813" } ,
+        "Score": { "type": "literal" , "value": "219" }
+      }
+    ]
+  }
+}

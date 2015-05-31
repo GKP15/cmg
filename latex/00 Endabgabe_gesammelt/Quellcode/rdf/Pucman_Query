@@ -1,0 +1,30 @@
+Query:
+
+PREFIX pucvoc: <http://pcai042.informatik.uni-leipzig.de:1540/pm/schema/>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+
+SELECT ?City ?Person ?Score
+WHERE {
+?ainstanz a pucvoc:Highscore .
+?ainstanz pucvoc:city ""ID"" .
+?ainstanz pucvoc:city ?City .
+?ainstanz pucvoc:player ?aplayer .
+?aplayer a pucvoc:Player .
+?aplayer foaf:nick ?Person .
+?ainstanz pucvoc:value ?Score .
+}
+ORDER BY DESC(?Score) LIMIT 5
+
+
+Ergebnis: Sortiert nach Score absteigend und zeigt die 5 höchsten in Abhängigkeit der ID.
+
+-------------------------------------------
+| City      | Person              | Score |
+===========================================
+| "6786875" | "HorstDieWurst0813" | "219" |
+| "6786875" | "KayVollers0815"    | "17"  |
+-------------------------------------------
+
+URL Encode (beware of "ID"):
+
+PREFIX%20pucvoc%3A%20%3Chttp%3A%2F%2Fpcai042.informatik.uni-leipzig.de%3A1540%2Fpm%2Fschema%2F%3E%0APREFIX%20foaf%3A%20%3Chttp%3A%2F%2Fxmlns.com%2Ffoaf%2F0.1%2F%3E%0A%0ASELECT%20%3FCity%20%3FPerson%20%3FScore%0AWHERE%20%7B%0A%3Fainstanz%20a%20pucvoc%3AHighscore%20.%0A%3Fainstanz%20pucvoc%3Acity%20ID%20.%0A%3Fainstanz%20pucvoc%3Acity%20%3FCity%20.%0A%3Fainstanz%20pucvoc%3Aplayer%20%3Faplayer%20.%0A%3Faplayer%20a%20pucvoc%3APlayer%20.%0A%3Faplayer%20foaf%3Anick%20%3FPerson%20.%0A%3Fainstanz%20pucvoc%3Avalue%20%3FScore%20.%0A%7D%0AORDER%20BY%20DESC(%3FScore)%20LIMIT%205

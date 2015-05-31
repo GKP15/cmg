@@ -1,0 +1,51 @@
+Query to check whether entry already exists (getting boolean):
+
+PREFIX puchs: <http://pcai042.informatik.uni-leipzig.de:1540/pm/highscore/>
+PREFIX pucvoc: <http://pcai042.informatik.uni-leipzig.de:1540/pm/schema/>
+
+ASK
+WHERE {
+puchs:"city + person+ number" a pucvoc:Highscore .
+}
+======================================================
+Update Pattern:
+
+Gegeben: ID, Person, Score
+
+
+PREFIX pucvoc: <http://pcai042.informatik.uni-leipzig.de:1540/pm/schema/> 
+PREFIX pucgm: <http://pcai042.informatik.uni-leipzig.de:1540/pm/gamer/>
+PREFIX puchs: <http://pcai042.informatik.uni-leipzig.de:1540/pm/highscore/>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+
+INSERT {
+
+pucgm:"person" a pucvoc:Player ;
+foaf:nick ""person"" .
+
+puchs:"city + person + number" a pucvoc:Highscore ;
+pucvoc:value "112" ;
+pucvoc:player pucgm:"person" ;
+pucvoc:city   ""city"" .
+}
+WHERE {}
+
+======================================================
+Beispiel:
+
+PREFIX pucvoc: <http://pcai042.informatik.uni-leipzig.de:1540/pm/schema/> 
+PREFIX pucgm: <http://pcai042.informatik.uni-leipzig.de:1540/pm/gamer/>
+PREFIX puchs: <http://pcai042.informatik.uni-leipzig.de:1540/pm/highscore/>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+
+INSERT {
+
+pucgm:N3RD a pucvoc:Player ;
+foaf:nick "N3RD" .
+
+puchs:25956662N3RD1 a pucvoc:Highscore ;
+pucvoc:value "3" ;
+pucvoc:player pucgm:N3RD ;
+pucvoc:city   "25956662" .
+}
+WHERE {}

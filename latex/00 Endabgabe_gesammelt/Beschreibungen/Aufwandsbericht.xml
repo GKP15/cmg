@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+
+<Analyse createdAt="31-05-2015" createdBy="KV" gruppe="swp15-gkp" von="12-05-2015" bis="31-05-2015">
+<done who="alle" A="3" S="3" Zeit="2">Scrum Meeting 2015-05-18</done>
+<done who="PP" A="3" S="3" Zeit="20">Dokumente anpassen, layout, etc </done>
+<done who="KV" A="3" S="3" Zeit="2">Highscoredatenbank überarbeitet</done>
+<done who="KV" A="3" S="3" Zeit="6">SPARQL Query / Update anfragen</done>
+<done who="KV" A="3" S="4" Zeit="23">Versuch Implementierung Highscoresystem</done>
+<done who="FT" A="3" S="3" Zeit="3">Sprites erstellt</done>
+<done who="FT" A="4" S="3" Zeit="6">Quellcodedokumentation</done>
+<done who="FT" A="3" S="3" Zeit="3">KI erweitert</done>
+<done who="JR" A="3" S="3" Zeit="3">KI</done>
+<done who="JR" A="3" S="3" Zeit="1.5">Mainmenu</done>
+<done who="JR" A="3" S="3" Zeit="3">Interface</done>
+<done who="GD" A="3" S="3" Zeit="3">Program modularisiert</done>
+<done who="GD" A="3" S="3" Zeit="3">Pucman erstellt</done>
+<done who="GD" A="3" S="3" Zeit="3">Bitnmap zur darstellung der Karte hinzugefuegt</done>
+<done who="JH" A="3" S="3" Zeit="5">overpass api einbinden</done>
+<done who="GD" A="3" S="3" Zeit="3">Pucmans bewegung implementiert</done>
+<done who="GD" A="3" S="3" Zeit="3">Laden des Strassennetzes</done>
+<done who="JH" A="3" S="3" Zeit="2">import OSM Daten</done>
+<done who="GD" A="3" S="3" Zeit="3">Kreuzungen erkennen</done>
+<done who="JH" A="3" S="3" Zeit="4">geojson parser</done>
+<done who="GD" A="3" S="3" Zeit="3">Erkennen ob mehr als eine Strasse aus einer Richtung kommt</done>
+<done who="GD,JH" A="3" S="3" Zeit="3">Dead ends loeschen</done>
+<done who="GD" A="3" S="3" Zeit="3">Interpolieren der Strassen</done>
+<done who="GD" A="3" S="3" Zeit="3">Umrechnen der Geo koordinaten in Spielekoor.</done>
+<done who="GD" A="3" S="3" Zeit="3">Datenmodell graph auf cytoscape umgestellt</done>
+<done who="JH" A="3" S="3" Zeit="6">Datenmodell graph auf cytoscape umgestellt</done>
+<done who="GD" A="3" S="3" Zeit="3">loadstate fuer synchrones laden des graphen</done>
+<done who="JH" A="3" S="3" Zeit="5">Graph interpolieren</done>
+<done who="GD" A="3" S="3" Zeit="3">Bewegung von pacman auf cygraph umstellen</done>
+<done who="JH" A="3" S="3" Zeit="8">Abgfrage der OSM Daten konkretisiert</done>
+<done who="GD" A="3" S="3" Zeit="3">Funktion zur Bestimmung in welche richtung ein node liegt</done>
+<done who="GD" A="3" S="3" Zeit="3">codebasis aufgeraumt</done>
+<done who="JH" A="3" S="3" Zeit="5">documentation sourcecode</done>
+<done who="GD" A="3" S="3" Zeit="3">merged neeeewwwww, feature/rdfmarker</done>
+<done who="GD,JH" A="3" S="3" Zeit="3">added dots</done>
+<done who="KV,PP,FT" A="3" S="3" Zeit="1">Weekly Scrum</done>
+<done who="KV" A="3" S="3" Zeit="5">Recherche und Setup Virtuoso Server</done>
+<done who="GD" A="3" S="3" Zeit="3">asynchrones laden der staedte im menu</done>
+<done who="GD" A="3" S="3" Zeit="3">setzen der stadtemarker</done>
+<done who="GD" A="3" S="3" Zeit="3">laden der Staedte abhaengig vom Zoom</done>
+<done who="GD" A="3" S="3" Zeit="3">Geist addiert</done>
+<done who="KV" A="3" S="3" Zeit="9">Queryfunction für Datenbank ergänzt</done>
+<done who="JH" A="3" S="3" Zeit="7">documentation sourcecode</done>
+<done who="GD" A="3" S="3" Zeit="3">Kollisonsabgfrage pacman geister</done>
+<done who="GD" A="3" S="3" Zeit="3">skalierung des spieles verbessert</done>
+<done who="GD" A="3" S="3" Zeit="3">Lebenszyklus fuer das Spiel eingefuegt</done>
+<done who="PP" A="3" S="3" Zeit="5">Dokumente weiter ueberarbeiten, storyplan</done>
+<done who="KV" A="3" S="3" Zeit="1">MapMarkeranzeige korrigiert</done>
+<done who="PP" A="3" S="3" Zeit="3">Dokumenteentgueltig fertig machen, praesentation</done>
+<done who="JR" A="3" S="3" Zeit="1">Storyplanüberarbeitung</done>
+<done who="KV" A="3" S="3" Zeit="10">Updatefuntion für Datenbank ergänzt</done>
+<done who="GD" A="3" S="3" Zeit="3">generelles debuggen und verbessern</done>
+<done who="KV" A="3" S="3" Zeit="3">Prüfen der Spielfunktionen auf Bugs</done>
+<done who="FT" A="3" S="3" Zeit="10">Erstellung/Überarbeitung der Grafiken</done>
+<done who="FT" A="3" S="3" Zeit="4">Animation von Pucman</done>
+<done who="FT" A="3" S="3" Zeit="3">Bewegung/logik des Geistes</done>
+<done who="FT" A="3" S="3" Zeit="7">Highscore/GameOver Screen</done>
+<done who="FT" A="3" S="3" Zeit="10">Quellcodedokumentation</done>
+<done who="FT" A="3" S="3" Zeit="6">Pause Funktion</done>
+<done who="FT" A="2" S="2" Zeit="8">Installationsanleitung</done>
+<done who="FT" A="3" S="3" Zeit="2">Überprüfung Dokumente</done>
+<done who="FT" A="3" S="3" Zeit="3">Überarbeitung Testkonzept</done>
+<done who="FT" A="3" S="3" Zeit="2">Finaler Test und Laden auf den Server</done>
+</Analyse>
