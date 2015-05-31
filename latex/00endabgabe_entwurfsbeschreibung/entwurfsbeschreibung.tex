@@ -40,14 +40,16 @@ Im Rahmen des SWT-Praktikums wird ein kartenbasiertes Multiplayerspiel entwickel
 Der Nutzer kann online über die Spiele Website auf das Programm zugreifen.
 %Dabei stehen dem Nutzer ein Suchfeld zum finden der gewünschten Spielumgebung zur Verfügung, es kann auch manuell durch Scrollen über die Karte ein Spielort ausgewählt werden, wobei nur Städte ab einer bestimmten Größe zugelassen sind, damit auf jeden Fall eine spielbare Karte erstellt werden kann und die Highscore vergelichbar bleibt. 
 Der Spieler kann durch Scrollen über die Karte einen Spieleort auswählen. Es sind nur bestimmte Orte als Spielort zugelassen, um eine Vergleichbarkeit zu gewährleisten.
-Hat man den Ort ausgewählt, wird das Spielfeld erzeugt und man kann ein neues Spiel beginnen. 
+Die spielbaren Spieleorte sind durch bestimmte Marker auf der Karte erkennbar.
+Hat man den Ort ausgewählt, indem man auf einen der Marker geklickt hat, wird das Spielfeld erzeugt und man kann ein neues Spiel beginnen. 
+Das Spiel wird vorerst Pausiert, um dem Spieler eine kurze Eingewöhnungszeit zu geben, klickt man irgendwo auf das Spielfeld, beginnt das Spiel.
 Man kann den Pucman nun mit Hilfe der Pfeiltasten steuern.
 Ziel des Spiels ist es den Pucman über die Karte zu steuern und die Kekse, die auf der Karte verteilt liegen, zu fressen. 
 
 An dieser Aufgabe will den Spieler der Geist hindern, der sich auch über das Spielfeld bewegt und Pucman fressen kann. Frisst ein Geist den Spieler, so wird %dieser auf den Startpunkt zurückgesetzt und 
 die Anzahl seiner Leben wird um eins verringert.
 %Es gibt unterschiedliche Geister, die durch ihr aussehen unterschieden werden können und sich anhand verschiedener Logiken bewegen. 
-Falls keine Leben mehr übrig sind, wird das Spiel beendet und die erreichte Highscore zusammen mit der Karten URI und dem Namen des Spielers abgespeichert.
+Falls keine Leben mehr übrig sind, wird das Spiel beendet und die erreichte Highscore zusammen mit der Karten URI und dem Namen des Spielers, der eingegeben werden muss, abgespeichert.
 Während des Spielens werden die Möglichkeiten zur Veränderung der Kartenansicht deaktiviert. 
 Das Spielgeschehen ist durch einen Soundtrack unterlegt, der eine funktionale und inhaltliche Verbindung zwischen Bild und Ton generiert.
 Desweiteren werden für das Spiel wichtige Informationen wie aktueller Highscore, die verbleibende Anzahl an Leben und die Möglichkeit, direkt auf die Website des Spiels zugreifen zu können, angezeigt.
@@ -109,6 +111,9 @@ In diesem Modul wird die Spielfigur, also der Pucman definiert.
 \subsubsection{Highscore-Modul}
 Das Highscore Module verwaltet die Highscores der Spieler, d.h. es stellt Anfragen an den Server zum Triplestore und kann sie über den Server auch abfragen, falls sie im Spiel angezeigt werden sollen.
 Die Highscores werden in einem Tripelstore gespeichert, welche mithilfe von SPARQL Queries abgefragt werden, bzw. durch  SPARQL Update Methoden in die Datenbank eingepflegt werden.
+Die Realisierung dieser Methoden wird von den Modulen
+\textbf{Highscore.js}, \textbf{Dbupdate.js} und \textbf{Dbquery.js} übernommen.
+
 \subsection{Bibliotheken}
 {\flushleft \textbf{Cytoscape.js}} \\
 Diese Bibliothek wird von dem Map Modul benötigt um die Graphalgorithmen auszuführen. In der Bibiothek sind bereits viele Algorithmen enthalten.
@@ -153,7 +158,7 @@ Firefox 38.0.1 \\
 Die entwickelte Software ist in verschiedene Module zerlegt, so dass eine Erweiterbarkeit an diversen Punkten denkbar ist.
 Wir benutzen Mapstraction um die Hintergrundkarte anzuzeigen.
 Mithilfe von Mapstraction kann man mit nur wenigen Zeilen Codeänderung die Karten API austauschen, wenn z.B. andere Features benötigt werden.
-Der Geist ist in der /textbf{ghost.js} definiert, was es ermöglicht diese Datei zu editieren um die Bewegung des Geistes intelligenter zu gestalten.
+Der Geist ist in der \textbf{ghost.js} definiert, was es ermöglicht diese Datei zu editieren um die Bewegung des Geistes intelligenter zu gestalten.
 Es ist auch denkbar weitere semantische Daten in das Programm einfließen zu lassen. Etwa Powerups einzuführen, die an bestimmten Orten auf der Karte erscheinen, wie z.B. Kraftpillen an Krankenhäusern , oder die Geister an bestimmten Orten starten zu lassen, z.B. an einer Polizeistation.
 \clearpage
 \section{Das Projekt im Netz}
